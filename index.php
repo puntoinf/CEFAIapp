@@ -140,7 +140,7 @@
                         beforeSend: function () {
                                 $("#respuesta").html("Procesando, espere por favor...");
                         },
-                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                        success:  function (response) { //una vez que el archivo recibe el pedido lo procesa y lo devuelve
                                 $("#respuesta").html(response);
                         }
                 });
