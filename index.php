@@ -46,9 +46,9 @@
                                     <div class="card-body">
                                         <h5 class="card-title">correlatividades: materias disponibles</h5>
                                         <p class="card-text">
-                                        dos materias son correlativas si para poder cursar una materia <strong>b</strong> se necesita aprobar una materia <strong>a</strong> ej;</p>
+                                        Dos materias son correlativas si para poder cursar una materia <strong>B</strong> se necesita aprobar una materia <strong>A</strong>. Ej:</p>
                                         <p>
-                                        materia 2 y materia 3 son correlativas con materia 1
+                                        Materia 2 y materia 3 son correlativas con materia 1
                                         una o más materias pueden ser correlativas de una o más materias
                                         </p>
                                     </div>
