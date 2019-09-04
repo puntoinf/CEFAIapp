@@ -1,7 +1,5 @@
 body{
     background-image: url("Desktop.jpg");
-    background-size: 100%;
-    background-attachment: fixed;
 }
 #AñoBloque{
     visibility: hidden;
@@ -22,7 +20,6 @@ body{
     -webkit-border-radius: 10px 10px 10px 10px;
     border: 0px solid #000000;
 }
-
 #send{
     visibility: hidden;
 }

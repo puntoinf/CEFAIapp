@@ -37,19 +37,19 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" style="background-color: #EAEAEA;">
+                <div class="modal-body">
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="card mx-auto" style="width: 18rem;">
                                     <img src="imagenCorrelativas3.png" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">correlatividades: materias disponibles</h5>
+                                        <h5 class="card-title">Correlatividades: Materias Disponibles</h5>
                                         <p class="card-text">
-                                        dos materias son correlativas si para poder cursar una materia <strong>b</strong> se necesita aprobar una materia <strong>a</strong> ej;</p>
+                                        Dos materias son correlativas si para poder cursar una materia <strong>B</strong> se necesita aprobar una materia <strong>A</strong>. Ej:</p>
                                         <p>
-                                        materia 2 y materia 3 son correlativas con materia 1
-                                        una o más materias pueden ser correlativas de una o más materias
+                                        Materia "2" y materia "3" son correlativas con materia "1"
+                                        Se necesita materia "1" para poder cursar materia "2" y materia "3".
                                         </p>
                                     </div>
                                 </div>
@@ -58,12 +58,9 @@
                                 <div class="card mx-auto" style="width: 18rem;">
                                     <img src="imagenCorrelativas2.png" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">correlatividades: materias necesarias</h5>
+                                        <h5 class="card-title">Correlatividades: Materias Necesarias</h5>
                                         <p class="card-text">
-                                        se pueden necesitar más de una materia para poder hacer una, ojo esto puede entorpecer más de un cursado ej:</p>
-                                        <p>
-                                        materia 2 necesita de matera 1, y materia 4
-                                        </p>
+                                        Se puede necesitar más de una materia para poder cursar otra. ¡Ojo! Esto puede entorpecer más de un cursado. Ej:</p>                                        
                                     </div>
                                 </div>
                             </div>
@@ -71,21 +68,21 @@
                                 <div class="card mx-auto" style="width: 18rem;">
                                     <img src="imagenCorrelativas1.png" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">correlatividades: finales</h5>
+                                        <h5 class="card-title">Correlatividades: Finales</h5>
                                         <p class="card-text">
-                                        para poder rendir los finales de las materias, se necesitan aprobar los finales de las anteriores, ej:</p>
+                                        Para poder rendir los finales de las materias, se necesita aprobar los finales de las anteriores. Ej:</p>
                                         <p>
-                                        para rendir el final de la materia 2, se necesitan los finales de las materias 1 y 4, y asi. si queremos rendir el final de la materia 6, necesitamos el final de la materia 2, y para la 2 primero el final de la 1, y 4.
+                                        Para rendir el final de la materia "2" es necesario aprobar los finales de las materias "1" y "4". Si queremos rendir el final de la materia "6" necesitamos el final de la materia "2" y para este, el final de la "1" y "4".
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" id="controles">
-                            <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next" >
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                         </a>
@@ -99,7 +96,7 @@
             <div class="form-group">
                 <label for="carrera">Carrera</label>
                 <select id="carrera" onchange="seleccion1();" class="form-control">
-                    <option value="-">-</option>
+                    <option value="">-</option>
                     <option value="1">Profesorado de Informatica</option>
                     <option value="2">Licenciatura en Ciencias de la Computación</option>
                     <option value="3">Licenciatura en Sistemas de Información</option>
@@ -143,7 +140,7 @@
                         beforeSend: function () {
                                 $("#respuesta").html("Procesando, espere por favor...");
                         },
-                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                        success:  function (response) { //una vez que el archivo recibe el pedido lo procesa y lo devuelve
                                 $("#respuesta").html(response);
                         }
                 });
