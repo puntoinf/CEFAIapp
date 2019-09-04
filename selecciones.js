@@ -48,42 +48,13 @@ function seleccion1(){
 
 function seleccion2(){
     var años = document.getElementById("año").value;
+    var carrera = document.getElementById("carrera").value;
     console.log(años);
-    
-    switch (años) {
-        case "1":
-            borrar("materia");
-            var select = document.getElementById('materia');
-            for (var i = 0; i < materias1.length; i++){
-                var opt = document.createElement('option');
-                opt.value = materias1[i][1];
-                opt.innerHTML = materias1[i][0];
-                select.appendChild(opt);
-            }
-        break;
-        case "2":
-            borrar("materia");
-            var select = document.getElementById('materia');
-                for (var i = 0; i < materias2.length; i++){
-                    var opt = document.createElement('option');
-                    opt.value = materias2[i][1];
-                    opt.innerHTML = materias2[i][0];
-                    select.appendChild(opt);
-                }
-        break;
-        case "3":
-            borrar("materia");
-            var select = document.getElementById('materia');
-                for (var i = 0; i < materias3.length; i++){
-                    var opt = document.createElement('option');
-                    opt.value = materias3[i][1];
-                    opt.innerHTML = materias3[i][0];
-                    select.appendChild(opt);
-                }
-        break;
-        default:
-        break;
+
+    if(carrera == 5){
+        materiasTUASySL();
     }
+
 }
 
 function seleccion3(){
@@ -92,4 +63,41 @@ function seleccion3(){
 
 function borrar(id){
     document.getElementById(id).options.length = 0;
+}
+
+function materiasTUASySL(){
+    switch (años) {
+        case "1":
+            borrar("materia");
+            var select = document.getElementById('materia');
+            for (var i = 0; i < materiasTUASySL1.length; i++){
+                var opt = document.createElement('option');
+                opt.value = materiasTUASySL1[i][1];
+                opt.innerHTML = materiasTUASySL1[i][0];
+                select.appendChild(opt);
+            }
+        break;
+        case "2":
+            borrar("materia");
+            var select = document.getElementById('materia');
+                for (var i = 0; i < materiasTUASySL2.length; i++){
+                    var opt = document.createElement('option');
+                    opt.value = materiasTUASySL2[i][1];
+                    opt.innerHTML = materiasTUASySL2[i][0];
+                    select.appendChild(opt);
+                }
+        break;
+        case "3":
+            borrar("materia");
+            var select = document.getElementById('materia');
+                for (var i = 0; i < materiasTUASySL3.length; i++){
+                    var opt = document.createElement('option');
+                    opt.value = materiasTUASySL3[i][1];
+                    opt.innerHTML = materiasTUASySL3[i][0];
+                    select.appendChild(opt);
+                }
+        break;
+        default:
+        break;
+    }
 }
