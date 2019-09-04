@@ -37,7 +37,7 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" style="background-color: #EAEAEA;">
+                <div class="modal-body">
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -81,11 +81,11 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" id="controles">
-                            <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next" >
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                         </a>
@@ -99,11 +99,11 @@
             <div class="form-group">
                 <label for="carrera">Carrera</label>
                 <select id="carrera" onchange="seleccion1();" class="form-control">
-                    <option value="-">-</option>
-                    <option value="1">Profesorado de Informatica</option>
+                    <option value="">-</option>
+                    <!--<option value="1">Profesorado de Informatica</option>
                     <option value="2">Licenciatura en Ciencias de la Computación</option>
                     <option value="3">Licenciatura en Sistemas de Información</option>
-                    <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
+                    <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>-->
                     <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
                 </select>
             </div>
