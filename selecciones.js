@@ -1,17 +1,47 @@
-var años = 0;
+
 function seleccion1(){
     var carrera = document.getElementById("carrera").value;
-    
-    if(años > 0){
-        borrar("año");
-    }
+    console.log(carrera);
 
-    var select = document.getElementById('año');
-    for (var i = 0; i < año.length; i++){
-        var opt = document.createElement('option');
-        opt.value = año[i];
-        opt.innerHTML = año[i];
-        select.appendChild(opt);
+    if(carrera <= 5 && carrera >= 4){
+        var select = document.getElementById('año');
+        borrar("año");
+        borrar("materia");
+        for (var i = 0; i < añoTecnicatura1.length; i++){
+            var opt = document.createElement('option');
+            opt.value = añoTecnicatura1[i];
+            opt.innerHTML = añoTecnicatura1[i];
+            select.appendChild(opt);
+        }
+    }else{
+        switch (carrera) {
+            case "-":
+                borrar("año");
+                borrar("materia");
+            break;
+            case "1":
+                var select = document.getElementById('año');
+                borrar("año");
+                borrar("materia");
+                for (var i = 0; i < añoProfesorado.length; i++){
+                    var opt = document.createElement('option');
+                    opt.value = añoProfesorado[i];
+                    opt.innerHTML = añoProfesorado[i];
+                    select.appendChild(opt);
+                }
+            break;
+            default:
+                var select = document.getElementById('año');
+                borrar("año");
+                borrar("materia");
+                for (var i = 0; i < añoLicenciatura.length; i++){
+                    var opt = document.createElement('option');
+                    opt.value = añoLicenciatura[i];
+                    opt.innerHTML = añoLicenciatura[i];
+                    select.appendChild(opt);
+                }
+            break;
+        }
     }
     document.getElementById("AñoBloque").setAttribute("style","visibility: visible;");
 }
