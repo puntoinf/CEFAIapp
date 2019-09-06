@@ -17,7 +17,11 @@ class CONSULTA{
             while ($resultado = $declaracion->fetch()){
                 $registos[]= $resultado;
             }
-            return $registos;
+            if(empty($registos)){
+                return false;
+            }else{
+                return $registos;
+            }
             //devoldemos los registros
         }
     }

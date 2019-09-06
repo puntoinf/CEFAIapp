@@ -7,8 +7,8 @@ $materia = $_POST['materia'];
 
 //nuevas funciones
 $consulta = new CONSULTA();
-$materiasNecesarias = $consulta->getConsulta("SELECT correlativa.necesaria FROM `imparte`, `materia`,`correlativa` WHERE materia.idMateria = imparte.idMateria AND materia.idMateria = correlativa.disponible AND imparte.idCarrera = '$carrera' AND correlativa.disponible = '$materia'");
-$materiasDisponibles = $consulta->getConsulta("SELECT correlativa.disponible FROM `imparte`, `materia`,`correlativa` WHERE materia.idMateria = imparte.idMateria AND materia.idMateria = correlativa.disponible AND imparte.idCarrera = '$carrera' AND correlativa.necesaria = '$materia'");
+$materiasNecesarias = $consulta->getConsulta("SELECT correlativa.necesaria FROM `imparte`, `materia`,`correlativa` WHERE materia.idMateria = imparte.idMateria AND imparte.idCarrera = '$carrera' AND materia.idMateria = correlativa.disponible AND materia.idMateria = '$materia'");
+$materiasDisponibles = $consulta->getConsulta("SELECT correlativa.disponible FROM `imparte`, `materia`,`correlativa` WHERE materia.idMateria = imparte.idMateria AND imparte.idCarrera = '$carrera' AND materia.idMateria = correlativa.necesaria AND materia.idMateria = '$materia'");
 
 /*
 $corre = new CORRELATIVA();
