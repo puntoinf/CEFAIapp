@@ -47,13 +47,19 @@ function seleccion1(){
 }
 
 function seleccion2(){
+    var años = document.getElementById("año").value;
     var carrera = document.getElementById("carrera").value;
     console.log(años);
 
-    if(carrera == 5){
-        materiasTUASySL(años);
+    switch(carrera){
+        case "1":
+            break;
+        case "5":
+            materiasTUASySL(años);
+        break;
+        default:
+            break;
     }
-
 }
 
 function seleccion3(){
@@ -64,9 +70,7 @@ function borrar(id){
     document.getElementById(id).options.length = 0;
 }
 
-function materiasTUASySL(){
-    var años = document.getElementById("año").value;
-    console.log(años);
+function materiasTUASySL(años){
     switch (años) {
         case "1":
             borrar("materia");
