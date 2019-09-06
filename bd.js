@@ -64,7 +64,7 @@ var materiasAnalista3 = new Array(
     new Array("Probabilidad y Estadistica - 1","35"),
     new Array("Principios de Lenguajes de Programacion - 1","36"),
     new Array("Sistemas Operativos I - 1","37"),
-    new Array("Dise�o de Bases de Datos - 1","38"),
+    new Array("Diseño de Bases de Datos - 1","38"),
     new Array("Arquitecturas de Software - 1","39"),
     new Array("Analisis de Algoritmos - 2","40"),
     new Array("Laboratorio de Programacion - 2","41"),

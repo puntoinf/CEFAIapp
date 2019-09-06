@@ -52,7 +52,8 @@ function seleccion2(){
     console.log(años);
 
     switch(carrera){
-        case "1":
+        case "2":
+            materiasLicenciaturaCiencias(años);
             break;
         case "5":
             materiasTUASySL(años);
@@ -99,6 +100,43 @@ function materiasTUASySL(años){
                     var opt = document.createElement('option');
                     opt.value = materiasTUASySL3[i][1];
                     opt.innerHTML = materiasTUASySL3[i][0];
+                    select.appendChild(opt);
+                }
+        break;
+        default:
+        break;
+    }
+}
+
+function materiasLicenciaturaCiencias(años){
+    switch (años) {
+        case "1":
+            borrar("materia");
+            var select = document.getElementById('materia');
+            for (var i = 0; i < materiasAnalista1.length; i++){
+                var opt = document.createElement('option');
+                opt.value = materiasAnalista1[i][1];
+                opt.innerHTML = materiasAnalista1[i][0];
+                select.appendChild(opt);
+            }
+        break;
+        case "2":
+            borrar("materia");
+            var select = document.getElementById('materia');
+                for (var i = 0; i < materiasAnalista2.length; i++){
+                    var opt = document.createElement('option');
+                    opt.value = materiasAnalista2[i][1];
+                    opt.innerHTML = materiasAnalista2[i][0];
+                    select.appendChild(opt);
+                }
+        break;
+        case "3":
+            borrar("materia");
+            var select = document.getElementById('materia');
+                for (var i = 0; i < materiasAnalista3.length; i++){
+                    var opt = document.createElement('option');
+                    opt.value = materiasAnalista3[i][1];
+                    opt.innerHTML = materiasAnalista3[i][0];
                     select.appendChild(opt);
                 }
         break;
