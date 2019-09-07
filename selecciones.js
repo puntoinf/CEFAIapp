@@ -56,10 +56,10 @@ function seleccionAño(){
                 var select = document.getElementById('año');
                 borrar("año");
                 borrar("materia");
-                for (var i = 0; i < añoTecnicatura1.length; i++){
+                for (var i = 0; i < añoTecnicatura.length; i++){
                     var opt = document.createElement('option');
-                    opt.value = añoTecnicatura1[i];
-                    opt.innerHTML = añoTecnicatura1[i];
+                    opt.value = añoTecnicatura[i];
+                    opt.innerHTML = añoTecnicatura[i];
                     select.appendChild(opt);
                 }
             break;
@@ -68,10 +68,10 @@ function seleccionAño(){
                 var select = document.getElementById('año');
                 borrar("año");
                 borrar("materia");
-                for (var i = 0; i < añoTecnicatura1.length; i++){
+                for (var i = 0; i < añoTecnicatura.length; i++){
                     var opt = document.createElement('option');
-                    opt.value = añoTecnicatura1[i];
-                    opt.innerHTML = añoTecnicatura1[i];
+                    opt.value = añoTecnicatura[i];
+                    opt.innerHTML = añoTecnicatura[i];
                     select.appendChild(opt);
                 }
             break;

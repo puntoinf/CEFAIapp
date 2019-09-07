@@ -1,13 +1,12 @@
 
-//años
-var añoTecnicatura1 = ["-","1","2","3"];
-var añoTecnicatura2 = ["-","1","2","3"];
+//años carreras
+var añoTecnicatura = ["-","1","2","3"];
 var añoLicenciatura = ["-","1","2","3","4","5"];
 var añoProfesorado = ["-","1","2","3","4"];
 //materias tecnicatura universitaria en administracion y software libre (TUASySL)
 
-var materiasTUASySL1 = new Array(new Array(
-    "-","-"),
+var materiasTUASySL1 = new Array(
+    new Array("-","-"),
     new Array("Introducción a la Computación - 1","1"),
     new Array("Matemática General - 1","2"),
     new Array("Inglés Técnico - 1","3"),
