@@ -1,8 +1,8 @@
-
-function seleccion1(){
+//funcion que nos da los años de cada carrera
+function seleccionAño(){
     var carrera = document.getElementById("carrera").value;
-    console.log(carrera);
 
+    //si son tecnicaturas carga 3 años a el select de años
     if(carrera <= 5 && carrera >= 4){
         var select = document.getElementById('año');
         borrar("año");
@@ -15,10 +15,7 @@ function seleccion1(){
         }
     }else{
         switch (carrera) {
-            case "-":
-                borrar("año");
-                borrar("materia");
-            break;
+            //en caso de ser un profesorado
             case "1":
                 var select = document.getElementById('año');
                 borrar("año");
@@ -30,7 +27,8 @@ function seleccion1(){
                     select.appendChild(opt);
                 }
             break;
-            default:
+            //en caso de ser lic. Cien
+            case "2":
                 var select = document.getElementById('año');
                 borrar("año");
                 borrar("materia");
@@ -41,12 +39,54 @@ function seleccion1(){
                     select.appendChild(opt);
                 }
             break;
+            //en caso de ser Lic. Sis
+            case "3":
+                var select = document.getElementById('año');
+                borrar("año");
+                borrar("materia");
+                for (var i = 0; i < añoLicenciatura.length; i++){
+                    var opt = document.createElement('option');
+                    opt.value = añoLicenciatura[i];
+                    opt.innerHTML = añoLicenciatura[i];
+                    select.appendChild(opt);
+                }
+            break;
+            //en caso de ser TUDW
+            case "4":
+                var select = document.getElementById('año');
+                borrar("año");
+                borrar("materia");
+                for (var i = 0; i < añoTecnicatura1.length; i++){
+                    var opt = document.createElement('option');
+                    opt.value = añoTecnicatura1[i];
+                    opt.innerHTML = añoTecnicatura1[i];
+                    select.appendChild(opt);
+                }
+            break;
+            //en caso de ser TUASySL
+            case "5":
+                var select = document.getElementById('año');
+                borrar("año");
+                borrar("materia");
+                for (var i = 0; i < añoTecnicatura1.length; i++){
+                    var opt = document.createElement('option');
+                    opt.value = añoTecnicatura1[i];
+                    opt.innerHTML = añoTecnicatura1[i];
+                    select.appendChild(opt);
+                }
+            break;
+            //en caso de ser cualquier otra cosa
+            default:
+                borrar("año");
+                borrar("materia");
+            break;
         }
     }
+    //hacemos el bloque de los años visible
     document.getElementById("AñoBloque").setAttribute("style","visibility: visible;");
 }
 
-function seleccion2(){
+function seleccionMateria(){
     var años = document.getElementById("año").value;
     var carrera = document.getElementById("carrera").value;
     console.log(años);
@@ -59,11 +99,12 @@ function seleccion2(){
             materiasTUASySL(años);
         break;
         default:
+            borrar("materia");
             break;
     }
 }
 
-function seleccion3(){
+function mostrarEnviar(){
     document.getElementById("send").setAttribute("style","visibility: visible;");
 }
 
@@ -141,6 +182,7 @@ function materiasLicenciaturaCiencias(años){
                 }
         break;
         default:
+                borrar("materia");
         break;
     }
 }
