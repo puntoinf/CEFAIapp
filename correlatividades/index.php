@@ -39,7 +39,7 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" style="background-color: #EAEAEA;">
+                <div class="modal-body">
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -83,11 +83,11 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" id="controles">
-                            <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next" >
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                         </a>
@@ -100,24 +100,24 @@
         <form action="">
             <div class="form-group">
                 <label for="carrera">Carrera</label>
-                <select id="carrera" onchange="seleccionAño();" class="form-control" >
-                    <option value="-">-</option>
-                    <option value="1">Profesorado de Informatica</option>
+                <select id="carrera" onchange="seleccion1();" class="form-control">
+                    <option value="">-</option>
+                    <!--<option value="1">Profesorado de Informatica</option>
                     <option value="2">Licenciatura en Ciencias de la Computación</option>
                     <option value="3">Licenciatura en Sistemas de Información</option>
-                    <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
+                    <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>-->
                     <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
                 </select>
             </div>
             <div class="form-group" id="AñoBloque">
                 <label for="carrera">Año</label>
-                <select id="año"  onchange="seleccionMateria();" class="form-control">
+                <select id="año"  onchange="seleccion2();" class="form-control">
                     <option value="">-</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="carrera">Materia</label>
-                <select id="materia" class="form-control" onchange="mostrarEnviar()">
+                <select id="materia" class="form-control" onchange="seleccion3()">
                     <option value="">-</option>
                 </select>
             </div>
@@ -127,8 +127,8 @@
             <div id="respuesta">
 
             </div>
-            <p class="pie" style="font-family: 'Space Mono', monospace;">
-                version: beta
+            <p class="font-family: 'Space Mono', monospace;">
+            version: 19w36pre-a, por: Pan32
             </p>
             <script>
             function buscar() {

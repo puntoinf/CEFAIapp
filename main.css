@@ -22,7 +22,9 @@ body{
     -webkit-border-radius: 10px 10px 10px 10px;
     border: 0px solid #000000;
 }
-
+.pie{
+    font-family: 'Space Mono', monospace;
+}
 #send{
     visibility: hidden;
 }

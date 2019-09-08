@@ -3,17 +3,6 @@ function seleccionAño(){
     var carrera = document.getElementById("carrera").value;
 
     //si son tecnicaturas carga 3 años a el select de años
-    if(carrera <= 5 && carrera >= 4){
-        var select = document.getElementById('año');
-        borrar("año");
-        borrar("materia");
-        for (var i = 0; i < añoTecnicatura1.length; i++){
-            var opt = document.createElement('option');
-            opt.value = añoTecnicatura1[i];
-            opt.innerHTML = añoTecnicatura1[i];
-            select.appendChild(opt);
-        }
-    }else{
         switch (carrera) {
             //en caso de ser un profesorado
             case "1":
@@ -74,6 +63,7 @@ function seleccionAño(){
                     opt.innerHTML = añoTecnicatura[i];
                     select.appendChild(opt);
                 }
+                console.log("seleccionado");
             break;
             //en caso de ser cualquier otra cosa
             default:
@@ -81,16 +71,14 @@ function seleccionAño(){
                 borrar("materia");
             break;
         }
-    }
     //hacemos el bloque de los años visible
     document.getElementById("AñoBloque").setAttribute("style","visibility: visible;");
 }
-
+//esta funcion nos 
 function seleccionMateria(){
     var años = document.getElementById("año").value;
     var carrera = document.getElementById("carrera").value;
-    console.log(años);
-
+    //
     switch(carrera){
         case "2":
             materiasLicenciaturaCiencias(años);
@@ -145,6 +133,7 @@ function materiasTUASySL(años){
                 }
         break;
         default:
+                borrar("materia");
         break;
     }
 }
