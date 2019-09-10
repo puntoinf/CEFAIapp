@@ -30,7 +30,7 @@ foreach ($materiasNecesarias as $fila) {
             echo "<div class=\"card\" style=\"margin-bottom: 1%;\">
                     <div class=\"card-body\">
                         <p>".$registro['nombre']."</p>
-                        <p>año: ".$registro['ano']."° / semestre: ".$registro['semestre']."°</p>
+                        <p>Año: ".$registro['ano']."° / Cuatrimestre: ".$registro['semestre']."°</p>
                     </div>
                 </div>";
         }
@@ -49,7 +49,7 @@ foreach ($materiasDisponibles as $fila) {
             echo "<div class=\"card\" style=\"margin-bottom: 1%;\">
                     <div class=\"card-body\">
                         <p>".$registro['nombre']."</p>
-                        <p>año: ".$registro['ano']."° / semestre: ".$registro['semestre']."°</p>
+                        <p>Año: ".$registro['ano']."° / Cuatrimestre: ".$registro['semestre']."°</p>
                     </div>
                 </div>";
         }
