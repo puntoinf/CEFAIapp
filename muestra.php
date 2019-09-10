@@ -21,7 +21,7 @@ echo "<p class=\"border-bottom\">necesarias</p>";
 foreach ($materiasNecesarias as $fila) {
     if($fila['necesaria'] == "0"){
         echo "<div class=\"alert alert-info\" role=\"alert\">
-                    no tiene dependencias!!
+                    Esta materia no tiene dependencias.
                 </div>";
     }else{
         //armamos la consulta
@@ -41,7 +41,7 @@ echo "<p class=\"border-bottom\">disponibles</p>";
 foreach ($materiasDisponibles as $fila) {
     if($fila['disponible'] == "0"){
         echo "<div class=\"alert alert-info\" role=\"alert\">
-                    no tiene correlativas!!
+                    Esta materia no tiene correlativas.
                 </div>";
     }else{
         $materias = $consulta->getConsulta("SELECT * FROM materia WHERE idMateria = '".$fila['disponible']."'");
