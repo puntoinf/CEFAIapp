@@ -19,6 +19,7 @@
     <script src="bd.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container" >
@@ -100,10 +101,10 @@
                 <label for="carrera">Carrera</label>
                 <select id="carrera" onchange="seleccion1();" class="form-control">
                     <option value="">-</option>
-                    <option value="1">Profesorado de Informatica</option>
+                    <!--<option value="1">Profesorado de Informatica</option>
                     <option value="2">Licenciatura en Ciencias de la Computación</option>
                     <option value="3">Licenciatura en Sistemas de Información</option>
-                    <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
+                    <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>-->
                     <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
                 </select>
             </div>
@@ -151,6 +152,7 @@
             };
             </script>
         </form>
+        <p class="font-family: 'Space Mono', monospace;">Vecion: 19w37pre-a</p>
     </div>
 </body>
 </html>
