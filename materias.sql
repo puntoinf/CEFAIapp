@@ -63,10 +63,10 @@ INSERT INTO `correlativa` (`necesaria`, `disponible`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `materia`
+-- Table structure for table `$materia`
 --
 
-CREATE TABLE `materia` (
+CREATE TABLE `$materia` (
   `idMateria` int(250) NOT NULL,
   `nombre` varchar(250) NOT NULL,
   `ano` int(250) NOT NULL,
@@ -74,10 +74,10 @@ CREATE TABLE `materia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `materia`
+-- Dumping data for table `$materia`
 --
 
-INSERT INTO `materia` (`idMateria`, `nombre`, `ano`, `semestre`) VALUES
+INSERT INTO `$materia` (`idMateria`, `nombre`, `ano`, `semestre`) VALUES
 (1, 'Introduccion a la Computacion', 1, 1),
 (2, 'Matematica General', 1, 1),
 (3, 'Ingles Tecnico', 1, 1),
@@ -105,9 +105,9 @@ ALTER TABLE `carrera`
   ADD PRIMARY KEY (`idCarrera`);
 
 --
--- Indexes for table `materia`
+-- Indexes for table `$materia`
 --
-ALTER TABLE `materia`
+ALTER TABLE `$materia`
   ADD PRIMARY KEY (`idMateria`);
 
 --
@@ -121,8 +121,8 @@ ALTER TABLE `carrera`
   MODIFY `idCarrera` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `materia`
+-- AUTO_INCREMENT for table `$materia`
 --
-ALTER TABLE `materia`
+ALTER TABLE `$materia`
   MODIFY `idMateria` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;

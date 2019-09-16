@@ -1,12 +1,13 @@
 <?php
 require_once("connecion.php");
-require_once("consulta.php");;
+require_once("consulta.php");
 
-$sql = "SELECT * FROM `materia`, `imparte` WHERE materia.idMateria = imparte.idMateria AND imparte.idCarrera = '2' AND materia.ano = '5'";
+$sql = "SELECT * FROM `imparte`, `materia` WHERE materia.idMateria = imparte.idMateria AND imparte.idCarrera = '3' AND materia.ano = '4'";
 $consulta = new CONSULTA();
-$respuesta = $consulta->getConsulta($sql);
+$respuestaMateriasTUASySL = $consulta->getConsulta($sql);
+//armamos las distintas consultas TUASySL
 
-foreach($respuesta as $fila){
-    echo "new Array(\"".$fila['nombre']." - ".$fila['semestre']."\",\"".$fila['idMateria']."\"),</br>";
+foreach($respuestaMateriasTUASySL as $materia){
+    echo "new Array(\"".$materia['nombre']." - ".$materia['cuatrimestre']."\",\"".$materia['idMateria']."\"),</br>"; 
 }
 ?>

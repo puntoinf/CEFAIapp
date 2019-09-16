@@ -1,7 +1,7 @@
 <?php
 class CONSULTA{
     public function getConsulta($argConsulta){
-        //obtenemos las materias disponibles
+        //obtenemos las $materias disponibles
         //conectamos  la BD
         $modelo = new coneccion();
         $connecion = $modelo->getConneccion();

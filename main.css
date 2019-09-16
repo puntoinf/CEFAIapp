@@ -6,7 +6,7 @@ body{
 #AñoBloque{
     visibility: hidden;
 }
-#materiasBloque{
+#$materiasBloque{
     visibility: hidden;
 }
 
