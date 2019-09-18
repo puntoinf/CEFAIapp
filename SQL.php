@@ -2,7 +2,7 @@
 require_once("connecion.php");
 require_once("consulta.php");
 
-$sql = "SELECT * FROM `imparte`, `materia` WHERE materia.idMateria = imparte.idMateria AND imparte.idCarrera = '2' AND materia.ano = '4'";
+$sql = "SELECT * FROM `imparte`, `materia` WHERE materia.idMateria = imparte.idMateria AND imparte.idCarrera = '1' AND materia.ano = '4'";
 $consulta = new CONSULTA();
 $respuestaMateriasTUASySL = $consulta->getConsulta($sql);
 //armamos las distintas consultas TUASySL
