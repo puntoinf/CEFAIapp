@@ -34,24 +34,26 @@ function seleccionAño(){
     break;
     }
 }
-//esta funcion nos muestra las $materias de cada carrera
+//esta funcion nos muestra las materias de cada carrera
 function seleccion$materia(){
     var años = document.getElementById("año").value;
     var carrera = document.getElementById("carrera").value;
     //
     switch(carrera){
-        
+        case "1":
+            materiasProfesorado(años, "materia");
+        break;
         case "2":
-            $materiasLicenciaturaCiencias(años,"$materia");
+            materiasLicenciaturaCiencias(años,"$materia");
         break;
         case "3":
-            $materiasLicenciaturaSistemas(años, "$materia")
+            materiasLicenciaturaSistemas(años, "$materia")
         break;
         case "4":
-            $materiasTUDW(años, "$materia");
+            materiasTUDW(años, "$materia");
         break;
         case "5":
-            $materiasTUASySL(años, "$materia");
+            materiasTUASySL(años, "$materia");
         break;
         default:
             borrar("$materia");
@@ -59,22 +61,22 @@ function seleccion$materia(){
     }
 }
 
-function seleccion$materia2(){
+function seleccionmateria2(){
     var años = document.getElementById("año").value;
     var carrera = document.getElementById("carrera").value;
     //
     switch(carrera){
         case "2":
-            $materiasLicenciaturaCiencias(años,"$materia2");
+            materiasLicenciaturaCiencias(años,"$materia2");
         break;
         case "3":
-            $materiasLicenciaturaSistemas(años, "$materia2")
+            materiasLicenciaturaSistemas(años, "$materia2")
         break;
         case "4":
-            $materiasTUDW(años, "$materia2");
+            materiasTUDW(años, "$materia2");
         break;
         case "5":
-            $materiasTUASySL(años, "$materia2");
+            materiasTUASySL(años, "$materia2");
         break;
         default:
             borrar("$materia2");
@@ -94,16 +96,16 @@ function armar() {
     document.getElementById("correlativaMuestra").innerHTML = armado;
 }
 
-function $materiasTUASySL(años, input){
+function materiasTUASySL(años, input){
     switch (años) {
         case "1":
-            cargar$materias($materiasTUASySL1,input);
+            cargarmaterias(materiasTUASySL1,input);
         break;
         case "2":
-            cargar$materias($materiasTUASySL2,input);
+            cargarmaterias(materiasTUASySL2,input);
         break;
         case "3":
-            cargar$materias($materiasTUASySL3,input);
+            cargarmaterias(materiasTUASySL3,input);
         break;
         default:
             borrar(input);
@@ -111,16 +113,16 @@ function $materiasTUASySL(años, input){
     }
 }
 
-function $materiasTUDW(años, input) {
+function materiasTUDW(años, input) {
     switch (años) {
         case "1":
-            cargar$materias($materiasTUDW1, input);
+            cargarmaterias(materiasTUDW1, input);
         break;
         case "2":
-            cargar$materias($materiasTUDW2, input);
+            cargarmaterias(materiasTUDW2, input);
         break;
         case "3":
-            cargar$materias($materiasTUDW3, input);
+            cargarmaterias(materiasTUDW3, input);
         break;
         default:
             borrar("$materia");
@@ -128,22 +130,22 @@ function $materiasTUDW(años, input) {
     }
 }
 
-function $materiasLicenciaturaSistemas(años, input){
+function materiasLicenciaturaSistemas(años, input){
     switch (años) {
         case "1":
-            cargar$materias($materiasAnalista1,input);
+            cargarmaterias(materiasAnalista1,input);
         break;
         case "2":
-            cargar$materias($materiasAnalista2,input);
+            cargarmaterias(materiasAnalista2,input);
         break;
         case "3":
-            cargar$materias($materiasAnalista3,input);
+            cargarmaterias(materiasAnalista3,input);
         break;
         case "4":
-            cargar$materias($materiasLicSis4,input);
+            cargarmaterias(materiasLicSis4,input);
         break;
         case "5":
-            cargar$materias($materiasLicSis5, input);
+            cargarmaterias(materiasLicSis5, input);
         break;
         default:
                 borrar("$materia");
@@ -151,22 +153,22 @@ function $materiasLicenciaturaSistemas(años, input){
     }
 }
 
-function $materiasLicenciaturaCiencias(años, input) {
+function materiasLicenciaturaCiencias(años, input) {
     switch (años) {
         case "1":
-            cargar$materias($materiasAnalista1,input);
+            cargarmaterias(materiasAnalista1,input);
         break;
         case "2":
-            cargar$materias($materiasAnalista2,input);
+            cargarmaterias(materiasAnalista2,input);
         break;
         case "3":
-            cargar$materias($materiasAnalista3,input);
+            cargarmaterias(materiasAnalista3,input);
         break;
         case "4":
-            cargar$materias($materiasLicCien4,input);
+            cargarmaterias(materiasLicCien4,input);
         break;
         case "5":
-            cargar$materias($materiasLicCien5, input);
+            cargarmaterias(materiasLicCien5, input);
         break;
         default:
                 borrar("$materia");
@@ -178,8 +180,8 @@ function cargaAños(arreglo, input){
     var select = document.getElementById(input);
 
     borrar(input);
-    borrar("$materia");
-    borrar("$materia2");
+    borrar("materia");
+    borrar("materia2");
 
     for (var i = 0; i < arreglo.length; i++){
         var opt = document.createElement('option');
@@ -189,7 +191,7 @@ function cargaAños(arreglo, input){
     }
 }
 
-function cargar$materias(arreglo, input) {
+function cargarmaterias(arreglo, input) {
     var select = document.getElementById(input);
     borrar(input);
 

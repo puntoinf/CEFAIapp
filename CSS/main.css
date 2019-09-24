@@ -1,13 +1,17 @@
 body{
-    background-image: url("Desktop.jpg");
+    background-image: url("../Media/Desktop.jpg");
     background-size: 100%;
     background-attachment: fixed;
 }
 #AñoBloque{
     visibility: hidden;
 }
-#$materiasBloque{
+#materiasBloque{
     visibility: hidden;
+}
+
+.control{
+    width: 50%;
 }
 
 .container{

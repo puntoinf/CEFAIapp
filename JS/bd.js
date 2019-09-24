@@ -3,7 +3,7 @@
 var añoTecnicatura = ["-","1","2","3"];
 var añoLicenciatura = ["-","1","2","3","4","5"];
 var añoProfesorado = ["-","1","2","3","4"];
-//$materias tecnicatura universitaria en administracion y software libre (TUASySL)
+//materias tecnicatura universitaria en administracion y software libre (TUASySL)
 
 var materiasTUASySL1 = new Array(
     new Array("-","0"),
@@ -31,7 +31,7 @@ var materiasTUASySL3 = new Array(
     new Array("Aplicaciones Libres - 1","14"),new Array("Electiva - 1","15")
 );
 
-//$materias tecicatura en desarrollo web (TUDW)
+//materias tecicatura en desarrollo web (TUDW)
 var materiasTUDW1 = new Array(
     new Array("-","0"),
     new Array("Matematica General - 1","89"),
@@ -57,7 +57,7 @@ var materiasTUDW3 = new Array(
     new Array("Trabajo Final Tecnicatura en Desarrollo Web - 1","101")
 );
 
-//$materias analista programador
+//materias analista programador
 var materiasAnalista1 = new Array(
     new Array("-","0"),
     new Array("Elementos de Algebra - 1","16"),
@@ -99,7 +99,7 @@ var materiasAnalista3 = new Array(
     new Array("Gestion de Bases de Datos - 2","45")
 );
 
-//$materias licenciatura en ciancias (LicCinComp)
+//materias licenciatura en ciancias (LicCinComp)
 
 var materiasLicCien4 = new Array(
     new Array("-","0"),
@@ -129,7 +129,7 @@ var materiasLicCien5 = new Array(
     new Array("Trabajo de Tesis - 2","70")
 );
 
-//$materias licenciatura en sistemas (licSisInf)
+//materias licenciatura en sistemas (licSisInf)
 var materiasLicSis4 = new Array(
     new Array("-","0"),
     new Array("Sistemas Paralelos - 1","51"),
@@ -159,7 +159,7 @@ var materiasLicSis5 = new Array(
     new Array("Electiva II - 2","87"),
     new Array("Trabajo Tesis II LicSis - 2","88")
 );
-//$materias profesorado informatica (ProfInfor)
+//materias profesorado informatica (ProfInfor)
 
 var materiasProf1 = new Array(
     new Array("-","0"),

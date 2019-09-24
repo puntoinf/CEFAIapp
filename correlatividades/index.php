@@ -46,12 +46,12 @@
                                 <div class="card mx-auto" style="width: 18rem;">
                                     <img src="imagenCorrelativas3.png" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">correlatividades: $materias disponibles</h5>
+                                        <h5 class="card-title">correlatividades: materias disponibles</h5>
                                         <p class="card-text">
-                                        dos $materias son correlativas si para poder cursar una $materia <strong>b</strong> se necesita aprobar una $materia <strong>a</strong> ej;</p>
+                                        dos materias son correlativas si para poder cursar una $materia <strong>b</strong> se necesita aprobar una $materia <strong>a</strong> ej;</p>
                                         <p>
                                         $materia 2 y $materia 3 son correlativas con $materia 1
-                                        una o más $materias pueden ser correlativas de una o más $materias
+                                        una o más materias pueden ser correlativas de una o más materias
                                         </p>
                                     </div>
                                 </div>
@@ -60,7 +60,7 @@
                                 <div class="card mx-auto" style="width: 18rem;">
                                     <img src="imagenCorrelativas2.png" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">correlatividades: $materias necesarias</h5>
+                                        <h5 class="card-title">correlatividades: materias necesarias</h5>
                                         <p class="card-text">
                                         se pueden necesitar más de una $materia para poder hacer una, ojo esto puede entorpecer más de un cursado ej:</p>
                                         <p>
@@ -75,9 +75,9 @@
                                     <div class="card-body">
                                         <h5 class="card-title">correlatividades: finales</h5>
                                         <p class="card-text">
-                                        para poder rendir los finales de las $materias, se necesitan aprobar los finales de las anteriores, ej:</p>
+                                        para poder rendir los finales de las materias, se necesitan aprobar los finales de las anteriores, ej:</p>
                                         <p>
-                                        para rendir el final de la $materia 2, se necesitan los finales de las $materias 1 y 4, y asi. si queremos rendir el final de la $materia 6, necesitamos el final de la $materia 2, y para la 2 primero el final de la 1, y 4.
+                                        para rendir el final de la $materia 2, se necesitan los finales de las materias 1 y 4, y asi. si queremos rendir el final de la $materia 6, necesitamos el final de la $materia 2, y para la 2 primero el final de la 1, y 4.
                                         </p>
                                     </div>
                                 </div>
