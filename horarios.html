@@ -31,39 +31,48 @@
     <div class="container">
         <h3>Horarios</h3>
         <a class="btn btn-primary" href="index.html" role="button"><img src="back.png" alt="" width="20px"></a></br>
-        <form action="" class="">
+        <button class="btn btn-ligth" type="button" data-toggle="collapse" data-target="#formu" aria-expanded="false" aria-controls="formu">
+            Filtrar
+            <i class="material-icons">
+                filter_list
+            </i>
+        </button>
+        <div class="collapse" id="formu">
+            <form action="" class="">
+                <div class="form-group">
+                    <label for="carrera">Carrera</label>
+                    <select id="carrera" onchange="seleccionAño();" class="form-control" >
+                        <option value="0">-</option>
+                        <option value="1">Profesorado de Informatica</option>
+                        <option value="2">Licenciatura en Ciencias de la Computación</option>
+                        <option value="3">Licenciatura en Sistemas de Información</option>
+                        <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
+                        <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for=""></label>
+                    <input type="text" >
+                </div>
+                <div class="form-group">
+                    <label for="">Dia</label>
+                    <select id="" onchange="" class="form-control">
+                        <option value="-">-</option>
+                        <option value="1">Lunes</option>
+                        <option value="2">Martes</option>
+                        <option value="3">Miercoles</option>
+                        <option value="4">Jueves</option>
+                        <option value="5">Viernes</option>
+                        <option value="">Savado</option>
+                    </select>
+                </div>
+            </form>
             <div class="form-group">
-                <label for="carrera">Carrera</label>
-                <select id="carrera" onchange="seleccionAño();" class="form-control" >
-                    <option value="-">-</option>
-                    <option value="1">Profesorado de Informatica</option>
-                    <option value="2">Licenciatura en Ciencias de la Computación</option>
-                    <option value="3">Licenciatura en Sistemas de Información</option>
-                    <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
-                    <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="">Dia</label>
-                <select id="" onchange="" class="form-control">
-                    <option value="-">-</option>
-                    <option value="1">Lunes</option>
-                    <option value="2">Martes</option>
-                    <option value="3">Miercoles</option>
-                    <option value="4">Jueves</option>
-                    <option value="5">Viernes</option>
-                    <option value="">Savado</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <button class="btn btn-ligth" onclick="filtrar();">
-                    Filtrar
-                    <i class="material-icons">
-                        filter_list
-                    </i>
-                </button>
-            </div>
-        </form>
+                    <button class="btn btn-ligth" onclick="filtrar();">
+                        Enviar
+                    </button>
+                </div>
+        </div>
         <div>
             <h3 id="dia"></h3>
             <table class="table">
@@ -80,11 +89,12 @@
             </table>
         </div>
         <script>
-        function filtrar() {
-            if ($( "#$materia" ).val() == "0") {
-                    
-                }else{
-                    $("#horario").empty();
+        function filtrar(){
+            if ($("#carrera" ).val() == "0" ) {
+                console.log("hola mundo");
+            }
+            else{
+                $("#horario").empty();
                 console.log(document.getElementById("carrera").value);
                 var parametros = {
                         "$carrera" : $( "#$carrera" ).val(),
@@ -92,17 +102,17 @@
                 };
                 $.ajax({
                         data:  parametros, //datos que se envian a traves de ajax
-                        url:   'muestra.php', //archivo que recibe la peticion
+                        url:   'horarios.php', //archivo que recibe la peticion
                         type:  'post', //método de envio
                         beforeSend: function () {
-                                $("#respuesta").html("Procesando, espere por favor...");
+                                $("#horario").html("Procesando, espere por favor...");
                         },
                         success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                $("#respuesta").html(response);
+                                $("#horario").html(response);
                         }
                 });
-                }
-            };
+            }
+        };
         </script>
     </div>
 </body>

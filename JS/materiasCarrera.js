@@ -1,13 +1,13 @@
 function materiasTUDW(años, input) {
     switch (años) {
         case "1":
-            cargarmaterias(materiasTUDW1, input);
+            cargarMaterias(materiasTUDW1, input);
         break;
         case "2":
-            cargarmaterias(materiasTUDW2, input);
+            cargarMaterias(materiasTUDW2, input);
         break;
         case "3":
-            cargarmaterias(materiasTUDW3, input);
+            cargarMaterias(materiasTUDW3, input);
         break;
         default:
             borrar("$materia");
@@ -18,19 +18,19 @@ function materiasTUDW(años, input) {
 function materiasLicenciaturaSistemas(años, input){
     switch (años) {
         case "1":
-            cargarmaterias(materiasAnalista1,input);
+            cargarMaterias(materiasAnalista1,input);
         break;
         case "2":
-            cargarmaterias(materiasAnalista2,input);
+            cargarMaterias(materiasAnalista2,input);
         break;
         case "3":
-            cargarmaterias(materiasAnalista3,input);
+            cargarMaterias(materiasAnalista3,input);
         break;
         case "4":
-            cargarmaterias(materiasLicSis4,input);
+            cargarMaterias(materiasLicSis4,input);
         break;
         case "5":
-            cargarmaterias(materiasLicSis5, input);
+            cargarMaterias(materiasLicSis5, input);
         break;
         default:
             borrar("$materia");
@@ -41,22 +41,22 @@ function materiasLicenciaturaSistemas(años, input){
 function materiasLicenciaturaCiencias(años, input) {
     switch (años) {
         case "1":
-            cargarmaterias(materiasAnalista1,input);
+            cargarMaterias(materiasAnalista1,input);
         break;
         case "2":
-            cargarmaterias(materiasAnalista2,input);
+            cargarMaterias(materiasAnalista2,input);
         break;
         case "3":
-            cargarmaterias(materiasAnalista3,input);
+            cargarMaterias(materiasAnalista3,input);
         break;
         case "4":
-            cargarmaterias(materiasLicCien4,input);
+            cargarMaterias(materiasLicCien4,input);
         break;
         case "5":
-            cargarmaterias(materiasLicCien5, input);
+            cargarMaterias(materiasLicCien5, input);
         break;
         default:
-                borrar("$materia");
+            borrar("$materia");
         break;
     }
 }
@@ -81,7 +81,7 @@ function materiasProfesorado(años, input) {
     }
 }
 
-function cargarmaterias(arreglo, input) {
+function cargarMaterias(arreglo, input) {
     var select = document.getElementById(input);
     borrar(input);
 

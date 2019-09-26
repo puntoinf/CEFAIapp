@@ -1,6 +1,7 @@
 <?php
 class coneccion{
     //la clase de PDO conecciona  la BD
+    
     public function getConneccion(){
       $usuario = "root";//el usurio
       $contraseña = "";//la contraseña
@@ -8,6 +9,10 @@ class coneccion{
       $baseDeDatos = "correlativas";//la base de getDatos
       $coneccion = new PDO("mysql:host=$hostName;dbname=$baseDeDatos;", $usuario, $contraseña);
       return $coneccion;
+    }
+
+    function (){
+
     }
   }
 ?>

@@ -132,26 +132,26 @@
             </p>
             <script>
             function buscar() {
-                if ($( "#$materia" ).val() == "0") {
+                if ($( "#materia" ).val() == "0") {
                     
                 }else{
                     $("#respuesta").empty();
-                console.log(document.getElementById("carrera").value);
-                var parametros = {
-                        "$materia" : $( "#$materia" ).val(),
-                        "carrera" : $( "#carrera").val()
-                };
-                $.ajax({
-                        data:  parametros, //datos que se envian a traves de ajax
-                        url:   'muestra.php', //archivo que recibe la peticion
-                        type:  'post', //método de envio
-                        beforeSend: function () {
-                                $("#respuesta").html("Procesando, espere por favor...");
-                        },
-                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                $("#respuesta").html(response);
-                        }
-                });
+                    console.log(document.getElementById("carrera").value);
+                    var parametros = {
+                            "materia" : $( "#materia" ).val(),
+                            "carrera" : $( "#carrera").val()
+                    };
+                    $.ajax({
+                            data:  parametros, //datos que se envian a traves de ajax
+                            url:   'muestra.php', //archivo que recibe la peticion
+                            type:  'post', //método de envio
+                            beforeSend: function () {
+                                    $("#respuesta").html("Procesando, espere por favor...");
+                            },
+                            success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                                    $("#respuesta").html(response);
+                            }
+                    });
                 }
             };
             </script>
