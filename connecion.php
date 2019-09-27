@@ -10,9 +10,5 @@ class coneccion{
       $coneccion = new PDO("mysql:host=$hostName;dbname=$baseDeDatos;", $usuario, $contraseña);
       return $coneccion;
     }
-
-    function (){
-
-    }
   }
 ?>
