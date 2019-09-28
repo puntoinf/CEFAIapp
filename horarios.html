@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Space+Mono&display=swap" rel="stylesheet">
 
     <link href="CSS/main.css" rel="stylesheet" type="text/css">
+    <script src="JS/seleccionesHorario.js"></script>
     <script src="JS/selecciones.js"></script>
     <script src="JS/materiasCarrera.js"></script>
     <script src="JS/bd.js"></script>
@@ -50,31 +51,33 @@
                         <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for=""></label>
-                    <input type="text" >
+                <div class="form-group" id="AñoBloque">
+                    <label for="carrera">Año</label>
+                    <select id="año" onchange="mostrarEnviar();" class="form-control">
+                        <option value="">-</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="">Dia</label>
-                    <select id="" onchange="" class="form-control">
+                    <select id="dia" class="form-control">
                         <option value="-">-</option>
-                        <option value="1">Lunes</option>
-                        <option value="2">Martes</option>
-                        <option value="3">Miercoles</option>
-                        <option value="4">Jueves</option>
-                        <option value="5">Viernes</option>
-                        <option value="">Savado</option>
+                        <option value="Lunes">Lunes</option>
+                        <option value="Martes">Martes</option>
+                        <option value="Miercoles">Miercoles</option>
+                        <option value="Jueves">Jueves</option>
+                        <option value="Viernes">Viernes</option>
+                        <option value="Savado">Savado</option>
                     </select>
                 </div>
             </form>
-            <div class="form-group">
+            <div class="form-group" id="send">
                     <button class="btn btn-ligth" onclick="filtrar();">
                         Enviar
                     </button>
                 </div>
         </div>
         <div>
-            <h3 id="dia"></h3>
+            <h3 id="hoy"></h3>
             <table class="table">
                 <thead>
                     <tr>
@@ -83,35 +86,31 @@
                       <th scope="col">Modulo</th>
                     </tr>
                 </thead>
-                <tbody class="horario">
+                <tbody id="horario">
 
                 </tbody>
             </table>
         </div>
         <script>
-        function filtrar(){
-            if ($("#carrera" ).val() == "0" ) {
-                console.log("hola mundo");
-            }
-            else{
-                $("#horario").empty();
-                console.log(document.getElementById("carrera").value);
-                var parametros = {
-                        "$carrera" : $( "#$carrera" ).val(),
-                        "$dia" : $( "#$dia").val()
-                };
-                $.ajax({
-                        data:  parametros, //datos que se envian a traves de ajax
-                        url:   'horarios.php', //archivo que recibe la peticion
-                        type:  'post', //método de envio
-                        beforeSend: function () {
-                                $("#horario").html("Procesando, espere por favor...");
-                        },
-                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                $("#horario").html(response);
-                        }
-                });
-            }
+        function enviar(argDia, argCarrera, argAño){
+            $("#horario").empty();
+            console.log(document.getElementById("carrera").value);
+            var parametros = {
+                    "carrera" : argCarrera ,
+                    "año" : argAño,
+                    "dia" : argDia
+            };
+            $.ajax({
+                    data:  parametros, //datos que se envian a traves de ajax
+                    url:   'horarios.php', //archivo que recibe la peticion
+                    type:  'post', //método de envio
+                    beforeSend: function () {
+                            $("#horario").html("Procesando, espere por favor...");
+                    },
+                    success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                            $("#horario").html(response);
+                    }
+            });
         };
         </script>
     </div>

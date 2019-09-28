@@ -1,4 +1,3 @@
-//funcion que nos da los años de cada carrera
 function seleccionAño(){
     var carrera = document.getElementById("carrera").value;
     switch (carrera) {
@@ -28,36 +27,6 @@ function seleccionAño(){
             borrar("materia");
     break;
     }
-}
-//esta funcion nos muestra las materias de cada carrera
-function seleccionmateria(){
-    var años = document.getElementById("año").value;
-    var carrera = document.getElementById("carrera").value;
-    //
-    switch(carrera){
-        case "1":
-            materiasProfesorado(años, "materia");
-        break;
-        case "2":
-            materiasLicenciaturaCiencias(años,"materia");
-        break;
-        case "3":
-            materiasLicenciaturaSistemas(años, "materia")
-        break;
-        case "4":
-            materiasTUDW(años, "materia");
-        break;
-        case "5":
-            materiasTUASySL(años, "materia");
-        break;
-        default:
-            borrar("materia");
-        break;
-    }
-}
-
-function mostrarEnviar(){
-    document.getElementById("send").setAttribute("style","visibility: visible;");
 }
 
 function cargaAños(arreglo, input){
