@@ -1,0 +1,32 @@
+body{
+    background-image: url("Desktop.jpg");
+}
+#AñoBloque{
+    visibility: hidden;
+}
+#materiasBloque{
+    visibility: hidden;
+}
+
+.container{
+    width: 90%;
+    margin-top: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    align-content: center;
+    background-color: #F2F2F2;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+}
+#send{
+    visibility: hidden;
+}
+h3{
+    width: 100%;
+    text-align: center;
+}
+label{
+    font-size: 10pt;
+}
