@@ -1,6 +1,7 @@
 <?php
 class coneccion{
     //la clase de PDO conecciona  la BD
+    
     public function getConneccion(){
       $usuario = "root";//el usurio
       $contraseña = "";//la contraseña

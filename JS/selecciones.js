@@ -1,4 +1,6 @@
-//funcion que nos da los años de cada carrera
+/**
+ * seleccionAño , cuando se selecciona una carrera se cargan los años de esa
+ */
 function seleccionAño(){
     var carrera = document.getElementById("carrera").value;
     switch (carrera) {
@@ -29,7 +31,10 @@ function seleccionAño(){
     break;
     }
 }
-//esta funcion nos muestra las materias de cada carrera
+
+/**
+ * seleccionmateria, se cargan las materias de la carrera seleccionada, dependiendo de un año seleccionado
+ */
 function seleccionmateria(){
     var años = document.getElementById("año").value;
     var carrera = document.getElementById("carrera").value;
@@ -55,11 +60,17 @@ function seleccionmateria(){
         break;
     }
 }
-
+/**
+ * mostrarEnviar, cuando se selecciona una materia se muestra el boton de envio
+ */
 function mostrarEnviar(){
     document.getElementById("send").setAttribute("style","visibility: visible;");
 }
-
+/**
+ * cargaAños, cargamos las materias de una carrera en un año seleccionado
+ * @param {el arreglo de los años} arreglo 
+ * @param {el lugar donde se van a cargar} input 
+ */
 function cargaAños(arreglo, input){
     var select = document.getElementById(input);
 
