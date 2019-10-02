@@ -1,3 +1,6 @@
+/**
+ * armado es la variable del SQL, que se va a descargar
+ */
 var armado = " ";
 function seleccionAño(){
     var carrera = document.getElementById("carrera").value;

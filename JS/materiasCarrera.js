@@ -1,3 +1,8 @@
+/**
+ * materiasTUDW, carga las materias dependiendo del año de la TUDW
+ * @param {el año que se esta cursando} años 
+ * @param {el input donde se va a insertar el valor} input 
+ */
 function materiasTUDW(años, input) {
     switch (años) {
         case "1":
@@ -14,7 +19,11 @@ function materiasTUDW(años, input) {
         break;
     }
 }
-
+/**
+ * materiasLicenciaturaSistemas
+ * @param {el año que se esta cursando} años 
+ * @param {el input donde se va a insertar el valor} input 
+ */
 function materiasLicenciaturaSistemas(años, input){
     switch (años) {
         case "1":
@@ -37,7 +46,11 @@ function materiasLicenciaturaSistemas(años, input){
         break;
     }
 }
-
+/**
+ * materiasLicenciaturaCiencias
+ * @param {el año que se esta cursando} años 
+ * @param {el input donde se va a insertar el valor} input 
+ */
 function materiasLicenciaturaCiencias(años, input) {
     switch (años) {
         case "1":
@@ -60,7 +73,11 @@ function materiasLicenciaturaCiencias(años, input) {
         break;
     }
 }
-
+/**
+ * materiasProfesorado
+ * @param {el año que se esta cursando} años 
+ * @param {el input donde se va a insertar el valor} input 
+ */
 function materiasProfesorado(años, input) {
     switch (años) {
         case "1":
@@ -80,7 +97,11 @@ function materiasProfesorado(años, input) {
         break;
     }
 }
-
+/**
+ * cargarMaterias
+ * @param {el año que se esta cursando} años 
+ * @param {el input donde se va a insertar el valor} input 
+ */
 function cargarMaterias(arreglo, input) {
     var select = document.getElementById(input);
     borrar(input);
@@ -92,7 +113,10 @@ function cargarMaterias(arreglo, input) {
         select.appendChild(opt);
     }
 }
-
+/**
+ * borrar
+ * @param {el id del elemento a vaciar} id 
+ */
 function borrar(id){
     document.getElementById(id).options.length = 0;
 }
