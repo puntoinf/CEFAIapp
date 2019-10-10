@@ -163,7 +163,7 @@ var materiasLicSis5 = new Array(
 
 var materiasProf1 = new Array(
     new Array("-","0"),
-    new Array("Pedagogoa - 1","102"),
+    new Array("Pedadogia - 1","102"),
     new Array("Elementos de Algebra - 1","16"),
     new Array("Resolucion de Problemas y Algoritmos - 1","17"),
     new Array("Modelos y Sistemas de Informacion - 1","18"),
