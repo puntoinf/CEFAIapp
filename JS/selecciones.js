@@ -31,6 +31,7 @@ function seleccionAño(){
     break;
     }
 }
+
 /**
  * seleccionmateria, se cargan las materias de la carrera seleccionada, dependiendo de un año seleccionado
  */
