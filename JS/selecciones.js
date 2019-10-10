@@ -2,6 +2,7 @@
  * seleccionAño , cuando se selecciona una carrera se cargan los años de esa
  */
 function seleccionAño(){
+    borrar("materia");
     var carrera = document.getElementById("carrera").value;
     switch (carrera) {
         //en caso de ser un profesorado
