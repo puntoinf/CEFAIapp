@@ -19,6 +19,24 @@ function materiasTUDW(años, input) {
         break;
     }
 }
+
+function materiasTUASySL(años, input) {
+    switch (años) {
+        case "1":
+            cargarMaterias(materiasTUASySL1, input);
+        break;
+        case "2":
+            cargarMaterias(materiasTUASySL2, input);
+        break;
+        case "3":
+            cargarMaterias(materiasTUASySL3, input);
+        break;
+        default:
+            borrar("$materia");
+        break;
+    }
+}
+
 /**
  * materiasLicenciaturaSistemas
  * @param {el año que se esta cursando} años 
