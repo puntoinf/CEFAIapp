@@ -41,13 +41,10 @@ require_once("session.php");
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#carta">Carta</a>
+                    <a class="nav-link" href="#carta">Correlativas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#historia">Nuestra Historia</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#ubicacion">Donde Estamos</a>
+                    <a class="nav-link" href="#historia">Horarios</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">

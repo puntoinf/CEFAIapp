@@ -33,6 +33,9 @@ function seleccionAño(){
     }
 }
 
+/**
+ * seleccion de años segun carrera en la seccion de horarios
+ */
 function seleccionAño2(){
     borrar("materia2");
     var carrera = document.getElementById("carrera2").value;
@@ -93,7 +96,9 @@ function seleccionmateria(){
         break;
     }
 }
-
+/**
+ * seleccionamos materias de los años de la seccion de horarios
+ */
 function seleccionmateria2(){
     var años = document.getElementById("año2").value;
     var carrera = document.getElementById("carrera2").value;
