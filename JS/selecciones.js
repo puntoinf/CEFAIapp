@@ -33,6 +33,38 @@ function seleccionAño(){
     }
 }
 
+function seleccionAño2(){
+    borrar("materia2");
+    var carrera = document.getElementById("carrera2").value;
+    switch (carrera) {
+        //en caso de ser un profesorado
+        case "1":
+            cargaAños(añoProfesorado, 'año2');
+        break;
+        //en caso de ser lic. Cien
+        case "2":
+            cargaAños(añoLicenciatura, 'año2');
+        break;
+        //en caso de ser Lic. Sis
+        case "3":
+            cargaAños(añoLicenciatura, 'año2');
+        break;
+        //en caso de ser TUDW
+        case "4":
+            cargaAños(añoTecnicatura, 'año2');
+        break;
+        //en caso de ser TUASySL
+        case "5":
+            cargaAños(añoTecnicatura, 'año2');
+        break;
+        //en caso de ser cualquier otra cosa
+        default:
+            borrar("año2");
+            borrar("materia2");
+        break;
+    }
+}
+
 /**
  * seleccionmateria, se cargan las materias de la carrera seleccionada, dependiendo de un año seleccionado
  */
@@ -58,6 +90,32 @@ function seleccionmateria(){
         break;
         default:
             borrar("materia");
+        break;
+    }
+}
+
+function seleccionmateria2(){
+    var años = document.getElementById("año2").value;
+    var carrera = document.getElementById("carrera2").value;
+    //
+    switch(carrera){
+        case "1":
+            materiasProfesorado(años, "materia2");
+        break;
+        case "2":
+            materiasLicenciaturaCiencias(años,"materia2");
+        break;
+        case "3":
+            materiasLicenciaturaSistemas(años, "materia2")
+        break;
+        case "4":
+            materiasTUDW(años, "materia2");
+        break;
+        case "5":
+            materiasTUASySL(años, "materia2");
+        break;
+        default:
+            borrar("materia2");
         break;
     }
 }

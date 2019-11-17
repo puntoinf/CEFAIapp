@@ -51,17 +51,136 @@ require_once("session.php");
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
-                <li class="nav-item text-center">
-                    <a href=""><img src="Media/facebook.png" alt=""></a>
-                </li>
-                <li class="nav-item text-center">
-                    <a href=""><img src="Media/twitter.png" alt=""></a>
-                </li>
-                <li class="nav-item text-center">
-                    <a href=""><img src="Media/pinteres.png" alt=""></a>
-                </li>
+                <a class="btn" href="">salir</a>
             </ul>
         </div>
     </nav>
+    <div class="container">
+        <h3>Correlativas</h3>
+        <div class="row">
+            <div class="col-sm">
+                <form action="">
+                    <div class="form-group">
+                        <label for="carrera">Carrera</label>
+                        <select id="carrera" onchange="seleccionAño();" class="form-control" >
+                            <option value="-">-</option>
+                            <option value="1">Profesorado de Informatica</option>
+                            <option value="2">Licenciatura en Ciencias de la Computación</option>
+                            <option value="3">Licenciatura en Sistemas de Información</option>
+                            <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
+                            <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="AñoBloque">
+                        <label for="carrera">Año</label>
+                        <select id="año"  onchange="seleccionmateria();" class="form-control">
+                            <option value="">-</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="carrera">materia</label>
+                        <select id="materia" class="form-control" onchange="mostrarEnviar()">
+                            <option value="">-</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="send">
+                        <button type="button" class="btn btn-light border" onclick="buscar()">consultar</button>
+                    </div>
+                    <div id="respuesta">
+
+                    </div>
+                    <script>
+                    function buscar() {
+                        if ($( "#materia" ).val() == "0") {
+                            
+                        }else{
+                            $("#respuesta").empty();
+                            console.log(document.getElementById("carrera").value);
+                            var parametros = {
+                                    "materia" : $( "#materia" ).val(),
+                                    "carrera" : $( "#carrera").val()
+                            };
+                            $.ajax({
+                                    data:  parametros, //datos que se envian a traves de ajax
+                                    url:   'muestra.php', //archivo que recibe la peticion
+                                    type:  'post', //método de envio
+                                    beforeSend: function () {
+                                            $("#respuesta").html("Procesando, espere por favor...");
+                                    },
+                                    success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                                            $("#respuesta").html(response);
+                                    }
+                            });
+                        }
+                    };
+                    </script>
+                </form>
+            </div>
+            <div class="col-sm">asd</div>
+        </div>
+        <hr>
+        <h3>Horarios</h3>
+        <div class="row">
+            <div class="col-sm">
+            <form action="">
+                    <div class="form-group">
+                        <label for="carrera">Carrera</label>
+                        <select id="carrera2" onchange="seleccionAño2();" class="form-control" >
+                            <option value="-">-</option>
+                            <option value="1">Profesorado de Informatica</option>
+                            <option value="2">Licenciatura en Ciencias de la Computación</option>
+                            <option value="3">Licenciatura en Sistemas de Información</option>
+                            <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
+                            <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="AñoBloque">
+                        <label for="carrera">Año</label>
+                        <select id="año2"  onchange="seleccionmateria2();" class="form-control">
+                            <option value="">-</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="carrera">materia</label>
+                        <select id="materia2" class="form-control" onchange="mostrarEnviar()">
+                            <option value="">-</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="send">
+                        <button type="button" class="btn btn-light border" onclick="buscar()">consultar</button>
+                    </div>
+                    <div id="respuesta">
+
+                    </div>
+                    <script>
+                    function buscar() {
+                        if ($( "#materia" ).val() == "0") {
+                            
+                        }else{
+                            $("#respuesta").empty();
+                            console.log(document.getElementById("carrera").value);
+                            var parametros = {
+                                    "materia" : $( "#materia" ).val(),
+                                    "carrera" : $( "#carrera").val()
+                            };
+                            $.ajax({
+                                    data:  parametros, //datos que se envian a traves de ajax
+                                    url:   'muestra.php', //archivo que recibe la peticion
+                                    type:  'post', //método de envio
+                                    beforeSend: function () {
+                                            $("#respuesta").html("Procesando, espere por favor...");
+                                    },
+                                    success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                                            $("#respuesta").html(response);
+                                    }
+                            });
+                        }
+                    };
+                    </script>
+                </form>
+            </div>
+            <div class="col-sm">asd</div>
+        </div>
+    </div>
 </body>
 </html>
