@@ -82,8 +82,8 @@
       console.log($.md5($("#User").val()));
 
         var parametros = {
-                "usuario" : $.md5($("#User").val()) ,
-                "contraseña" : $("#pass").val() ,
+                "usuario" : $("#User").val() ,
+                "contraseña" : $.md5($("#pass").val()) ,
         };
         $.ajax({
                 data:  parametros, //datos que se envian a traves de ajax

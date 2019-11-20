@@ -8,11 +8,8 @@ $contraseña = $_POST['contraseña'];
 $consulta = new CONSULTA();
 $registros = $consulta->getConsulta("SELECT usuario.pass FROM `usuario` WHERE usuario.usuario = '$usuario'");
 
-foreach($registros as $fila){
-    $pass = $fila['pass'];
-}
 
-if($pass == $contraseña){
+if($registros[0][0] == $contraseña){
     //creamos la session
     session_start();
     $_SESSION['login'] = true;
