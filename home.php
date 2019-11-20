@@ -101,7 +101,7 @@ require_once("session.php");
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item" aria-current="page">
-                            <button class="btn" onclick="" data-target="#modalPDF">
+                            <button class="btn" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
                                 <i class="material-icons">
                                     picture_as_pdf
                                 </i>
@@ -116,40 +116,47 @@ require_once("session.php");
                         </li>
                     </ol>
                 </nav>
-                <div id="respuesta">
-                    
+                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    <div class="card card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    </div>
                 </div>
             </div>
-            <!--
-                mostramos las correlativas de una materia con el correspondiente
-            -->
-            <script>
-                function buscar() {
-                    console.log("hola mundo");
-                    if ($( "#materia" ).val() == 0) {
-                        
-                    }else{
-                        $("#respuesta").empty();
-                        console.log(document.getElementById("carrera").value);
-                        var parametros = {
-                                "materia" : $( "#materia" ).val(),
-                                "carrera" : $( "#carrera").val()
-                        };
-                        $.ajax({
-                                data:  parametros, //datos que se envian a traves de ajax
-                                url:   'correlativasLogin.php', //archivo que recibe la peticion
-                                type:  'post', //método de envio
-                                beforeSend: function () {
-                                        $("#respuesta").html("Procesando, espere por favor...");
-                                },
-                                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                        $("#respuesta").html(response);
-                                }
-                        });
-                    }
-                };
-            </script>
         </div>
+        <div class="row container">
+             <div class="col-sm" id="respuesta">
+             
+             </div>   
+        </div>
+        <!--
+            mostramos las correlativas de una materia con el correspondiente
+        -->
+        <script>
+            function buscar() {
+                console.log("hola mundo");
+                if ($( "#materia" ).val() == 0) {
+                    
+                }else{
+                    $("#respuesta").empty();
+                    console.log(document.getElementById("carrera").value);
+                    var parametros = {
+                            "materia" : $( "#materia" ).val(),
+                            "carrera" : $( "#carrera").val()
+                    };
+                    $.ajax({
+                            data:  parametros, //datos que se envian a traves de ajax
+                            url:   'correlativasLogin.php', //archivo que recibe la peticion
+                            type:  'post', //método de envio
+                            beforeSend: function () {
+                                    $("#respuesta").html("Procesando, espere por favor...");
+                            },
+                            success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                                    $("#respuesta").html(response);
+                            }
+                    });
+                }
+            };
+        </script>
         <!--
             modales de creacion de PDF y de agregar modal
         -->
