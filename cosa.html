@@ -1,7 +1,3 @@
-<?php
-require_once("session.php");
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,9 +25,6 @@ require_once("session.php");
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<!--
-    el menu de navegacion de las secciones de la administracion
--->
 <nav class="navbar navbar-expand-lg bg-light">
         <a class="navbar-brand" href="#">
             <img src="Media/logo.png" alt="" class="logo">
@@ -55,17 +48,11 @@ require_once("session.php");
             </ul>
         </div>
     </nav>
-    <!--
-        el contenedor de los administradores de horarios y de correlativas
-    -->
     <div class="container">
         <h3>Correlativas</h3>
         <div class="row">
             <div class="col-sm">
                 <form action="">
-                    <!--
-                        formulario de eleccion de carrera en las opciones de correlativas
-                    -->
                     <div class="form-group">
                         <label for="carrera">Carrera</label>
                         <select id="carrera" onchange="seleccionAño();" class="form-control" >
@@ -92,83 +79,43 @@ require_once("session.php");
                     <div class="form-group" id="send">
                         <button type="button" class="btn btn-light border" onclick="buscar()">consultar</button>
                     </div>
+                    <div id="respuesta">
+
+                    </div>
+                    <script>
+                    function buscar() {
+                        if ($( "#materia" ).val() == "0") {
+                            
+                        }else{
+                            $("#respuesta").empty();
+                            console.log(document.getElementById("carrera").value);
+                            var parametros = {
+                                    "materia" : $( "#materia" ).val(),
+                                    "carrera" : $( "#carrera").val()
+                            };
+                            $.ajax({
+                                    data:  parametros, //datos que se envian a traves de ajax
+                                    url:   'muestra.php', //archivo que recibe la peticion
+                                    type:  'post', //método de envio
+                                    beforeSend: function () {
+                                            $("#respuesta").html("Procesando, espere por favor...");
+                                    },
+                                    success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                                            $("#respuesta").html(response);
+                                    }
+                            });
+                        }
+                    };
+                    </script>
                 </form>
             </div>
-            <div class="col-sm">
-                <!--
-                    opciones de las correlativas como la generacion de un pdf o agregar una correlativa
-                -->
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item" aria-current="page">
-                            <a class="btn" data-toggle="collapse" href="#pdfColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-                                <i class="material-icons">
-                                    picture_as_pdf
-                                </i>
-                            </a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a class="btn" data-toggle="collapse" href="#addColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-                                <i class="material-icons">
-                                    add
-                                </i>
-                            </a>
-                        </li>
-                    </ol>
-                </nav>
-
-                <div class="collapse multi-collapse" id="pdfColapse">
-                    <div class="card card-body">
-                        
-                    </div>
-                </div>
-
-                <div class="collapse multi-collapse" id="addColapse">
-                    <div class="card card-body">
-                                            
-                    </div>
-                </div>
-            </div>
+            <div class="col-sm">asd</div>
         </div>
-        <div class="row container">
-             <div class="col-sm" id="respuesta">
-             
-             </div>   
-        </div>
-        <!--
-            mostramos las correlativas de una materia con el correspondiente
-        -->
-        <script>
-            function buscar() {
-                console.log("hola mundo");
-                if ($( "#materia" ).val() == 0) {
-                    
-                }else{
-                    $("#respuesta").empty();
-                    console.log(document.getElementById("carrera").value);
-                    var parametros = {
-                            "materia" : $( "#materia" ).val(),
-                            "carrera" : $( "#carrera").val()
-                    };
-                    $.ajax({
-                            data:  parametros, //datos que se envian a traves de ajax
-                            url:   'correlativasLogin.php', //archivo que recibe la peticion
-                            type:  'post', //método de envio
-                            beforeSend: function () {
-                                    $("#respuesta").html("Procesando, espere por favor...");
-                            },
-                            success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                    $("#respuesta").html(response);
-                            }
-                    });
-                }
-            };
-        </script>
         <hr>
         <h3>Horarios</h3>
         <div class="row">
             <div class="col-sm">
-                <form action="">
+            <form action="">
                     <div class="form-group">
                         <label for="carrera">Carrera</label>
                         <select id="carrera2" onchange="seleccionAño2();" class="form-control" >
@@ -195,9 +142,12 @@ require_once("session.php");
                     <div class="form-group" id="send2">
                         <button type="button" class="btn btn-light border" onclick="buscar()">consultar</button>
                     </div>
+                    <div id="respuesta">
+
+                    </div>
                     <script>
-                    function buscar2() {
-                        if ($( "#materia" ).val()) {
+                    function buscar() {
+                        if ($( "#materia" ).val() == "0") {
                             
                         }else{
                             $("#respuesta").empty();
@@ -222,46 +172,7 @@ require_once("session.php");
                     </script>
                 </form>
             </div>
-            <div class="col-sm">
-            <!--
-                opciones de las correlativas como la generacion de un pdf o agregar una correlativa
-            -->
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item" aria-current="page">
-                            <a class="btn" data-toggle="collapse" href="#pdfHorarioColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-                                <i class="material-icons">
-                                    picture_as_pdf
-                                </i>
-                            </a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a class="btn" data-toggle="collapse" href="#addHorarioColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-                                <i class="material-icons">
-                                add
-                                </i>
-                            </a>
-                        </li>
-                    </ol>
-                </nav>
-
-                <div class="collapse multi-collapse" id="pdfHorarioColapse">
-                    <div class="card card-body">
-                        
-                    </div>
-                </div>
-
-                <div class="collapse multi-collapse" id="addHorarioColapse">
-                    <div class="card card-body">
-                                            
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div id="respuesta col-sm">
-                
-            </div>
+            <div class="col-sm">asd</div>
         </div>
     </div>
 </body>
