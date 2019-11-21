@@ -29,7 +29,7 @@ body{
 .pie{
     font-family: 'Space Mono', monospace;
 }
-#send{
+#send, #send2, #send3{
     visibility: hidden;
 }
 h3{

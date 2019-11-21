@@ -134,6 +134,10 @@ function mostrarEnviar(){
 function mostrarEnviar2(){
     document.getElementById("send2").setAttribute("style","visibility: visible;");
 }
+
+function mostrarEnviarPdf(){
+    document.getElementById("send3").setAttribute("style","visibility: visible;");
+}
 /**
  * cargaAños, cargamos las materias de una carrera en un año seleccionado
  * @param {el arreglo de los años} arreglo 

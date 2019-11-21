@@ -26,6 +26,8 @@ require_once("session.php");
     <script src="JS/selecciones.js"></script>
     <script src="JS/materiasCarrera.js"></script>
     <script src="JS/bd.js"></script>
+    <script src="js/bootstrap-datetimepicker.min.js"></script>
+    <script src="css/bootstrap-datetimepicker.min.css"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -119,13 +121,65 @@ require_once("session.php");
 
                 <div class="collapse multi-collapse" id="pdfColapse">
                     <div class="card card-body">
-                        
+                        <form action="pdf.php">
+                            <div class="form-group">
+                                <label for="carrera">Carrera</label>
+                                <select id="carrera" onchange="mostrarEnviarPdf();" class="form-control" >
+                                    <option value="-">-</option>
+                                    <option value="1">Profesorado de Informatica</option>
+                                    <option value="2">Licenciatura en Ciencias de la Computación</option>
+                                    <option value="3">Licenciatura en Sistemas de Información</option>
+                                    <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
+                                    <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="send3" >
+                                <button type="button" class="btn btn-light border" onclick="buscar()">Generar PDF</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
                 <div class="collapse multi-collapse" id="addColapse">
                     <div class="card card-body">
-                                            
+                        <form action="" class="">
+                        <div class="form-group">
+                            <label for="carrera">Carrera</label>
+                            <select id="carrera" onchange="seleccionAño();" class="form-control" >
+                                <option value="-">-</option>
+                                <option value="1">Profesorado de Informática</option>
+                                <option value="2">Licenciatura en Ciencias de la Computación</option>
+                                <option value="3">Licenciatura en Sistemas de Información</option>
+                                <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
+                                <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
+                            </select>
+                        </div>
+                        <p class="border-bottom">Materia</p>
+                        <div class="form-group">
+                            <label for="carrera">Año</label>
+                            <select id="año"  onchange="seleccionMateria();" class="form-control">
+                                <option value="">-</option>
+                            </select>
+                            <label for="carrera">Materia</label>
+                            <select id="materia" class="form-control" onchange="mostrarEnviar()">
+                                <option value="">-</option>
+                            </select>
+                        </div>
+                        <p class="border-bottom">Correlativas</p>
+                        <div class="form-group">
+                            <label for="carrera">Año</label>
+                            <select id="año2"  onchange="seleccionMateria2();" class="form-control">
+                                <option value="">-</option>
+                            </select>
+                            <label for="carrera">Materia</label>
+                            <select id="materia2" class="form-control" onchange="mostrarEnviar()">
+                                <option value="">-</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="send">
+                            <button type="button" class="btn btn-light border" onclick="armar()">Cargar</button>
+                        </div>
+                    </form>             
                     </div>
                 </div>
             </div>
@@ -247,13 +301,96 @@ require_once("session.php");
 
                 <div class="collapse multi-collapse" id="pdfHorarioColapse">
                     <div class="card card-body">
-                        
+                        <form action="pdf.php">
+                            <div class="form-group">
+                                <label for="carrera">Carrera</label>
+                                <select id="carrera" onchange="mostrarEnviarPdf();" class="form-control" >
+                                    <option value="-">-</option>
+                                    <option value="1">Profesorado de Informatica</option>
+                                    <option value="2">Licenciatura en Ciencias de la Computación</option>
+                                    <option value="3">Licenciatura en Sistemas de Información</option>
+                                    <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
+                                    <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="send3" >
+                                <button type="button" class="btn btn-light border" onclick="buscar()">Generar PDF</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
                 <div class="collapse multi-collapse" id="addHorarioColapse">
                     <div class="card card-body">
-                                            
+                        <form action="" class="form">
+                            <div class="form-group">
+                                <label for="carrera">Carrera</label>
+                                <select id="carrera" onchange="seleccionAño();" class="form-control" required >
+                                    <option value="-">-</option>
+                                    <option value="1">Profesorado de Informática</option>
+                                    <option value="2">Licenciatura en Ciencias de la Computación</option>
+                                    <option value="3">Licenciatura en Sistemas de Información</option>
+                                    <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
+                                    <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
+                                </select>
+                            </div>
+                            <p class="border-bottom">Materias</p>
+                            <div class="form-group">
+                                <label for="carrera">Año</label>
+                                <select id="año"  onchange="seleccionMateria();" class="form-control">
+                                    <option value="">-</option>
+                                </select>
+                                <label for="carrera">Materia</label>
+                                <select id="materia" class="form-control" onchange="mostrarEnviar()">
+                                    <option value="">-</option>
+                                </select>
+                                <label for="carrera">Cuatrimestre</label>
+                                <select id="cuatrimestre" class="form-control" onchange="" required>
+                                    <option value="">-</option>
+                                    <option value="1">1° Primero</option>
+                                    <option value="2">2° Segundo</option>
+                                </select>
+                                <label for="carrera">Día</label>
+                                <select id="dia" class="form-control" onchange="" required>
+                                    <option value="">-</option>
+                                    <option value="Lunes">Lunes</option>
+                                    <option value="Martes">Martes</option>
+                                    <option value="Miercoles">Miércoles</option>
+                                    <option value="Jueves">Jueves</option>
+                                    <option value="Viernes">Viernes</option>
+                                    <option value="Sabado">Sabado</option>
+                                </select>
+                                </br>
+                                    <label for="carrera">Módulo</label>
+                                    <input type="" class="form-control" id="modulo" placeholder="Modulo">
+                                <br>
+                                <label for="carrera">Aula</label>
+                                <input type="" class="form-control" id="aula" placeholder="Aula">
+                                <label for="hora">Hora</label>
+                                <div class="md-form">
+                                    <input placeholder="Selected time" type="text" id="hora" class="form-control timepicker">
+                                    <label for="hora">Twelve hour clock</label>
+                                </div>
+                                <script type="text/javascript">
+                                $('#hora').timepicker({
+                                    timeFormat: 'HH:mm ',
+                                    interval: 60,
+                                    minTime: '00:00',
+                                    maxTime: '23:59',
+                                    defaultTime: '00',
+                                    startTime: '00:00',
+                                    dynamic: false,
+                                    dropdown: true,
+                                    scrollbar: true
+                                });
+                                // Time Picker Initialization
+                                </script>
+                                <br>
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-light border" onclick="cargar();">Cargar</button>
+                                </div>
+                            </div>
+                        </form>                
                     </div>
                 </div>
             </div>
