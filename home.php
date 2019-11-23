@@ -121,11 +121,11 @@ require_once("session.php");
 
                 <div class="collapse multi-collapse" id="pdfColapse">
                     <div class="card card-body">
-                        <form action="pdf.php">
+                        <form action="pdf.php" method="post">
                             <div class="form-group">
                                 <label for="carrera">Carrera</label>
-                                <select id="carrera" onchange="mostrarEnviarPdf();" class="form-control" >
-                                    <option value="-">-</option>
+                                <select id="carrerapdf" onchange="mostrarEnviarPdf();" class="form-control" name="carrerapdf">
+                                    <option value="0">-</option>
                                     <option value="1">Profesorado de Informatica</option>
                                     <option value="2">Licenciatura en Ciencias de la Computación</option>
                                     <option value="3">Licenciatura en Sistemas de Información</option>
@@ -134,7 +134,7 @@ require_once("session.php");
                                 </select>
                             </div>
                             <div class="form-group" id="send3" >
-                                <button type="button" class="btn btn-light border" onclick="buscar()">Generar PDF</button>
+                                <button type="submit" class="btn btn-light border" onclick="buscar()">Generar PDF</button>
                             </div>
                         </form>
                     </div>
@@ -301,20 +301,18 @@ require_once("session.php");
 
                 <div class="collapse multi-collapse" id="pdfHorarioColapse">
                     <div class="card card-body">
-                        <form action="pdf.php">
+                        <form>
                             <div class="form-group">
-                                <label for="carrera">Carrera</label>
-                                <select id="carrera" onchange="mostrarEnviarPdf();" class="form-control" >
-                                    <option value="-">-</option>
+                                <label for="carrerapdf">Carrera</label>
+                                <select id="carrerapdf" onchange="mostrarEnviarPdf();" class="form-control" name="carrerapdf">
+                                    <option value="0">-</option>
                                     <option value="1">Profesorado de Informatica</option>
-                                    <option value="2">Licenciatura en Ciencias de la Computación</option>
-                                    <option value="3">Licenciatura en Sistemas de Información</option>
-                                    <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
-                                    <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
+                                    <option value="2">Lic en Ciens de la Comp, Lic en Sis de la Inf</option>
+                                    <option value="4">TUDW, TUAsSisySl</option>
                                 </select>
                             </div>
                             <div class="form-group" id="send3" >
-                                <button type="button" class="btn btn-light border" onclick="buscar()">Generar PDF</button>
+                                <button type="submit" class="btn btn-light border">Generar PDF</button>
                             </div>
                         </form>
                     </div>

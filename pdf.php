@@ -2,9 +2,17 @@
 	require __DIR__.'/vendor/autoload.php';
 
     use Spipu\Html2Pdf\Html2Pdf;
+    /**
+     * recogemos el contenido de una estructura php
+     */
     
-    $html2pdf = new Html2Pdf('P', 'A4', 'en');
-    $contenido = file_get_contents('coso.html');
-    $html2pdf->WriteHTML($contenido);
+    ob_start();
+    require_once 'estructuraPdfCorrelativas.php';
+    $html = ob_get_clean();
+
+    
+
+    $html2pdf = new Html2Pdf('P', 'A4', 'en', true, 'UTF-8');
+    $html2pdf->WriteHTML($html);
     $html2pdf->output();
 ?>
