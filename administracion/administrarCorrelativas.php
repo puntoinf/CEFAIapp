@@ -1,5 +1,5 @@
 <?php
-require_once("session.php");
+require_once("../session.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,12 +20,12 @@ require_once("session.php");
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 
-    <link href="CSS/main.css" rel="stylesheet" type="text/css">
-    <script src="JS/selecciones.js"></script>
-    <script src="JS/materiasCarrera.js"></script>
-    <script src="JS/bd.js"></script>
-    <script src="js/bootstrap-datetimepicker.min.js"></script>
-    <script src="css/bootstrap-datetimepicker.min.css"></script>
+    <link href="../CSS/main.css" rel="stylesheet" type="text/css">
+    <script src="../JS/selecciones.js"></script>
+    <script src="../JS/materiasCarrera.js"></script>
+    <script src="../JS/bd.js"></script>
+    <script src="../js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../css/bootstrap-datetimepicker.min.css"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>

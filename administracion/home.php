@@ -1,5 +1,5 @@
 <?php
-require_once("session.php");
+require_once("../session.php");
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ require_once("session.php");
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
 
-    <link rel="shortcut icon" href="Media/Frame.png" />
+    <link rel="shortcut icon" href="../Media/Frame.png" />
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -22,12 +22,12 @@ require_once("session.php");
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 
-    <link href="CSS/main.css" rel="stylesheet" type="text/css">
-    <script src="JS/selecciones.js"></script>
-    <script src="JS/materiasCarrera.js"></script>
-    <script src="JS/bd.js"></script>
-    <script src="js/bootstrap-datetimepicker.min.js"></script>
-    <script src="css/bootstrap-datetimepicker.min.css"></script>
+    <link href="../CSS/main.css" rel="stylesheet" type="text/css">
+    <script src="../JS/selecciones.js"></script>
+    <script src="../JS/materiasCarrera.js"></script>
+    <script src="../JS/bd.js"></script>
+    <script src="../js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../css/bootstrap-datetimepicker.min.css"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>

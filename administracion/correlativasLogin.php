@@ -1,6 +1,8 @@
 <?php
-require_once("connecion.php");
-require_once("consulta.php");
+require_once("../session.php");
+
+require_once("../connecion.php");
+require_once("../consulta.php");
 
 //gurdamos la materia y la carrera
 $carrera = $_POST['carrera'];
