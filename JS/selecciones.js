@@ -31,6 +31,7 @@ function seleccionAño(){
             borrar("materia");
     break;
     }
+    document.getElementById("AñoBloque").setAttribute("style","visibility: visible;");
 }
 
 /**
@@ -66,6 +67,7 @@ function seleccionAño2(){
             borrar("materia2");
         break;
     }
+    document.getElementById("AñoBloque2").setAttribute("style","visibility: visible;");
 }
 
 /**
@@ -155,5 +157,4 @@ function cargaAños(arreglo, input){
         opt.innerHTML = arreglo[i];
         select.appendChild(opt);
     }
-    document.getElementById(input).setAttribute("style","visibility: visible;");
 }
