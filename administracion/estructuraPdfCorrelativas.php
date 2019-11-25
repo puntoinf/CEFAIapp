@@ -28,8 +28,8 @@ table {
         /**
          * requerims la coneccion a la base de datos, y la clase para poder 
          */
-        require_once("connecion.php");
-        require_once("consulta.php"); 
+        require_once("../connecion.php");
+        require_once("../consulta.php"); 
         /**
          * creamos la consulta
          */

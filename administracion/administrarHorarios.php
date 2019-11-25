@@ -31,7 +31,7 @@ require_once("../session.php");
 <body>
     <nav class="navbar navbar-expand-lg bg-light">
         <a class="navbar-brand" href="#">
-            <img src="Media/logo.png" alt="" class="logo">
+            <img src="../Media/Frame.png" alt="" class="logo" width="60px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="material-icons">
@@ -295,78 +295,73 @@ require_once("../session.php");
             </div>
         </div>
         <div class="row">
-            <div id="respuesta" class="col-sm">
+            <div id="respuesta" class="col-sm" style="overflow: hidden;">
                 
             </div>
         </div>
     </div>
-    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <form action="">
-            <div class="form-group">
-                <label for="">hora</label>
-                <input class="form-control" type="text" placeholder="" id="editarHora" disabled>  
-                <label for="">dia</label>
-                <input class="form-control" type="text" placeholder="" id="editarDia" disabled>
-                <label for="">cuatrimestre</label>
-                <select class="form-control" id="editarCuatrimestre" disabled>
-                    <option value="1">1°</option>
-                    <option value="2">2°</option>
-                </select>
-                <label for="">aula</label>
-                <input class="form-control" type="text" placeholder="" id="editarAula">          
-                <label for="">modulo</label>
-                <input class="form-control" type="text" placeholder="" id="editarModulo">   
-                <label for="">estado</label>
-                <select class="form-control" id="editarEstado">
-                    <option value="cancelado">Cancelado</option>
-                    <option value="normal">Normal</option>
-                    <option value="parcial">Parcial</option>
-                </select>
-                <div class="rounded mr-2" style="height: 16px;width: 16px;background-color: red;"></div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form action="">
+                    <div class="form-group">
+                        <label for="">hora</label>
+                        <input class="form-control" type="text" placeholder="" id="editarHora" disabled>  
+                        <label for="">dia</label>
+                        <input class="form-control" type="text" placeholder="" id="editarDia" disabled>
+                        <label for="">cuatrimestre</label>
+                        <select class="form-control" id="editarCuatrimestre" disabled>
+                            <option value="1">1°</option>
+                            <option value="2">2°</option>
+                        </select>
+                        <label for="">aula</label>
+                        <input class="form-control" type="text" placeholder="" id="editarAula">          
+                        <label for="">modulo</label>
+                        <input class="form-control" type="text" placeholder="" id="editarModulo">   
+                        <label for="">estado</label>
+                        <select class="form-control" id="editarEstado">
+                            <option value="cancelado">Cancelado</option>
+                            <option value="normal">Normal</option>
+                            <option value="parcial">Parcial</option>
+                        </select>
+                        <div class="rounded mr-2" style="height: 16px;width: 16px;background-color: red;"></div>
+                    </div>
+                </form>
             </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" onclick="editar()">Guardar Cambios</button>
-      </div>
-      <script>
-        function editar() {
-            var parametros = {
-                "materia" : $("#materia").val(),
-                "aula" :  $("#editarAula").val(),
-                "dia" :  $("#editarDia").val(),
-                "modulo" :  $("#editarModulo").val(),
-                "hora" : $("#editarHora").val(),
-                "cuatrimestre": $("#editarCuatrimestre").val(),
-                "estado" : $("#editarEstado").val()
-            };
-            console.log(parametros);
-            $.ajax({
-                    data:  parametros, //datos que se envian a traves de ajax
-                    url:   'editHorario.php', //archivo que recibe la peticion
-                    type:  'post', //método de envio
-                    beforeSend: function () {
-                        $("#respuesta").html("Procesando, espere por favor...");
-                    },
-                    success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                        $("#respuesta").html(response);
-                        buscar();
-                    }
-            });
-        }
-      </script>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="editar()">Guardar Cambios</button>
+            </div>
+            <script>
+                function editar() {
+                    var parametros = {
+                        "materia" : $("#materia").val(),
+                        "aula" :  $("#editarAula").val(),
+                        "dia" :  $("#editarDia").val(),
+                        "modulo" :  $("#editarModulo").val(),
+                        "hora" : $("#editarHora").val(),
+                        "cuatrimestre": $("#editarCuatrimestre").val(),
+                        "estado" : $("#editarEstado").val()
+                    };
+                    console.log(parametros);
+                    $.ajax({
+                            data:  parametros, //datos que se envian a traves de ajax
+                            url:   'editHorario.php', //archivo que recibe la peticion
+                            type:  'post', //método de envio
+                            beforeSend: function () {
+                                $("#respuesta").html("Procesando, espere por favor...");
+                            },
+                            success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                                $("#respuesta").html(response);
+                                buscar();
+                            }
+                    });
+                }
+            </script>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 </body>
 </html>

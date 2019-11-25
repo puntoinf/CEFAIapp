@@ -39,3 +39,7 @@ h3{
 label{
     font-size: 10pt;
 }
+
+table{
+    overflow:scroll;
+}
