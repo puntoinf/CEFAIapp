@@ -299,14 +299,21 @@ require_once("../session.php");
                 
             </div>
         </div>
-    </div>
+    </div>  
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-content">
-            <div class="modal-body">
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar Modal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
                 <form action="">
                     <div class="form-group">
+                        <input class="form-control" type="text" placeholder="" id="editarModificar" disabled>
                         <label for="">hora</label>
                         <input class="form-control" type="text" placeholder="" id="editarHora" disabled>  
                         <label for="">dia</label>
@@ -326,7 +333,6 @@ require_once("../session.php");
                             <option value="normal">Normal</option>
                             <option value="parcial">Parcial</option>
                         </select>
-                        <div class="rounded mr-2" style="height: 16px;width: 16px;background-color: red;"></div>
                     </div>
                 </form>
             </div>
@@ -337,7 +343,7 @@ require_once("../session.php");
             <script>
                 function editar() {
                     var parametros = {
-                        "materia" : $("#materia").val(),
+                        "materia" : $("#editarModificar").val(),
                         "aula" :  $("#editarAula").val(),
                         "dia" :  $("#editarDia").val(),
                         "modulo" :  $("#editarModulo").val(),

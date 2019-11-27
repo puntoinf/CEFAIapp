@@ -1,5 +1,6 @@
 function cargarModal(idMateria, aula, dia, modulo, hora, cuatrimestre, estado){
 
+    $("#editarModificar").val(idMateria);
     $("#editarAula").val(aula);
     $("#editarDia").val(dia);
     $("#editarModulo").val(modulo);

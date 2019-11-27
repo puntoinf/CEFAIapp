@@ -20,7 +20,27 @@
             $id = $fila['idMateria'];
             $materia = $consulta->getConsulta("SELECT * FROM `materia` WHERE idMateria = '$id'");
             foreach($materia as $fila2){
-                echo "<tr><td>".$fila['hora']."</td><td>".$fila2['nombre']."</td><td>".$fila['modulo']."</td></tr>";
+                switch ($fila['estado']) {
+                    case 'normal':
+                        $estadoActual = "<span class=\"badge badge-success\">Normal</span>";
+                    break;
+                    case 'cancelado':
+                        $estadoActual = "<span class=\"badge badge-danger\">Cancelado</span>";
+                    break;
+                    case 'parcial':
+                        $estadoActual = "<span class=\"badge badge-warning\">Parcial</span>";
+                    break;
+                    default:
+                        
+                    break;
+                }
+                echo "
+                <tr>
+                    <td>".$fila['hora']."</td>
+                    <td>".utf8_decode($fila2['nombre'])."</td>
+                    <td>".$fila['modulo']."</td>
+                    <td>".$estadoActual."</td>
+                </tr>";
             }
         }   
     }

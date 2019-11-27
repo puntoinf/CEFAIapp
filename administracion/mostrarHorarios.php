@@ -9,11 +9,12 @@ $materia = $_POST['materia'];
 
 //realizamos las consultas
 $consulta = new CONSULTA();
-$registros = $consulta->getConsulta("SELECT * FROM `dicta` WHERE idMateria = '$materia'");
+$sql = "SELECT * FROM `dicta` WHERE idMateria = '$materia'";
+$registros = $consulta->getConsulta($sql);
 
 if($registros){
 
-    echo "<table class=\"table\">
+    echo "<table class=\"table table-dark\">
             <thead>
                 <tr>
                     <th scope=\"col\">Materia</th>
@@ -35,6 +36,7 @@ if($registros){
         foreach($registrosMateria as $filaMateria){
             echo "<td scope=\"row\">".$filaMateria['nombre']."</td>";
         }
+
         switch ($fila['estado']) {
             case 'normal':
                 $estadoActual = "<span class=\"badge badge-success\">Normal</span>";
@@ -50,21 +52,23 @@ if($registros){
             break;
         }
             echo "  <td>".$fila['aula']."</td>
+                    <td>".$fila['dia']."</td>
                     <td>".$fila['modulo']."</td>
                     <td>".$fila['hora']."</td>
-                    <td>".$fila['dia']."</td>
                     <td>".$fila['cuatrimestre']."</td>
                     <td>".$estadoActual."</td>
                     <td>
-                        <button type=\"button\" class=\"close\" data-toggle=\"modal\" data-target=\"#exampleModal\" onclick=\"cargarModal('".$fila['idMateria']."', '".$fila['aula']."', '".$fila['dia']."', '".$fila['modulo']."', '".$fila['hora']."', '".$fila['cuatrimestre']."','".$fila['estado']."')\">
-                            <i class=\"material-icons\">
+                        <button type=\"button\" class=\"close\" data-toggle=\"modal\" data-target=\"#exampleModal2\" onclick=\"cargarModal('".$fila['idMateria']."', '".$fila['aula']."', '".$fila['dia']."', '".$fila['modulo']."', '".$fila['hora']."', '".$fila['cuatrimestre']."','".$fila['estado']."')\">
+                            <i class=\"material-icons md-light\">
                                 edit
                             </i>
                         </button>
                     </td>
                     <td>
                         <button type=\"button\" class=\"close\" aria-label=\"Close\" onclick=\"eliminar('".$fila['idMateria']."', '".$fila['aula']."', '".$fila['dia']."', '".$fila['modulo']."', '".$fila['hora']."', '".$fila['cuatrimestre']."')\">
-                            <span aria-hidden=\"true\">&times;</span>
+                            <i class=\"material-icons md-light\">
+                                 clear
+                            </i>
                         </button>
                     </td>
                 </tr>";
