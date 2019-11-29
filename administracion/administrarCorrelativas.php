@@ -213,6 +213,27 @@ require_once("../session.php");
                     });
                 }
             };
+
+            function eliminarCorrelativa(necesaria, disponible){
+                console.log(necesaria+" "+disponible);
+                var parametros = {
+                        "necesaria" : necesaria,
+                        "disponible" : disponible
+                };
+                console.log(parametros);
+                $.ajax({
+                        data:  parametros, //datos que se envian a traves de ajax
+                        url:   'removeCorrelativa.php', //archivo que recibe la peticion
+                        type:  'post', //método de envio
+                        beforeSend: function () {
+                            $("#respuesta").html("Procesando, espere por favor...");
+                        },
+                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                            $("#respuesta").html(response);
+                            buscar();
+                        }
+                });
+            }
         </script>
     </div>
 </body>

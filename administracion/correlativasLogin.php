@@ -29,7 +29,7 @@ if ($materiasNecesarias || $materiasDisponibles) {
                 foreach($SQLmaterias as $registro){
                     echo "<div class=\"card\" style=\"margin-bottom: 1%;\">
                             <div class=\"card-body\">
-                            <button type=\"button\" class=\"close\" aria-label=\"Close\">
+                            <button type=\"button\" class=\"close\" aria-label=\"Close\" onclick=\"eliminarCorrelativa('".$registro['idMateria']."','".$materia."')\">
                                 <span aria-hidden=\"true\">&times;</span>
                             </button>
                                 <p>".$registro['nombre']."</p>
@@ -58,7 +58,7 @@ if ($materiasNecesarias || $materiasDisponibles) {
                 foreach($SQLmaterias as $registro){
                     echo "<div class=\"card\" style=\"margin-bottom: 1%;\">
                             <div class=\"card-body\">
-                            <button type=\"button\" class=\"close\" aria-label=\"Close\">
+                            <button type=\"button\" class=\"close\" aria-label=\"Close\" onclick=\"eliminarCorrelativa('".$materia."','".$registro['idMateria']."')\">
                                 <span aria-hidden=\"true\">&times;</span>
                             </button>
                                 <p>".$registro['nombre']."</p>

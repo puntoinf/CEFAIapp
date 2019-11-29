@@ -14,6 +14,22 @@ $registros = $consulta->getConsulta($sql);
 
 if($registros){
 
+    echo "<table class=\"table\">
+            <thead>
+                <tr>
+                    <th scope=\"col\">Materia</th>
+                    <th scope=\"col\">Aula</th>
+                    <th scope=\"col\">Dia</th>
+                    <th scope=\"col\">Modulo</th>
+                    <th scope=\"col\">Hora</th>
+                    <th scope=\"col\">Cuatrimestre</th>
+                    <th scope=\"col\">Estado</th>
+                    <th scope=\"col\">Editar</th>
+                    <th scope=\"col\">Eliminar</th>
+                </tr>
+            </thead>
+        <tbody>";
+
     foreach($registros as $fila){
         echo "<tr>";
         $registrosMateria = $consulta->getConsulta("SELECT * FROM `materia` WHERE idMateria = '$materia'");
@@ -43,14 +59,14 @@ if($registros){
                     <td>".$estadoActual."</td>
                     <td>
                         <button type=\"button\" class=\"close\" data-toggle=\"modal\" data-target=\"#exampleModal2\" onclick=\"cargarModal('".$fila['idMateria']."', '".$fila['aula']."', '".$fila['dia']."', '".$fila['modulo']."', '".$fila['hora']."', '".$fila['cuatrimestre']."','".$fila['estado']."')\">
-                            <i class=\"material-icons\" name=\"iconEdit\">
+                            <i class=\"material-icons\">
                                 edit
                             </i>
                         </button>
                     </td>
                     <td>
                         <button type=\"button\" class=\"close\" aria-label=\"Close\" onclick=\"eliminar('".$fila['idMateria']."', '".$fila['aula']."', '".$fila['dia']."', '".$fila['modulo']."', '".$fila['hora']."', '".$fila['cuatrimestre']."')\">
-                            <i class=\"material-icons\" name=\"iconEliminar\">
+                            <i class=\"material-icons\">
                                  clear
                             </i>
                         </button>
