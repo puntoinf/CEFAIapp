@@ -37,7 +37,7 @@
                 echo "
                 <tr>
                     <td>".$fila['hora']."</td>
-                    <td>".utf8_decode($fila2['nombre'])."</td>
+                    <td>".$fila2['nombre']."</td>
                     <td>".$fila['modulo']."</td>
                     <td>".$estadoActual."</td>
                 </tr>";

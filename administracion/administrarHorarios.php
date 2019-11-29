@@ -27,9 +27,10 @@ require_once("../session.php");
     <script src="../js/bootstrap-datetimepicker.min.js"></script>
     <script src="../css/bootstrap-datetimepicker.min.css"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="../JS/darktheme.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg bg-light" id="nav">
         <a class="navbar-brand" href="#">
             <img src="../Media/Frame.png" alt="" class="logo" width="60px">
         </a>
@@ -55,7 +56,7 @@ require_once("../session.php");
             </ul>
         </div>
     </nav>
-    <div class="container">
+    <div class="container" id="contenedor">
         <h3>Horarios</h3>
         <div class="row">
             <div class="col-sm">
@@ -127,14 +128,14 @@ require_once("../session.php");
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item" aria-current="page">
                             <a class="btn" data-toggle="collapse" href="#pdfHorarioColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-                                <i class="material-icons">
+                                <i class="material-icons" id="iconPdf">
                                     picture_as_pdf
                                 </i>
                             </a>
                         </li>
                         <li class="breadcrumb-item">
                             <a class="btn" data-toggle="collapse" href="#addHorarioColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-                                <i class="material-icons">
+                                <i class="material-icons" id="iconAdd">
                                 add
                                 </i>
                             </a>
@@ -295,8 +296,25 @@ require_once("../session.php");
             </div>
         </div>
         <div class="row">
-            <div id="respuesta" class="col-sm" style="overflow: hidden;">
-                
+            <div class="col-sm" style="overflow: hidden;">
+                <table class="table" id="tabla">
+                    <thead>
+                        <tr>
+                            <th scope=\"col\">Materia</th>
+                            <th scope=\"col\">Aula</th>
+                            <th scope=\"col\">Dia</th>
+                            <th scope=\"col\">Modulo</th>
+                            <th scope=\"col\">Hora</th>
+                            <th scope=\"col\">Cuatrimestre</th>
+                            <th scope=\"col\">Estado</th>
+                            <th scope=\"col\">Editar</th>
+                            <th scope=\"col\">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="respuesta">
+
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>  
@@ -369,5 +387,6 @@ require_once("../session.php");
             </div>
         </div>
     </div>
+    <button onclick="darckOn()" id="darck">asd</button>
 </body>
 </html>
