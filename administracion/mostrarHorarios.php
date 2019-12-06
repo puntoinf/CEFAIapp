@@ -13,23 +13,6 @@ $sql = "SELECT * FROM `dicta` WHERE idMateria = '$materia'";
 $registros = $consulta->getConsulta($sql);
 
 if($registros){
-
-    echo "<table class=\"table\">
-            <thead>
-                <tr>
-                    <th scope=\"col\">Materia</th>
-                    <th scope=\"col\">Aula</th>
-                    <th scope=\"col\">Dia</th>
-                    <th scope=\"col\">Modulo</th>
-                    <th scope=\"col\">Hora</th>
-                    <th scope=\"col\">Cuatrimestre</th>
-                    <th scope=\"col\">Estado</th>
-                    <th scope=\"col\">Editar</th>
-                    <th scope=\"col\">Eliminar</th>
-                </tr>
-            </thead>
-        <tbody>";
-
     foreach($registros as $fila){
         echo "<tr>";
         $registrosMateria = $consulta->getConsulta("SELECT * FROM `materia` WHERE idMateria = '$materia'");
@@ -75,9 +58,11 @@ if($registros){
     }
 }else{
     echo "
+    <tr>
         <div class=\"alert alert-warning\" role=\"alert\">
             No hay registros en la base de datos
         </div>
+    </tr>
     ";
 }
 ?>

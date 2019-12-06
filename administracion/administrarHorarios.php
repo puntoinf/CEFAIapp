@@ -30,9 +30,9 @@ require_once("../session.php");
     <script src="../JS/darktheme.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-light" id="nav">
-        <a class="navbar-brand" href="#">
-            <img src="../Media/Frame.png" alt="" class="logo" width="60px">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
+        <a class="navbar-brand bg-light rounded " href="#" style="width: 60px;">
+            <img src="../Media/Frame.png" alt="" class="logo mx-auto d-block" width="30px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="material-icons">
@@ -52,6 +52,11 @@ require_once("../session.php");
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
+                <button class="btn" onclick="darckOn()" id="darck">
+                    <i class="material-icons">
+                        brightness_medium
+                    </i>
+                </button>
                 <a class="btn" href="">salir</a>
             </ul>
         </div>
@@ -387,6 +392,5 @@ require_once("../session.php");
             </div>
         </div>
     </div>
-    <button onclick="darckOn()" id="darck">asd</button>
 </body>
 </html>

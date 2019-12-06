@@ -56,7 +56,8 @@ function darckOn(){
     $(".breadcrumb").addClass("bg-secondary");
 
     //divs
-    $(".collapse").addClass("bg-secondary");
+    $("#pdfHorarioColapse").addClass("bg-secondary");
+    $("#addHorarioColapse").addClass("bg-secondary");
 
     //textos
     $("p").addClass("text-light");
