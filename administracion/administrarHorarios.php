@@ -150,14 +150,13 @@ require_once("../session.php");
 
                 <div class="collapse multi-collapse" id="pdfHorarioColapse">
                     <div class="card card-body">
-                        <form>
+                        <form action="pdf.php" method="POST">
                             <div class="form-group">
                                 <label for="carrerapdf">Carrera</label>
                                 <select id="carrerapdf" onchange="mostrarEnviarPdf();" class="form-control" name="carrerapdf">
                                     <option value="0">-</option>
-                                    <option value="1">Profesorado de Informatica</option>
-                                    <option value="2">Lic en Ciens de la Comp, Lic en Sis de la Inf</option>
-                                    <option value="4">TUDW, TUAsSisySl</option>
+                                    <option value="1">Lic en Ciens de la Comp, Lic en Sis de la Inf, Profesorado de Informatica</option>
+                                    <option value="2">TUDW, TUAsSisySl</option>
                                 </select>
                             </div>
                             <div class="form-group" id="send3" >
