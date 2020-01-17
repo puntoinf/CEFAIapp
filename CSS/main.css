@@ -1,5 +1,5 @@
 body{
-    background-image: url("../Media/Desktop.jpg");
+    background-image: url("../Media/Desktop.png");
     background-size: 100%;
     background-attachment: fixed;
 }
@@ -29,7 +29,7 @@ body{
 .pie{
     font-family: 'Space Mono', monospace;
 }
-#send{
+#send, #send2, #send3{
     visibility: hidden;
 }
 h3{
@@ -39,3 +39,9 @@ h3{
 label{
     font-size: 10pt;
 }
+
+table{
+    overflow:scroll;
+}
+
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }

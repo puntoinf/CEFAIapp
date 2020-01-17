@@ -31,6 +31,43 @@ function seleccionAño(){
             borrar("materia");
     break;
     }
+    document.getElementById("AñoBloque").setAttribute("style","visibility: visible;");
+}
+
+/**
+ * seleccion de años segun carrera en la seccion de horarios
+ */
+function seleccionAño2(){
+    borrar("materia2");
+    var carrera = document.getElementById("carrera2").value;
+    switch (carrera) {
+        //en caso de ser un profesorado
+        case "1":
+            cargaAños(añoProfesorado, 'año2');
+        break;
+        //en caso de ser lic. Cien
+        case "2":
+            cargaAños(añoLicenciatura, 'año2');
+        break;
+        //en caso de ser Lic. Sis
+        case "3":
+            cargaAños(añoLicenciatura, 'año2');
+        break;
+        //en caso de ser TUDW
+        case "4":
+            cargaAños(añoTecnicatura, 'año2');
+        break;
+        //en caso de ser TUASySL
+        case "5":
+            cargaAños(añoTecnicatura, 'año2');
+        break;
+        //en caso de ser cualquier otra cosa
+        default:
+            borrar("año2");
+            borrar("materia2");
+        break;
+    }
+    document.getElementById("AñoBloque2").setAttribute("style","visibility: visible;");
 }
 
 /**
@@ -62,10 +99,46 @@ function seleccionmateria(){
     }
 }
 /**
+ * seleccionamos materias de los años de la seccion de horarios
+ */
+function seleccionmateria2(){
+    var años = document.getElementById("año2").value;
+    var carrera = document.getElementById("carrera2").value;
+    //
+    switch(carrera){
+        case "1":
+            materiasProfesorado(años, "materia2");
+        break;
+        case "2":
+            materiasLicenciaturaCiencias(años,"materia2");
+        break;
+        case "3":
+            materiasLicenciaturaSistemas(años, "materia2")
+        break;
+        case "4":
+            materiasTUDW(años, "materia2");
+        break;
+        case "5":
+            materiasTUASySL(años, "materia2");
+        break;
+        default:
+            borrar("materia2");
+        break;
+    }
+}
+/**
  * mostrarEnviar, cuando se selecciona una materia se muestra el boton de envio
  */
 function mostrarEnviar(){
     document.getElementById("send").setAttribute("style","visibility: visible;");
+}
+
+function mostrarEnviar2(){
+    document.getElementById("send2").setAttribute("style","visibility: visible;");
+}
+
+function mostrarEnviarPdf(){
+    document.getElementById("send3").setAttribute("style","visibility: visible;");
 }
 /**
  * cargaAños, cargamos las materias de una carrera en un año seleccionado
@@ -84,5 +157,4 @@ function cargaAños(arreglo, input){
         opt.innerHTML = arreglo[i];
         select.appendChild(opt);
     }
-    document.getElementById(input).setAttribute("style","visibility: visible;");
 }
