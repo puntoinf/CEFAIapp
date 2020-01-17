@@ -1,6 +1,6 @@
 <?php
-    require_once("connecion.php");
-    require_once("consulta.php");
+    require_once("../connecion.php");
+    require_once("../consulta.php");
 
     $dia = $_POST['dia'];
     $carrera = $_POST['carrera'];
