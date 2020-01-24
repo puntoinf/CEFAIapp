@@ -330,13 +330,13 @@ require_once("../session.php");
                 <div class="modal-body">
                 <form action="">
                     <div class="form-group">
-                        <input type="hidden" id="editarModificarOriginal" name="editarModificarOriginal" />
-                        <input type="hidden" id="editarHoraOriginal" name="editarHoraOriginal" />
-                        <input type="hidden" id="editarDiaOriginal" name="editarDiaOriginal" />
-                        <input type="hidden" id="editarCuatrimestreOriginal" name="editarCuatrimestreOriginal" />
-                        <input type="hidden" id="editarAulaOriginal" name="editarAulaOriginal" />
-                        <input type="hidden" id="editarModuloOriginal" name="editarModuloOriginal" />
-                        <input type="hidden" id="editarEstadoOriginal" name="editarEstadoOriginal" />
+                        <input class="form-control" type="hidden" id="editarModificarOriginal" name="editarModificarOriginal" />
+                        <input class="form-control" type="hidden" id="editarHoraOriginal" name="editarHoraOriginal" />
+                        <input class="form-control" type="hidden" id="editarDiaOriginal" name="editarDiaOriginal" />
+                        <input class="form-control" type="hidden" id="editarCuatrimestreOriginal" name="editarCuatrimestreOriginal" />
+                        <input class="form-control" type="hidden" id="editarAulaOriginal" name="editarAulaOriginal" />
+                        <input class="form-control" type="hidden" id="editarModuloOriginal" name="editarModuloOriginal" />
+                        <input class="form-control" type="hidden" id="editarEstadoOriginal" name="editarEstadoOriginal" />
 
                         <input class="form-control" type="text" placeholder="" id="editarModificar">
                         <label for="">hora</label>
@@ -367,7 +367,7 @@ require_once("../session.php");
             </div>
             <script>
                 function hola(){
-                    console.log($('#editarModificar').val());
+                    console.log($('#editarModificarOriginal').val());
                 }
 
                 function editar() {

@@ -1,11 +1,5 @@
 function cargarModal(idMateria, aula, dia, modulo, hora, cuatrimestre, estado){
-
-    $("#editarModificar").val(idMateria);
-    $("#editarAula").val(aula);
-    $("#editarDia").val(dia);
-    $("#editarModulo").val(modulo);
-    $("#editarHora").val(hora);
-
+    //valores originales
     $("#editarModificarOriginal").val(idMateria);
     $("#editarHoraOriginal").val(hora);
     $("#editarDiaOriginal").val(dia);
@@ -13,6 +7,14 @@ function cargarModal(idMateria, aula, dia, modulo, hora, cuatrimestre, estado){
     $("#editarAulaOriginal").val(aula);
     $("#editarModuloOriginal").val(modulo);
     $("#editarEstadoOriginal").val(estado);
+
+
+    //valores para modificar
+    $("#editarModificar").val(idMateria);
+    $("#editarAula").val(aula);
+    $("#editarDia").val(dia);
+    $("#editarModulo").val(modulo);
+    $("#editarHora").val(hora);
 
     switch(cuatrimestre){
         case "1":
