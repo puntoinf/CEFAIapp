@@ -6,6 +6,14 @@ function cargarModal(idMateria, aula, dia, modulo, hora, cuatrimestre, estado){
     $("#editarModulo").val(modulo);
     $("#editarHora").val(hora);
 
+    $("#editarModificarOriginal").val(idMateria);
+    $("#editarHoraOriginal").val(hora);
+    $("#editarDiaOriginal").val(dia);
+    $("#editarCuatrimestreOriginal").val(cuatrimestre);
+    $("#editarAulaOriginal").val(aula);
+    $("#editarModuloOriginal").val(modulo);
+    $("#editarEstadoOriginal").val(estado);
+
     switch(cuatrimestre){
         case "1":
             console.log("1");

@@ -330,6 +330,14 @@ require_once("../session.php");
                 <div class="modal-body">
                 <form action="">
                     <div class="form-group">
+                        <input type="hidden" id="editarModificarOriginal" name="editarModificarOriginal" />
+                        <input type="hidden" id="editarHoraOriginal" name="editarHoraOriginal" />
+                        <input type="hidden" id="editarDiaOriginal" name="editarDiaOriginal" />
+                        <input type="hidden" id="editarCuatrimestreOriginal" name="editarCuatrimestreOriginal" />
+                        <input type="hidden" id="editarAulaOriginal" name="editarAulaOriginal" />
+                        <input type="hidden" id="editarModuloOriginal" name="editarModuloOriginal" />
+                        <input type="hidden" id="editarEstadoOriginal" name="editarEstadoOriginal" />
+
                         <input class="form-control" type="text" placeholder="" id="editarModificar">
                         <label for="">hora</label>
                         <input class="form-control" type="text" placeholder="" id="editarHora">  
@@ -355,9 +363,13 @@ require_once("../session.php");
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" onclick="editar()">Guardar Cambios</button>
+                <button type="button" class="btn btn-primary" onclick="hola()">Guardar Cambios</button>
             </div>
             <script>
+                function hola(){
+                    console.log($('#editarModificar').val());
+                }
+
                 function editar() {
                     var parametros = {
                         "materia" : $("#editarModificar").val(),
