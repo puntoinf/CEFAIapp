@@ -70,26 +70,23 @@ require_once("../session.php");
                         formulario de eleccion de carrera en las opciones de correlativas
                     -->
                     <div class="form-group">
-                        <label for="carrera">Carrera</label>
-                        <select id="carrera" onchange="seleccionAño();" class="form-control" >
-                            <option value="-">-</option>
-                            <option value="1">Profesorado de Informatica</option>
-                            <option value="2">Licenciatura en Ciencias de la Computación</option>
-                            <option value="3">Licenciatura en Sistemas de Información</option>
-                            <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
-                            <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
-                        </select>
-                    </div>
-                    <div class="form-group" id="AñoBloque">
-                        <label for="carrera">Año</label>
-                        <select id="año"  onchange="seleccionmateria();" class="form-control">
+                        <label for="dia">Dia</label>
+                        <select class="form-control" name="dia" id="dia" onchange=" mostrarEnviar()">
                             <option value="">-</option>
+                            <option value="lunes">Lunes</option>
+                            <option value="martes">Martes</option>
+                            <option value="miercoles">Miercoles</option>
+                            <option value="jueves">Jueves</option>
+                            <option value="viernes">Viernes</option>
+                            <option value="sabado">Sabado</option>
+                            <option value="domingo">Domingo</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="carrera">materia</label>
-                        <select id="materia" class="form-control" onchange="mostrarEnviar()">
-                            <option value="">-</option>
+                        <label for="cuatrimestre">Cuatrimestre</label>
+                        <select class="form-control" name="cuatrimestre" id="cuatrimestre" onchange=" mostrarEnviar()">
+                            <option value="1">1°</option>
+                            <option value="2">2°</option>
                         </select>
                     </div>
                     <div class="form-group" id="send">
@@ -100,14 +97,12 @@ require_once("../session.php");
                 <script>
                     function buscar() {
                         console.log("hola mundo");
-                        if ($( "#materia" ).val() == 0) {
+                        if ($( "#dia" ).val() == 0) {
                             
                         }else{
-                            $("#respuesta").empty();
-                            console.log(document.getElementById("carrera").value);
                             var parametros = {
-                                    "materia" : $( "#materia" ).val(),
-                                    "carrera" : $( "#carrera").val()
+                                    "dia" : $( "#dia" ).val(),
+                                    "cuatrimestre" : $(" #cuatrimestre").val()
                             };
                             $.ajax({
                                     data:  parametros, //datos que se envian a traves de ajax
@@ -335,11 +330,11 @@ require_once("../session.php");
                 <div class="modal-body">
                 <form action="">
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="" id="editarModificar" disabled>
+                        <input class="form-control" type="text" placeholder="" id="editarModificar">
                         <label for="">hora</label>
-                        <input class="form-control" type="text" placeholder="" id="editarHora" disabled>  
+                        <input class="form-control" type="text" placeholder="" id="editarHora">  
                         <label for="">dia</label>
-                        <input class="form-control" type="text" placeholder="" id="editarDia" disabled>
+                        <input class="form-control" type="text" placeholder="" id="editarDia">
                         <label for="">cuatrimestre</label>
                         <select class="form-control" id="editarCuatrimestre" disabled>
                             <option value="1">1°</option>

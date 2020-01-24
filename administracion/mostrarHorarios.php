@@ -5,17 +5,18 @@ require_once("../connecion.php");
 require_once("../consulta.php");
 
 //gurdamos la materia y la carrera
-$materia = $_POST['materia'];
+$dia = $_POST['dia'];
+$cuatrimestre = $_POST['cuatrimestre'];
 
 //realizamos las consultas
 $consulta = new CONSULTA();
-$sql = "SELECT * FROM `dicta` WHERE idMateria = '$materia'";
+$sql = "SELECT * FROM `dicta` WHERE dia = '$dia' AND cuatrimestre = '$cuatrimestre'";
 $registros = $consulta->getConsulta($sql);
 
 if($registros){
     foreach($registros as $fila){
         echo "<tr>";
-        $registrosMateria = $consulta->getConsulta("SELECT * FROM `materia` WHERE idMateria = '$materia'");
+        $registrosMateria = $consulta->getConsulta("SELECT * FROM `materia` WHERE idMateria = '".$fila['idMateria']."'");
         foreach($registrosMateria as $filaMateria){
             echo "<td scope=\"row\">".$filaMateria['nombre']."</td>";
         }
@@ -35,7 +36,6 @@ if($registros){
             break;
         }
             echo "  <td>".$fila['aula']."</td>
-                    <td>".$fila['dia']."</td>
                     <td>".$fila['modulo']."</td>
                     <td>".$fila['hora']."</td>
                     <td>".$fila['cuatrimestre']."</td>
