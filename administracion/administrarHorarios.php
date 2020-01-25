@@ -140,6 +140,13 @@ require_once("../session.php");
                                 </i>
                             </a>
                         </li>
+                        <li class="breadcrumb-item">
+                            <a class="btn" data-toggle="collapse" href="#addEventoColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                                <i class="material-icons">
+                                    post_add
+                                </i>
+                            </a>
+                        </li>
                     </ol>
                 </nav>
 
@@ -330,6 +337,7 @@ require_once("../session.php");
                 <div class="modal-body">
                 <form action="">
                     <div class="form-group">
+                        <!-- valores originales -->
                         <input class="form-control" type="hidden" id="editarModificarOriginal" name="editarModificarOriginal" />
                         <input class="form-control" type="hidden" id="editarHoraOriginal" name="editarHoraOriginal" />
                         <input class="form-control" type="hidden" id="editarDiaOriginal" name="editarDiaOriginal" />
@@ -337,14 +345,14 @@ require_once("../session.php");
                         <input class="form-control" type="hidden" id="editarAulaOriginal" name="editarAulaOriginal" />
                         <input class="form-control" type="hidden" id="editarModuloOriginal" name="editarModuloOriginal" />
                         <input class="form-control" type="hidden" id="editarEstadoOriginal" name="editarEstadoOriginal" />
-
-                        <input class="form-control" type="text" placeholder="" id="editarModificar">
+                        <!-- valores a modificar -->
+                        <input class="form-control" type="text" placeholder="" id="editarModificar" disebled>
                         <label for="">hora</label>
                         <input class="form-control" type="text" placeholder="" id="editarHora">  
                         <label for="">dia</label>
                         <input class="form-control" type="text" placeholder="" id="editarDia">
                         <label for="">cuatrimestre</label>
-                        <select class="form-control" id="editarCuatrimestre" disabled>
+                        <select class="form-control" id="editarCuatrimestre">
                             <option value="1">1°</option>
                             <option value="2">2°</option>
                         </select>
@@ -363,7 +371,7 @@ require_once("../session.php");
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" onclick="hola()">Guardar Cambios</button>
+                <button type="button" class="btn btn-primary" onclick="editar()">Guardar Cambios</button>
             </div>
             <script>
                 function hola(){
@@ -372,6 +380,14 @@ require_once("../session.php");
 
                 function editar() {
                     var parametros = {
+                        "materiaOriginal" : $("#editarModificarOriginal").val(),
+                        "aulaOriginal" :  $("#editarAulaOriginal").val(),
+                        "diaOriginal" :  $("#editarDiaOriginal").val(),
+                        "moduloOriginal" :  $("#editarModuloOriginal").val(),
+                        "horaOriginal" : $("#editarHoraOriginal").val(),
+                        "cuatrimestreOriginal": $("#editarCuatrimestreOriginal").val(),
+                        "estadoOriginal" : $("#editarEstadoOriginal").val(),
+
                         "materia" : $("#editarModificar").val(),
                         "aula" :  $("#editarAula").val(),
                         "dia" :  $("#editarDia").val(),
