@@ -42,3 +42,30 @@ function cargarModal(idMateria, aula, dia, modulo, hora, cuatrimestre, estado){
         break;
     }
 }
+
+function cargarModalEvento(nombre, dia, hora, aula, estado){
+    //valores originales
+    $("#editarEventoNombreOriginal").val(nombre);
+    $("#editarEventoHoraOriginal").val(hora);
+    $("#editarEventoDiaOriginal").val(dia);
+    $("#editarEventoAulaOriginal").val(aula);
+    $("#editarEventoEstadoOriginal").val(estado);
+
+
+    //valores para modificar
+    $("#editarEventoNombre").val(nombre);
+    $("#editarEventoHora").val(hora);
+    $("#editarEventoDia").val(dia);
+    $("#editarEventoAula").val(aula);
+
+    switch(estado){
+        case "normal":
+            console.log("normal");
+            $("#editarEventoEstado option:contains(Normal)").attr('selected', true);
+        break;
+        case "cancelado":
+            console.log("cancelado");
+            $("#editarEventoEstado option:contains(Candelado)").attr('selected', true);
+        break;
+    }
+}
