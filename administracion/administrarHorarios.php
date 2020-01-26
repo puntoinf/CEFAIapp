@@ -57,7 +57,7 @@ require_once("../session.php");
                         brightness_medium
                     </i>
                 </button>
-                <a class="btn" href="">salir</a>
+                <a class="btn" href="salir.php">salir</a>
             </ul>
         </div>
     </nav>
@@ -607,6 +607,29 @@ require_once("../session.php");
                 $.ajax({
                         data:  parametros, //datos que se envian a traves de ajax
                         url:   'removeHorario.php', //archivo que recibe la peticion
+                        type:  'post', //método de envio
+                        beforeSend: function () {
+                            $("#respuesta").html("Procesando, espere por favor...");
+                        },
+                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                            $("#respuesta").html(response);
+                            buscar();
+                        }
+                });
+            }
+
+            function eliminarEvento(nombre, dia, hora, aula, estado) {
+                var parametros = {
+                        "nombre" : nombre,
+                        "dia" : dia,
+                        "hora" : hora,
+                        "aula" : aula,
+                        "estado" : estado,
+                };
+                console.log(parametros);
+                $.ajax({
+                        data:  parametros, //datos que se envian a traves de ajax
+                        url:   'removeEvento.php', //archivo que recibe la peticion
                         type:  'post', //método de envio
                         beforeSend: function () {
                             $("#respuesta").html("Procesando, espere por favor...");

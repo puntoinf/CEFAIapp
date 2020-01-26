@@ -18,7 +18,7 @@ require_once("../consulta.php");
 
 //realizamos las consultas
 $consulta = new CONSULTA();
-$registros = $consulta->getConsulta("UPDATE `evento` SET `nombre`='$nombre',`dia`='$dia',`hora`='$hora',`aula`='$aula',`estado`='$estado' WHERE nombre = '$nombreOriginal' AND dia = '$diaOriginal' AND hora = '$horaOriginal' AND aula = '$aulaOriginal' estado = '$estadoOriginal'");
+$registros = $consulta->getConsulta("UPDATE `evento` SET `nombre`='$nombre',`dia`='$dia',`hora`='$hora',`aula`='$aula',`estado`='$estado' WHERE nombre = '$nombreOriginal' AND dia = '$diaOriginal' AND hora = '$horaOriginal' AND aula = '$aulaOriginal' AND estado = '$estadoOriginal'");
 
 if($registros){
     echo 1;

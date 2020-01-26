@@ -56,7 +56,7 @@ require_once("../session.php");
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
-                <a class="btn" href="">salir</a>
+                <a class="btn" href="salir.php">salir</a>
             </ul>
         </div>
     </nav>
