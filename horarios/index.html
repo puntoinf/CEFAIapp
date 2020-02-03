@@ -48,48 +48,32 @@
         <div class="collapse" id="formu">
             <form action="" class="">
                 <div class="form-group">
-                    <label for="carrera">Carrera</label>
-                    <select id="carrera" onchange="seleccionAño();" class="form-control" >
-                        <option value="0">-</option>
-                        <option value="1">Profesorado de Informatica</option>
-                        <option value="2">Licenciatura en Ciencias de la Computación</option>
-                        <option value="3">Licenciatura en Sistemas de Información</option>
-                        <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
-                        <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
-                    </select>
-                </div>
-                <div class="form-group" id="AñoBloque">
-                    <label for="carrera">Año</label>
-                    <select id="año" onchange="mostrarEnviar();" class="form-control">
+                    <label for="dia">Dia</label>
+                    <select id="dia" onchange="mostrarEnviar()" class="form-control" >
                         <option value="">-</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="">Dia</label>
-                    <select id="dia" class="form-control">
-                        <option value="-">-</option>
                         <option value="Lunes">Lunes</option>
                         <option value="Martes">Martes</option>
-                        <option value="Miercoles">Miercoles</option>
+                        <option value="Miercoles">Miércoles</option>
                         <option value="Jueves">Jueves</option>
                         <option value="Viernes">Viernes</option>
-                        <option value="Savado">Savado</option>
+                        <option value="Sabado">Sabado</option>
                     </select>
                 </div>
             </form>
             <div class="form-group" id="send">
-                    <button class="btn btn-ligth" onclick="filtrar();">
-                        Enviar
-                    </button>
-                </div>
+                <button class="btn btn-ligth" onclick="enviar('-');">
+                    Enviar
+                </button>
+            </div>
         </div>
         <div>
             <h3 id="hoy"></h3>
-            <table class="table">
+            <table class="table table-responsive">
                 <thead>
                     <tr>
                       <th scope="col">Hora</th>
                       <th scope="col">Materia</th>
+                      <th scope="col">Aula</th>
                       <th scope="col">Modulo</th>
                       <th scope="col">Estado</th>
                     </tr>
@@ -98,27 +82,55 @@
 
                 </tbody>
             </table>
+            <h3 >Eventos</h3>
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Hora</th>
+                      <th scope="col">Aula</th>
+                      <th scope="col">Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="horarioEvento">
+
+                </tbody>
+            </table>
         </div>
         <script>
-        function enviar(argDia, argCarrera, argAño){
-            $("#horario").empty();
-            console.log(document.getElementById("carrera").value);
-            var parametros = {
-                    "carrera" : argCarrera ,
-                    "año" : argAño,
+        function enviar(argDia){
+            if (argDia == "") {
+                argDia = "Lunes";
+            }else{
+                if(argDia == "-"){
+                    argDia = $("#dia").val();
+                }
+            }
+                var parametros = {
                     "dia" : argDia
-            };
-            $.ajax({
-                    data:  parametros, //datos que se envian a traves de ajax
-                    url:   'horarios.php', //archivo que recibe la peticion
-                    type:  'post', //método de envio
-                    beforeSend: function () {
-                            $("#horario").html("Procesando, espere por favor...");
-                    },
-                    success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                            $("#horario").html(response);
-                    }
-            });
+                };
+                $.ajax({
+                        data:  parametros, //datos que se envian a traves de ajax
+                        url:   'horarios.php', //archivo que recibe la peticion
+                        type:  'post', //método de envio
+                        beforeSend: function () {
+                                $("#horario").html("Procesando, espere por favor...");
+                        },
+                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                                $("#horario").html(response);
+                        }
+                });
+                $.ajax({
+                        data:  parametros, //datos que se envian a traves de ajax
+                        url:   'muestraEvento.php', //archivo que recibe la peticion
+                        type:  'post', //método de envio
+                        beforeSend: function () {
+                                $("#horarioEvento").html("Procesando, espere por favor...");
+                        },
+                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                                $("#horarioEvento").html(response);
+                        }
+                });
         };
         </script>
     </div>

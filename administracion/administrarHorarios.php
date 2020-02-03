@@ -28,6 +28,9 @@ require_once("../session.php");
     <script src="../css/bootstrap-datetimepicker.min.css"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="../JS/darktheme.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/timepicker@1.13.0/jquery.timepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/timepicker@1.13.0/jquery.timepicker.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
@@ -57,7 +60,7 @@ require_once("../session.php");
                         brightness_medium
                     </i>
                 </button>
-                <a class="btn" href="">salir</a>
+                <a class="btn" href="salir.php">salir</a>
             </ul>
         </div>
     </nav>
@@ -70,59 +73,29 @@ require_once("../session.php");
                         formulario de eleccion de carrera en las opciones de correlativas
                     -->
                     <div class="form-group">
-                        <label for="carrera">Carrera</label>
-                        <select id="carrera" onchange="seleccionAño();" class="form-control" >
-                            <option value="-">-</option>
-                            <option value="1">Profesorado de Informatica</option>
-                            <option value="2">Licenciatura en Ciencias de la Computación</option>
-                            <option value="3">Licenciatura en Sistemas de Información</option>
-                            <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
-                            <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
-                        </select>
-                    </div>
-                    <div class="form-group" id="AñoBloque">
-                        <label for="carrera">Año</label>
-                        <select id="año"  onchange="seleccionmateria();" class="form-control">
+                        <label for="dia">Dia</label>
+                        <select class="form-control" name="dia" id="dia" onchange=" mostrarEnviar()">
                             <option value="">-</option>
+                            <option value="lunes">Lunes</option>
+                            <option value="martes">Martes</option>
+                            <option value="miercoles">Miercoles</option>
+                            <option value="jueves">Jueves</option>
+                            <option value="viernes">Viernes</option>
+                            <option value="sabado">Sabado</option>
+                            <option value="domingo">Domingo</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="carrera">materia</label>
-                        <select id="materia" class="form-control" onchange="mostrarEnviar()">
-                            <option value="">-</option>
+                        <label for="cuatrimestre">Cuatrimestre</label>
+                        <select class="form-control" name="cuatrimestre" id="cuatrimestre" onchange=" mostrarEnviar()">
+                            <option value="1">1°</option>
+                            <option value="2">2°</option>
                         </select>
                     </div>
                     <div class="form-group" id="send">
                         <button type="button" class="btn btn-light border" onclick="buscar()">consultar</button>
                     </div>
                 </form>
-
-                <script>
-                    function buscar() {
-                        console.log("hola mundo");
-                        if ($( "#materia" ).val() == 0) {
-                            
-                        }else{
-                            $("#respuesta").empty();
-                            console.log(document.getElementById("carrera").value);
-                            var parametros = {
-                                    "materia" : $( "#materia" ).val(),
-                                    "carrera" : $( "#carrera").val()
-                            };
-                            $.ajax({
-                                    data:  parametros, //datos que se envian a traves de ajax
-                                    url:   'mostrarHorarios.php', //archivo que recibe la peticion
-                                    type:  'post', //método de envio
-                                    beforeSend: function () {
-                                            $("#respuesta").html("Procesando, espere por favor...");
-                                    },
-                                    success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                            $("#respuesta").html(response);
-                                    }
-                            });
-                        }
-                    };
-                </script>
 
             </div>
             <div class="col-sm">
@@ -132,16 +105,23 @@ require_once("../session.php");
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item" aria-current="page">
-                            <a class="btn" data-toggle="collapse" href="#pdfHorarioColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                            <a class="btn" data-toggle="collapse" href="#pdfHorarioColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" title="generar PDF">
                                 <i class="material-icons" id="iconPdf">
                                     picture_as_pdf
                                 </i>
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a class="btn" data-toggle="collapse" href="#addHorarioColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                            <a class="btn" data-toggle="collapse" href="#addHorarioColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" title="Agregar el Horario de una Materia">
                                 <i class="material-icons" id="iconAdd">
                                 add
+                                </i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a class="btn" data-toggle="collapse" href="#addHorarioEventoColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" title="Agregar el Horario de un Evento">
+                                <i class="material-icons">
+                                    post_add
                                 </i>
                             </a>
                         </li>
@@ -150,6 +130,12 @@ require_once("../session.php");
 
                 <div class="collapse multi-collapse" id="pdfHorarioColapse">
                     <div class="card card-body">
+                        <h6>Generar PDF</h6>
+
+                        <div class="alert alert-danger" role="alert">
+                            Seccion en Desarrollo
+                        </div>
+
                         <form action="pdf.php" method="POST">
                             <div class="form-group">
                                 <label for="carrerapdf">Carrera</label>
@@ -168,9 +154,11 @@ require_once("../session.php");
 
                 <div class="collapse multi-collapse" id="addHorarioColapse">
                     <div class="card card-body">
+                        <h6>Agregar Horario de Materia</h6>
+                        <div id="respuestaHorario"></div>
                         <form action="" class="form">
                             <div class="form-group">
-                                <label for="carrera">Carrera</label>
+                                <label for="carrera2">Carrera</label>
                                 <select id="carrera2" onchange="seleccionAño2();" class="form-control" required >
                                     <option value="-">-</option>
                                     <option value="1">Profesorado de Informática</option>
@@ -187,8 +175,8 @@ require_once("../session.php");
                                     <option value="">-</option>
                                 </select>
                                 <label for="materia2">Materia</label>
-                                <select id="materia2" class="form-control" onchange="mostrarEnviar2()">
-                                    <option value="">-</option>
+                                <select id="materia2" class="form-control" onchange="mostrarEnviar2();">
+                                    <option value="0">-</option>
                                 </select>
                                 <label for="carrera">Cuatrimestre</label>
                                 <select id="cuatrimestre" class="form-control" onchange="" required>
@@ -197,7 +185,7 @@ require_once("../session.php");
                                     <option value="2">2° Segundo</option>
                                 </select>
                                 <label for="carrera">Día</label>
-                                <select id="dia" class="form-control" onchange="" required>
+                                <select id="diahorario" class="form-control" onchange="" required>
                                     <option value="">-</option>
                                     <option value="Lunes">Lunes</option>
                                     <option value="Martes">Martes</option>
@@ -212,23 +200,18 @@ require_once("../session.php");
                                 <br>
                                 <label for="carrera">Aula</label>
                                 <input type="" class="form-control" id="aula" placeholder="Aula">
-                                <label for="hora">Hora</label>
+                                <label for="horainicio">Hora Inicio</label>
                                 <div class="md-form">
-                                    <input placeholder="Selected time" type="text" id="hora" class="form-control timepicker">
-                                    <label for="hora">Twelve hour clock</label>
+                                    <input placeholder="Selected time" type="text" id="horainicio" class="form-control timepicker">
+                                    <label for="horainicio">Twelve hour clock</label>
+                                </div>
+                                <label for="">Hora Fin</label>
+                                <div class="md-form">
+                                    <input placeholder="Selected time" type="text" id="horafin" class="form-control timepicker">
+                                    <label for="horafin">Twelve hour clock</label>
                                 </div>
                                 <script type="text/javascript">
-                                $('#hora').timepicker({
-                                    timeFormat: 'HH:mm ',
-                                    interval: 60,
-                                    minTime: '00:00',
-                                    maxTime: '23:59',
-                                    defaultTime: '00',
-                                    startTime: '00:00',
-                                    dynamic: false,
-                                    dropdown: true,
-                                    scrollbar: true
-                                });
+                                $('.timepicker').timepicker({ 'timeFormat': 'H:i:s' });
                                 // Time Picker Initialization
                                 </script>
                                 <br>
@@ -237,85 +220,87 @@ require_once("../session.php");
                                 </div>
                             </div>
                         </form>
-                        <script src="../JS/cargarModal.js"></script>
-                        <script>
-                            function cargar() {
-                                console.log("hola mundo");
-                                if ($( "#materia2" ).val() == 0) {
-                                    
-                                }else{
-                                    $("#respuesta").empty();
-                                    console.log(document.getElementById("carrera").value);
-                                    var parametros = {
-                                        "carrera" : $( "#carrera2").val(),
-                                        "materia" : $( "#materia2" ).val(),
-                                        "aula" : $("#aula").val(),
-                                        "dia" : $("#dia").val(),
-                                        "modulo" : $("#modulo").val(),
-                                        "hora" : $("#hora").val(),
-                                        "cuatrimestre": $("#cuatrimestre").val(),
-                                        "estado" : "normal"
-                                    };
-                                    $.ajax({
-                                            data:  parametros, //datos que se envian a traves de ajax
-                                            url:   'addHorario.php', //archivo que recibe la peticion
-                                            type:  'post', //método de envio
-                                            beforeSend: function () {
-                                                    $("#respuesta").html("Procesando, espere por favor...");
-                                            },
-                                            success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                                    $("#respuesta").html(response);
-                                                    buscar();
-                                            }
-                                    });
-                                }
-                            };
+                        <script src="../JS/cargarModal.js"></script>          
+                    </div>
+                </div>
 
-                            function eliminar(materia, aula, dia, modulo, hora, cuatrimestre) {
-                                var parametros = {
-                                        "materia" : materia,
-                                        "aula" : aula,
-                                        "dia" : dia,
-                                        "modulo" : modulo,
-                                        "hora" : hora,
-                                        "cuatrimestre": cuatrimestre
-                                };
-                                console.log(parametros);
-                                $.ajax({
-                                        data:  parametros, //datos que se envian a traves de ajax
-                                        url:   'removeHorario.php', //archivo que recibe la peticion
-                                        type:  'post', //método de envio
-                                        beforeSend: function () {
-                                            $("#respuesta").html("Procesando, espere por favor...");
-                                        },
-                                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                            $("#respuesta").html(response);
-                                            buscar();
-                                        }
-                                });
-                            }
-                        </script>            
+                <div class="collapse multi-collapse" id="addHorarioEventoColapse">
+                    <div class="card card-body">
+                        <h6>Agregar Horario de Evento</h6>
+                        <div id="respuestaEvento">
+                        
+                        </div>
+                        <form action="" class="form">
+                            <div class="form-group">
+                                <label for="nombreEvento">Nombre</label>
+                                <input type="text" name="nombreEvento" id="nombreEvento" class="form-control" placeholder="Nombre">
+                                <label for="diaEvento">Día</label>
+                                <select id="diaEvento" class="form-control" onchange="" required>
+                                    <option value="">-</option>
+                                    <option value="Lunes">Lunes</option>
+                                    <option value="Martes">Martes</option>
+                                    <option value="Miercoles">Miércoles</option>
+                                    <option value="Jueves">Jueves</option>
+                                    <option value="Viernes">Viernes</option>
+                                    <option value="Sabado">Sabado</option>
+                                </select>
+                                </br>
+                                <label for="aulaEvento">Aula</label>
+                                <input type="text" class="form-control" id="aulaEvento" placeholder="Aula">
+                                <label for="horaEvento">Hora</label>
+                                <div class="md-form">
+                                    <input placeholder="Selected time" type="text" id="horaEvento" class="form-control timepicker">
+                                    <label for="horaEvento">Twelve hour clock</label>
+                                </div>
+                                <script type="text/javascript">
+                                $('#horaEvento').timepicker({ 'timeFormat': 'H:i:s' });
+                                // Time Picker Initialization
+                                </script>
+                                <br>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-light border" onclick="cargarEvento();">Cargar</button>
+                            </div>
+                        </form>
+                        <script src="../JS/cargarModal.js"></script>            
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm" style="overflow: hidden;">
-                <table class="table" id="tabla">
-                    <thead>
+                <h3>Materias</h3>
+                <table class="table table-responsive w-auto" id="tabla">
+                    <thead class="w-100">
                         <tr>
-                            <th scope=\"col\">Materia</th>
-                            <th scope=\"col\">Aula</th>
-                            <th scope=\"col\">Dia</th>
-                            <th scope=\"col\">Modulo</th>
-                            <th scope=\"col\">Hora</th>
-                            <th scope=\"col\">Cuatrimestre</th>
-                            <th scope=\"col\">Estado</th>
-                            <th scope=\"col\">Editar</th>
-                            <th scope=\"col\">Eliminar</th>
+                            <th scope="col">Materia</th>
+                            <th scope="col">Aula</th>
+                            <th scope="col">Modulo</th>
+                            <th scope="col">Hora Inicio</th>
+                            <th scope="col">Hora Fin</th>
+                            <th scope="col">Cuatrimestre</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Editar</th>
+                            <th scope="col">Eliminar</th>
                         </tr>
                     </thead>
                     <tbody id="respuesta">
+
+                    </tbody>
+                </table>
+                <h3>Eventos</h3>      
+                <table class="table table-responsive w-auto" id="tabla">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Aula</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Editar</th>
+                            <th scope="col">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="respuestaEventoTabla">
 
                     </tbody>
                 </table>
@@ -335,13 +320,25 @@ require_once("../session.php");
                 <div class="modal-body">
                 <form action="">
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="" id="editarModificar" disabled>
-                        <label for="">hora</label>
-                        <input class="form-control" type="text" placeholder="" id="editarHora" disabled>  
+                        <!-- valores originales -->
+                        <input class="form-control" type="hidden" id="editarModificarOriginal" name="editarModificarOriginal" />
+                        <input class="form-control" type="hidden" id="editarHoraInicoOriginal" name="editarHoraInicoOriginal" />
+                        <input class="form-control" type="hidden" id="editarHoraFinOriginal" name="editarHoraFinOriginal" />
+                        <input class="form-control" type="hidden" id="editarDiaOriginal" name="editarDiaOriginal" />
+                        <input class="form-control" type="hidden" id="editarCuatrimestreOriginal" name="editarCuatrimestreOriginal" />
+                        <input class="form-control" type="hidden" id="editarAulaOriginal" name="editarAulaOriginal" />
+                        <input class="form-control" type="hidden" id="editarModuloOriginal" name="editarModuloOriginal" />
+                        <input class="form-control" type="hidden" id="editarEstadoOriginal" name="editarEstadoOriginal" />
+                        <!-- valores a modificar -->
+                        <input class="form-control" type="text" placeholder="" id="editarModificar" disebled>
+                        <label for="">hora inicio</label>
+                        <input class="form-control timepicker" type="text" placeholder="" id="editarHoraInicio">  
+                        <label for="">hora fin</label>
+                        <input class="form-control timepicker" type="text" placeholder="" id="editarHoraFin">  
                         <label for="">dia</label>
-                        <input class="form-control" type="text" placeholder="" id="editarDia" disabled>
+                        <input class="form-control" type="text" placeholder="" id="editarDia">
                         <label for="">cuatrimestre</label>
-                        <select class="form-control" id="editarCuatrimestre" disabled>
+                        <select class="form-control" id="editarCuatrimestre">
                             <option value="1">1°</option>
                             <option value="2">2°</option>
                         </select>
@@ -362,34 +359,52 @@ require_once("../session.php");
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <button type="button" class="btn btn-primary" onclick="editar()">Guardar Cambios</button>
             </div>
-            <script>
-                function editar() {
-                    var parametros = {
-                        "materia" : $("#editarModificar").val(),
-                        "aula" :  $("#editarAula").val(),
-                        "dia" :  $("#editarDia").val(),
-                        "modulo" :  $("#editarModulo").val(),
-                        "hora" : $("#editarHora").val(),
-                        "cuatrimestre": $("#editarCuatrimestre").val(),
-                        "estado" : $("#editarEstado").val()
-                    };
-                    console.log(parametros);
-                    $.ajax({
-                            data:  parametros, //datos que se envian a traves de ajax
-                            url:   'editHorario.php', //archivo que recibe la peticion
-                            type:  'post', //método de envio
-                            beforeSend: function () {
-                                $("#respuesta").html("Procesando, espere por favor...");
-                            },
-                            success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                $("#respuesta").html(response);
-                                buscar();
-                            }
-                    });
-                }
-            </script>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="exampleModalEvento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar Modal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <form action="">
+                    <div class="form-group">
+                        <!-- valores originales -->
+                        <input class="form-control" type="hidden" id="editarEventoNombreOriginal" name="editarEventoNombreOriginal" />
+                        <input class="form-control" type="hidden" id="editarEventoHoraOriginal" name="editarHoraOriginal" />
+                        <input class="form-control" type="hidden" id="editarEventoDiaOriginal" name="editarDiaOriginal" />
+                        <input class="form-control" type="hidden" id="editarEventoAulaOriginal" name="editarAulaOriginal" />
+                        <input class="form-control" type="hidden" id="editarEventoEstadoOriginal" name="editarEstadoOriginal" />
+                        <!-- valores a modificar -->
+                        <input class="form-control" type="text" placeholder="" id="editarEventoNombre" disebled>
+                        <label for="">hora</label>
+                        <input class="form-control" type="text" placeholder="" id="editarEventoHora">  
+                        <label for="">dia</label>
+                        <input class="form-control" type="text" placeholder="" id="editarEventoDia">
+                        <label for="">aula</label>
+                        <input class="form-control" type="text" placeholder="" id="editarEventoAula">           
+                        <label for="">estado</label>
+                        <select class="form-control" id="editarEventoEstado">
+                            <option value="cancelado">Cancelado</option>
+                            <option value="normal">Normal</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="editarEvento()">Guardar Cambios</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JS/administracion.js"></script>
 </body>
 </html>

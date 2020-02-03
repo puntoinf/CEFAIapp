@@ -2,8 +2,9 @@
 $materia = $_POST['materia'];
 $aula = $_POST['aula'];
 $dia = $_POST['dia'];
+$horainicio = $_POST['horainicio'];
+$horafin = $_POST['horafin'];
 $modulo = $_POST['modulo'];
-$hora = $_POST['hora'];
 $cuatrimestre = $_POST['cuatrimestre'];
 
 //conectamos a la base de datos y el TDA de consulta
@@ -12,7 +13,7 @@ require_once("../consulta.php");
 
 //realizamos las consultas
 $consulta = new CONSULTA();
-$registros = $consulta->getConsulta("DELETE FROM `dicta` WHERE idMateria = '$materia' AND aula = '$aula' AND dia = '$dia' AND modulo = '$modulo' AND hora = '$hora' AND cuatrimestre = '$cuatrimestre'");
+$registros = $consulta->getConsulta("DELETE FROM `dicta` WHERE idMateria = '$materia' AND aula = '$aula' AND dia = '$dia' AND modulo = '$modulo' AND horainicio = '$horainicio' AND horafin = '$horafin' AND cuatrimestre = '$cuatrimestre'");
 
 if($registros){
     echo 1;

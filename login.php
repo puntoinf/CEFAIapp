@@ -8,7 +8,6 @@ $contraseña = $_POST['contraseña'];
 $consulta = new CONSULTA();
 $registros = $consulta->getConsulta("SELECT usuario.pass FROM `usuario` WHERE usuario.usuario = '$usuario'");
 
-
 if($registros[0][0] == $contraseña){
     //creamos la session
     session_start();
