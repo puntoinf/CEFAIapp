@@ -695,6 +695,156 @@ INSERT INTO `final` (`necesaria`, `disponible`) VALUES
 -- finales TUDW:
 -- NULL
 
+-- dicta
+-- titulo intermedio
+-- 1°
+INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafin`, `cuatrimestre`, `estado`) VALUES
+('16', '40', 'Lunes', 'Teoría', '09:00:00', '12:00:00', '1', 'normal'),
+('16', '44', 'Miercoles', 'Práctica ', '09:00:00', '12:00:00', '1', 'normal'),
+('16', '40', 'Lunes', 'Teoría ', '14:00:00', '17:00:00', '1', 'normal'),
+('16', '44', 'Miercoles', 'Práctica ', '14:00:00', '17:00:00', '1', 'normal'),
+('17', 'Laboratorio 2 y 3', 'Martes', 'Práctica ', '09:00:00', '11:00:00', '1', 'normal'),
+('17', 'Laboratorio 1 y 2', 'Martes', 'Práctica ', '18:00:00', '20:00:00', '1', 'normal'),
+('17', '106', 'Jueves', 'Teoría ', '20:00:00', '22:00:00', '1', 'normal'),
+('18', '16', 'Lunes', 'Teoría ', '20:00:00', '22:00:00', '1', 'normal'),
+('18', '16', 'Miercoles', 'Práctica ', '20:00:00', '22:00:00', '1', 'normal'),
+('18', '24', 'Viernes', 'Práctica ', '18:00:00', '20:00:00', '1', 'normal'),
+('19', '16', 'Martes', 'Práctica ', '11:00:00', '13:00:00', '1', 'normal'),
+('19', '105', 'Viernes', 'Práctica ', '14:00:00', '16:00:00', '1', 'normal'),
+('19', '13', 'Viernes', 'Teoría ', '10:00:00', '12:00:00', '1', 'normal'),
+---
+('24', '41', 'Lunes', 'Teoría ', '13:00:00', '16:00:00', '1', 'normal'),
+('24', '41', 'Miercoles', 'Práctica ', '13:00:00', '16:00:00', '1', 'normal'),
+('25', 'Laboratorio 1 y 2 ', 'Lunes', 'Práctica ', '17:00:00', '19:00:00', '1', 'normal'),
+('25', 'Laboratorio 1 y 2 ', 'Miercoles', 'Práctica ', '11:00:00', '13:00:00', '1', 'normal'),
+('25', 'Laboratorio 1 y 2', 'Viernes', 'Práctica', '14:00:00', '16:00:00', '1', 'normal'),
+('25', '45', 'Miercoles', 'Teoría ', '09:30:00', '11:30:00', '1', 'normal'),
+('26', '6', 'Lunes', 'Teoría ', '09:00:00', '12:00:00', '1', 'normal'),
+('26', 'Laboratorio 1 y 3', 'Viernes', 'Práctica ', '09:00:00', '12:00:00', '1', 'normal'),
+('27', '102', 'Jueves', 'Teoría ', '14:00:00', '16:00:00', '1', 'normal'),
+('27', '102', 'Jueves', 'Práctica ', '17:00:00', '19:00:00', '1', 'normal'),
+('28', '45', 'Martes', 'Teoría/Práctica ', '10:00:00', '12:00:00', '1', 'normal'),
+---
+('35', '53', 'Lunes', 'Teoría ', '09:00:00', '12:00:00', '1', 'normal'),
+('35', '101', 'Jueves', 'Práctica ', '09:00:00', '12:00:00', '1', 'normal'),
+('36', 'Laboratorio 1', 'Miercoles', 'Práctica - M1', '16:00:00', '18:00:00', '1', 'normal'),
+('36', '105', 'Miercoles', 'Práctica - M2', '18:00:00', '20:00:00', '1', 'normal'),
+('36', '105', 'Viernes', 'Teoría ', '12:00:00', '14:00:00', '1', 'normal'),
+('37', '101', 'Martes', 'Teoría ', '16:00:00', '18:00:00', '1', 'normal'),
+('37', '101', 'Jueves', 'Práctica ', '16:00:00', '18:00:00', '1', 'normal'),
+('38', 'Laboratorio 3', 'Martes', 'Práctica ', '18:00:00', '20:00:00', '1', 'normal'),
+('38', '53', 'Miercoles', 'Teoría ', '10:00:00', '12:00:00', '1', 'normal'),
+('39', '45', 'Jueves', 'Práctica ', '18:00:00', '20:00:00', '1', 'normal'),
+('39', '102', 'Viernes', 'Teoría ', '10:00:00', '12:00:00', '1', 'normal'),
+--- recursados
+('21', '41', 'Martes', 'Unico', '09:00:00', '12:00:00', '1', 'normal'),
+('21', '41', 'Jueves', 'Unico', '09:00:00', '12:00:00', '1', 'normal'),
+('20', 'Laboratorio 3', 'Miercoles', 'Unico', '08:00:00', '10:00:00', '1', 'normal'),
+('20', 'Laboratorio 3', 'Miercoles', 'Practica', '10:00:00', '12:30:00', '1', 'normal'),
+('20', ' Laboratorio 2', 'Lunes', 'Practica', '11:00:00', '13:00:00', '1', 'normal');
+
+
+-- 2°
+
+-- LCC
+-- 1°
+INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafin`, `cuatrimestre`, `estado`) VALUES
+('51', 'Laboratorio 1', 'Lunes', 'Unico', '10:00:00', '13:30:00', '1', 'normal'),
+('55', 'Laboratorio 1', 'Lunes', 'Unico', '14:00:00', '16:00:00', '1', 'normal'),
+('57', 'Consejo Directivo FaI', 'Martes', 'Teoria', '18:00:00', '21:00:00', '1', 'normal'),
+('56', 'Consejo Directivo FaI', 'Miercoles', 'Unico', '09:00:00', '12:00:00', '1', 'normal'),
+('51', 'Laboratorio 3', 'Miercoles', 'Unico', '13:00:00', '16:00:00', '1', 'normal'),
+('56', 'Aula 5 – FAEA', 'Jueves', 'Unico', '09:00:00', '12:00:00', '1', 'normal'),
+('55', 'Laboratorio 3', 'Jueves', 'Unico', '14:00:00', '16:00:00', '1', 'normal'),
+('55', 'Laboratorio 1', 'Viernes', 'Unico', '16:00:00', '18:00:00', '1', 'normal'),
+('57', 'Consejo Directivo FAI', 'Viernes', 'Practica ', '18:00:00', '21:00:00', '1', 'normal'),
+---
+('53', 'Laboratorio 3', 'Lunes', 'Practica', '16:00:00', '18:00:00', '1', 'normal'),
+('63', 'Laboratorio 1', 'Martes', 'Unico', '13:00:00', '15:00:00', '1', 'normal'),
+('63', 'Laboratorio Biblioteca', 'Martes', 'Unico', '15:00:00', '17:00:00', '1', 'normal'),
+('53', 'Consejo Directivo FaI', 'Miercoles', 'Teoría ', '16:00:00', '18:00:00', '1', 'normal'),
+('54', 'Consejo Directivo FaI', 'Miercoles', 'Unico ', '18:00:00', '20:00:00', '1', 'normal'),
+('62', 'Laboratorio 1', 'Jueves', 'Unico ', '14:00:00', '18:00:00', '1', 'normal'),
+('54', 'Laboratorio 1', 'Jueves', 'Unico ', '18:00:00', '20:00:00', '1', 'normal');
+
+
+-- 2°
+
+-- LSI
+-- 1°
+INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafin`, `cuatrimestre`, `estado`) VALUES
+('71', 'Aula 13.1', 'Lunes', 'Unico', '17:00:00', '21:00:00', '1', 'normal'),
+('74', 'Consejo Directivo FaI', 'Martes', 'Unico', '14:00:00', '18:00:00', '1', 'normal'),
+('72', 'Consejo Directivo FaEA', 'Martes', 'Practica', '18:00:00', '20:00:00', '1', 'normal'),
+('73', 'Consejo Directivo FaI', 'Jueves', 'Teoría', '10:00:00', '13:00:00', '1', 'normal'),
+('72', 'Consejo Directivo FaI', 'Jueves', 'Teoría', '14:00:00', '16:00:00', '1', 'normal'),
+('73', 'Consejo Directivo FaI', 'Jueves', 'Practica ', '18:00:00', '21:00:00', '1', 'normal'),
+---
+('80', 'Aula 101', 'Martes', 'Practica ', '14:00:00', '16:00:00', '1', 'normal'),
+('80', 'Consejo Directivo FaEA', 'Martes', 'Teoría ', '16:00:00', '18:00:00', '1', 'normal'),
+('79', 'Consejo Directivo FaI', 'Viernes', 'Unico', '14:00:00', '18:00:00', '1', 'normal'),
+('54', 'Consejo Directivo FaI', 'Miercoles', 'Unico', '18:00:00', '20:00:00', '1', 'normal');
+
+-- 2° 
+
+-- Prof
+-- 1°
+INSERT INTO `dicta`(`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafin`, `cuatrimestre`, `estado`) VALUES 
+('102','40','Jueves','Teórico','18:00:00', '21:00:00', '1', 'normal'),
+('102','44','Miercoles','Prácticas','17:00:00', '20:00:00', '1', 'normal'),
+('102','40','Martes','Prácticas','19:00:00', '22:00:00', '1', 'normal'),
+('102','40','Martes','Prácticas','08:00:00', '11:00:00', '1', 'normal'),
+--
+('107','40','Miercoles','Teórico','14:00:00', '16:00:00', '1', 'normal'),
+('107',' Aula 8 – subsuelo – Facultad de Ingeniería','Lunes','Prácticas','09:00:00', '12:00:00', '1', 'normal'),
+('107','Aula 21 – Facultad de Humanidades','Miercoles','Prácticas','16:00:00', '18:00:00', '1', 'normal'),
+---
+('109','53','Lunes','Unico','09:00:00', '12:00:00', '1', 'normal'),
+('111','Oficina 9','Martes','Unico','18:00:00', '21:00:00', '1', 'normal'),
+('109','101','Jueves','Unico','09:00:00', '12:00:00', '1', 'normal'),
+('111','Oficina 9','Jueves','Unico','18:00:00', '21:00:00', '1', 'normal'),
+('112','Aula 6 – Facultad de Economía y Administración','Lunes','Teórico','17:30:00', '20:30:00', '1', 'normal'),
+('112','Aula 21 – Facultad de Humanidades','Miercoles','Prácticas','18:00:00', '21:00:00', '1', 'normal'),
+('112','Aula 2 – Planta Alta – Facultad de Ingeniería','Miercoles','Prácticas','16:00:00', '19:00:00', '1', 'normal'),
+
+-- 2°
+
+-- TUDW
+-- 1°
+INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafin`, `cuatrimestre`, `estado`) VALUES
+('92', 'Aula Informática Biblioteca', 'Martes', 'Unico', '17:00:00', '21:00:00', '1', 'normal'),
+('93', 'Laboratorio II', 'Miercoles', 'Unico', '14:00:00', '18:00:00', '1', 'normal'),
+('94', 'Laboratorio III', 'Jueves', 'Unico', '16:00:00', '20:00:00', '1', 'normal'),
+('93', 'Laboratorio III', 'Viernes', 'Unico', '15:00:00', '17:00:00', '1', 'normal'),
+('92', 'Laboratorio III', 'Viernes', 'Unico', '17:00:00', '21:00:00', '1', 'normal'),
+---
+('98', 'Aula Informática Biblioteca', 'Lunes', 'Unico', '15:00:00', '21:00:00', '1', 'normal'),
+('99', 'Laboratorio III', 'Martes', 'Unico', '15:00:00', '18:00:00', '1', 'normal'),
+('99', 'Aula Informática Biblioteca', 'Jueves', 'Unico', '15:00:00', '18:00:00', '1', 'normal'),
+('98', 'Aula Informática Biblioteca', 'Jueves', 'Unico', '18:00:00', '20:00:00', '1', 'normal');
+
+-- 2°
+
+-- TUASySL
+-- 1°
+INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafin`, `cuatrimestre`, `estado`) VALUES
+('6', 'Laboratorio III', 'Lunes', 'Unico', '18:00:00', '22:00:00', '1', 'normal'),
+('6', 'Laboratorio II', 'Jueves', 'Unico', '15:00:00', '18:00:00', '1', 'normal'),
+('5', 'Aula Informática Biblioteca ', 'Jueves', 'Unico', '20:00:00', '22:00:00', '1', 'normal'),
+('4', 'Aula Informática Biblioteca ', 'Viernes', 'Unico', '16:00:00', '19:00:00', '1', 'normal'),
+('5', 'Aula Informática Biblioteca ', 'Viernes', 'Unico', '19:00:00', '21:00:00', '1', 'normal'),
+('4', 'Laboratorio III ', 'Miercoles', 'Unico', '16:00:00', '20:00:00', '1', 'normal'),
+---
+('11', 'CD FaI', 'Lunes', 'Unico', '15:00:00', '18:00:00', '1', 'normal'),
+('10', 'Laboratorio I', 'Martes', 'Unico', '15:00:00', '18:00:00', '1', 'normal'),
+('10', 'Aula Informática Biblioteca', 'Miercoles', 'Unico', '15:00:00', '18:00:00', '1', 'normal'),
+('12', 'Aula Informática Biblioteca', 'Miercoles', 'Unico', '18:00:00', '20:00:00', '1', 'normal'),
+('11', '40', 'Jueves', 'Unico', '15:00:00', '18:00:00', '1', 'normal'),
+('12', 'Laboratorio II', 'Viernes', 'Unico', '16:00:00', '18:00:00', '1', 'normal');
+
+-- 2°
+
+
 --
 -- Indexes for dumped tables
 --

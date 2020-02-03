@@ -28,6 +28,9 @@ require_once("../session.php");
     <script src="../css/bootstrap-datetimepicker.min.css"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="../JS/darktheme.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/timepicker@1.13.0/jquery.timepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/timepicker@1.13.0/jquery.timepicker.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
@@ -152,9 +155,10 @@ require_once("../session.php");
                 <div class="collapse multi-collapse" id="addHorarioColapse">
                     <div class="card card-body">
                         <h6>Agregar Horario de Materia</h6>
+                        <div id="respuestaHorario"></div>
                         <form action="" class="form">
                             <div class="form-group">
-                                <label for="carrera">Carrera</label>
+                                <label for="carrera2">Carrera</label>
                                 <select id="carrera2" onchange="seleccionAño2();" class="form-control" required >
                                     <option value="-">-</option>
                                     <option value="1">Profesorado de Informática</option>
@@ -171,8 +175,8 @@ require_once("../session.php");
                                     <option value="">-</option>
                                 </select>
                                 <label for="materia2">Materia</label>
-                                <select id="materia2" class="form-control" onchange="mostrarEnviar2()">
-                                    <option value="">-</option>
+                                <select id="materia2" class="form-control" onchange="mostrarEnviar2();">
+                                    <option value="0">-</option>
                                 </select>
                                 <label for="carrera">Cuatrimestre</label>
                                 <select id="cuatrimestre" class="form-control" onchange="" required>
@@ -181,7 +185,7 @@ require_once("../session.php");
                                     <option value="2">2° Segundo</option>
                                 </select>
                                 <label for="carrera">Día</label>
-                                <select id="dia" class="form-control" onchange="" required>
+                                <select id="diahorario" class="form-control" onchange="" required>
                                     <option value="">-</option>
                                     <option value="Lunes">Lunes</option>
                                     <option value="Martes">Martes</option>
@@ -196,23 +200,18 @@ require_once("../session.php");
                                 <br>
                                 <label for="carrera">Aula</label>
                                 <input type="" class="form-control" id="aula" placeholder="Aula">
-                                <label for="hora">Hora</label>
+                                <label for="horainicio">Hora Inicio</label>
                                 <div class="md-form">
-                                    <input placeholder="Selected time" type="text" id="hora" class="form-control timepicker">
-                                    <label for="hora">Twelve hour clock</label>
+                                    <input placeholder="Selected time" type="text" id="horainicio" class="form-control timepicker">
+                                    <label for="horainicio">Twelve hour clock</label>
+                                </div>
+                                <label for="">Hora Fin</label>
+                                <div class="md-form">
+                                    <input placeholder="Selected time" type="text" id="horafin" class="form-control timepicker">
+                                    <label for="horafin">Twelve hour clock</label>
                                 </div>
                                 <script type="text/javascript">
-                                $('#hora').timepicker({
-                                    timeFormat: 'HH:mm ',
-                                    interval: 60,
-                                    minTime: '00:00',
-                                    maxTime: '23:59',
-                                    defaultTime: '00',
-                                    startTime: '00:00',
-                                    dynamic: false,
-                                    dropdown: true,
-                                    scrollbar: true
-                                });
+                                $('.timepicker').timepicker({ 'timeFormat': 'H:i:s' });
                                 // Time Picker Initialization
                                 </script>
                                 <br>
@@ -221,90 +220,7 @@ require_once("../session.php");
                                 </div>
                             </div>
                         </form>
-                        <script src="../JS/cargarModal.js"></script>
-                        <script>
-                            function cargar() {
-                                console.log("hola mundo");
-                                if ($( "#materia2" ).val() == 0) {
-                                    
-                                }else{
-                                    $("#respuesta").empty();
-                                    console.log(document.getElementById("carrera").value);
-                                    var parametros = {
-                                        "carrera" : $( "#carrera2").val(),
-                                        "materia" : $( "#materia2" ).val(),
-                                        "aula" : $("#aula").val(),
-                                        "dia" : $("#dia").val(),
-                                        "modulo" : $("#modulo").val(),
-                                        "hora" : $("#hora").val(),
-                                        "cuatrimestre": $("#cuatrimestre").val(),
-                                        "estado" : "normal"
-                                    };
-                                    $.ajax({
-                                            data:  parametros, //datos que se envian a traves de ajax
-                                            url:   'addHorario.php', //archivo que recibe la peticion
-                                            type:  'post', //método de envio
-                                            beforeSend: function () {
-                                                    $("#respuesta").html("Procesando, espere por favor...");
-                                            },
-                                            success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                                    $("#respuesta").html(response);
-                                                    buscar();
-                                            }
-                                    });
-                                }
-                            };
-
-                            function cargarEvento() {
-                                var parametros = {
-                                    "carrera" : $( "#carrera2").val(),
-                                    "materia" : $( "#materia2" ).val(),
-                                    "aula" : $("#aula").val(),
-                                    "dia" : $("#dia").val(),
-                                    "modulo" : $("#modulo").val(),
-                                    "hora" : $("#hora").val(),
-                                    "cuatrimestre": $("#cuatrimestre").val(),
-                                    "estado" : "normal"
-                                };
-                                $.ajax({
-                                        data:  parametros, //datos que se envian a traves de ajax
-                                        url:   'addHorario.php', //archivo que recibe la peticion
-                                        type:  'post', //método de envio
-                                        beforeSend: function () {
-                                                $("#respuesta").html("Procesando, espere por favor...");
-                                        },
-                                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                                $("#respuesta").html(response);
-                                                buscar();
-                                        }
-                                });
-                                
-                            };
-
-                            function eliminar(materia, aula, dia, modulo, hora, cuatrimestre) {
-                                var parametros = {
-                                        "materia" : materia,
-                                        "aula" : aula,
-                                        "dia" : dia,
-                                        "modulo" : modulo,
-                                        "hora" : hora,
-                                        "cuatrimestre": cuatrimestre
-                                };
-                                console.log(parametros);
-                                $.ajax({
-                                        data:  parametros, //datos que se envian a traves de ajax
-                                        url:   'removeHorario.php', //archivo que recibe la peticion
-                                        type:  'post', //método de envio
-                                        beforeSend: function () {
-                                            $("#respuesta").html("Procesando, espere por favor...");
-                                        },
-                                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                            $("#respuesta").html(response);
-                                            buscar();
-                                        }
-                                });
-                            }
-                        </script>            
+                        <script src="../JS/cargarModal.js"></script>          
                     </div>
                 </div>
 
@@ -337,17 +253,7 @@ require_once("../session.php");
                                     <label for="horaEvento">Twelve hour clock</label>
                                 </div>
                                 <script type="text/javascript">
-                                $('#horaEvento').timepicker({
-                                    timeFormat: 'HH:mm ',
-                                    interval: 60,
-                                    minTime: '00:00',
-                                    maxTime: '23:59',
-                                    defaultTime: '00',
-                                    startTime: '00:00',
-                                    dynamic: false,
-                                    dropdown: true,
-                                    scrollbar: true
-                                });
+                                $('#horaEvento').timepicker({ 'timeFormat': 'H:i:s' });
                                 // Time Picker Initialization
                                 </script>
                                 <br>
@@ -364,13 +270,14 @@ require_once("../session.php");
         <div class="row">
             <div class="col-sm" style="overflow: hidden;">
                 <h3>Materias</h3>
-                <table class="table" id="tabla">
-                    <thead>
+                <table class="table table-responsive w-auto" id="tabla">
+                    <thead class="w-100">
                         <tr>
                             <th scope="col">Materia</th>
                             <th scope="col">Aula</th>
                             <th scope="col">Modulo</th>
-                            <th scope="col">Hora</th>
+                            <th scope="col">Hora Inicio</th>
+                            <th scope="col">Hora Fin</th>
                             <th scope="col">Cuatrimestre</th>
                             <th scope="col">Estado</th>
                             <th scope="col">Editar</th>
@@ -382,7 +289,7 @@ require_once("../session.php");
                     </tbody>
                 </table>
                 <h3>Eventos</h3>      
-                <table class="table" id="tabla">
+                <table class="table table-responsive w-auto" id="tabla">
                     <thead>
                         <tr>
                             <th scope="col">Nombre</th>
@@ -415,7 +322,8 @@ require_once("../session.php");
                     <div class="form-group">
                         <!-- valores originales -->
                         <input class="form-control" type="hidden" id="editarModificarOriginal" name="editarModificarOriginal" />
-                        <input class="form-control" type="hidden" id="editarHoraOriginal" name="editarHoraOriginal" />
+                        <input class="form-control" type="hidden" id="editarHoraInicoOriginal" name="editarHoraInicoOriginal" />
+                        <input class="form-control" type="hidden" id="editarHoraFinOriginal" name="editarHoraFinOriginal" />
                         <input class="form-control" type="hidden" id="editarDiaOriginal" name="editarDiaOriginal" />
                         <input class="form-control" type="hidden" id="editarCuatrimestreOriginal" name="editarCuatrimestreOriginal" />
                         <input class="form-control" type="hidden" id="editarAulaOriginal" name="editarAulaOriginal" />
@@ -423,8 +331,10 @@ require_once("../session.php");
                         <input class="form-control" type="hidden" id="editarEstadoOriginal" name="editarEstadoOriginal" />
                         <!-- valores a modificar -->
                         <input class="form-control" type="text" placeholder="" id="editarModificar" disebled>
-                        <label for="">hora</label>
-                        <input class="form-control" type="text" placeholder="" id="editarHora">  
+                        <label for="">hora inicio</label>
+                        <input class="form-control timepicker" type="text" placeholder="" id="editarHoraInicio">  
+                        <label for="">hora fin</label>
+                        <input class="form-control timepicker" type="text" placeholder="" id="editarHoraFin">  
                         <label for="">dia</label>
                         <input class="form-control" type="text" placeholder="" id="editarDia">
                         <label for="">cuatrimestre</label>
@@ -495,204 +405,6 @@ require_once("../session.php");
         </div>
     </div>
 
-    <script>
-            function buscar() {
-                console.log("hola mundo");
-                if ($( "#dia" ).val() == 0) {
-                    
-                }else{
-                    var parametros = {
-                            "dia" : $( "#dia" ).val(),
-                            "cuatrimestre" : $(" #cuatrimestre").val()
-                    };
-                    $.ajax({
-                            data:  parametros, //datos que se envian a traves de ajax
-                            url:   'mostrarHorarios.php', //archivo que recibe la peticion
-                            type:  'post', //método de envio
-                            beforeSend: function () {
-                                    $("#respuesta").html("Procesando, espere por favor...");
-                            },
-                            success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                    $("#respuesta").html(response);
-                            }
-                    });
-                    $.ajax({
-                            data:  parametros, //datos que se envian a traves de ajax
-                            url:   'mostrarEvento.php', //archivo que recibe la peticion
-                            type:  'post', //método de envio
-                            beforeSend: function () {
-                                    $("#respuestaEventoTabla").html("Procesando, espere por favor...");
-                            },
-                            success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                    $("#respuestaEventoTabla").html(response);
-                            }
-                    });
-                }
-            };
-
-            function hola(){
-                console.log($('#editarModificarOriginal').val());
-            }
-
-            function editar() {
-                var parametros = {
-                    "materiaOriginal" : $("#editarModificarOriginal").val(),
-                    "aulaOriginal" :  $("#editarAulaOriginal").val(),
-                    "diaOriginal" :  $("#editarDiaOriginal").val(),
-                    "moduloOriginal" :  $("#editarModuloOriginal").val(),
-                    "horaOriginal" : $("#editarHoraOriginal").val(),
-                    "cuatrimestreOriginal": $("#editarCuatrimestreOriginal").val(),
-                    "estadoOriginal" : $("#editarEstadoOriginal").val(),
-                    "materia" : $("#editarModificar").val(),
-                    "aula" :  $("#editarAula").val(),
-                    "dia" :  $("#editarDia").val(),
-                    "modulo" :  $("#editarModulo").val(),
-                    "hora" : $("#editarHora").val(),
-                    "cuatrimestre": $("#editarCuatrimestre").val(),
-                    "estado" : $("#editarEstado").val()
-                };
-                console.log(parametros);
-                $.ajax({
-                        data:  parametros, //datos que se envian a traves de ajax
-                        url:   'editHorario.php', //archivo que recibe la peticion
-                        type:  'post', //método de envio
-                        beforeSend: function () {
-                            $("#respuesta").html("Procesando, espere por favor...");
-                        },
-                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                            $("#respuesta").html(response);
-                            buscar();
-                        }
-                });
-            }
-
-            function editarEvento(){
-                var parametros = {
-                    "nombreOriginal" : $("#editarEventoNombreOriginal").val(),
-                    "aulaOriginal" :  $("#editarEventoAulaOriginal").val(),
-                    "diaOriginal" :  $("#editarEventoDiaOriginal").val(),
-                    "horaOriginal" : $("#editarEventoHoraOriginal").val(),
-                    "estadoOriginal" : $("#editarEventoEstadoOriginal").val(),
-                    "nombre" : $("#editarEventoNombre").val(),
-                    "aula" :  $("#editarEventoAula").val(),
-                    "dia" :  $("#editarEventoDia").val(),
-                    "hora" : $("#editarEventoHora").val(),
-                    "estado" : $("#editarEventoEstado").val()
-                };
-                console.log(parametros);
-                $.ajax({
-                        data:  parametros, //datos que se envian a traves de ajax
-                        url:   'editEvento.php', //archivo que recibe la peticion
-                        type:  'post', //método de envio
-                        beforeSend: function () {
-                            $("#respuesta").html("Procesando, espere por favor...");
-                        },
-                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                            $("#respuesta").html(response);
-                            buscar();
-                        }
-                });
-            }
-
-            function eliminar(materia, aula, dia, modulo, hora, cuatrimestre) {
-                var parametros = {
-                        "materia" : materia,
-                        "aula" : aula,
-                        "dia" : dia,
-                        "modulo" : modulo,
-                        "hora" : hora,
-                        "cuatrimestre": cuatrimestre
-                };
-                console.log(parametros);
-                $.ajax({
-                        data:  parametros, //datos que se envian a traves de ajax
-                        url:   'removeHorario.php', //archivo que recibe la peticion
-                        type:  'post', //método de envio
-                        beforeSend: function () {
-                            $("#respuesta").html("Procesando, espere por favor...");
-                        },
-                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                            $("#respuesta").html(response);
-                            buscar();
-                        }
-                });
-            }
-
-            function eliminarEvento(nombre, dia, hora, aula, estado) {
-                var parametros = {
-                        "nombre" : nombre,
-                        "dia" : dia,
-                        "hora" : hora,
-                        "aula" : aula,
-                        "estado" : estado,
-                };
-                console.log(parametros);
-                $.ajax({
-                        data:  parametros, //datos que se envian a traves de ajax
-                        url:   'removeEvento.php', //archivo que recibe la peticion
-                        type:  'post', //método de envio
-                        beforeSend: function () {
-                            $("#respuesta").html("Procesando, espere por favor...");
-                        },
-                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                            $("#respuesta").html(response);
-                            buscar();
-                        }
-                });
-            }
-            
-            function cargar() {
-                console.log("hola mundo");
-                if ($( "#materia2" ).val() == 0) {
-                    
-                }else{
-                    $("#respuesta").empty();
-                    console.log(document.getElementById("carrera").value);
-                    var parametros = {
-                        "carrera" : $( "#carrera2").val(),
-                        "materia" : $( "#materia2" ).val(),
-                        "aula" : $("#aula").val(),
-                        "dia" : $("#dia").val(),
-                        "modulo" : $("#modulo").val(),
-                        "hora" : $("#hora").val(),
-                        "cuatrimestre": $("#cuatrimestre").val(),
-                        "estado" : "normal"
-                    };
-                    $.ajax({
-                            data:  parametros, //datos que se envian a traves de ajax
-                            url:   'addHorario.php', //archivo que recibe la peticion
-                            type:  'post', //método de envio
-                            beforeSend: function () {
-                                    $("#respuesta").html("Procesando, espere por favor...");
-                            },
-                            success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                    $("#respuesta").html(response);
-                                    buscar();
-                            }
-                    });
-                }
-            };
-
-            function cargarEvento() {
-                var parametros = {
-                    "nombre" : $( "#nombreEvento").val(),
-                    "aula" : $( "#aulaEvento" ).val(),
-                    "dia" : $("#diaEvento").val(),
-                    "hora" : $("#horaEvento").val(),
-                };
-                $.ajax({
-                        data:  parametros, //datos que se envian a traves de ajax
-                        url:   'addevento.php', //archivo que recibe la peticion
-                        type:  'post', //método de envio
-                        beforeSend: function () {
-                                $("#respuestaEvento").html("Procesando, espere por favor...");
-                        },
-                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                $("#respuestaEvento").html(response);
-                                buscar();
-                        }
-                });
-            };
-        </script>
+    <script src="../JS/administracion.js"></script>
 </body>
 </html>

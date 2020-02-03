@@ -6,7 +6,8 @@ $materia = $_POST['materia'];
 $aula = $_POST['aula'];
 $dia = $_POST['dia'];
 $modulo = $_POST['modulo'];
-$hora = $_POST['hora'];
+$horainicio = $_POST['horainicio'];
+$horafin = $_POST['horafin'];
 $cuatrimestre = $_POST['cuatrimestre'];
 $estado = $_POST['estado'];
 
@@ -16,7 +17,7 @@ require_once("../consulta.php");
 
 //realizamos las consultas
 $consulta = new CONSULTA();
-$registros = $consulta->getConsulta("INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `hora`, `cuatrimestre`,`estado`) VALUES ('$materia','$aula','$dia','$modulo','$hora','$cuatrimestre','$estado')");
+$registros = $consulta->getConsulta("INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafin`, `cuatrimestre`,`estado`) VALUES ('$materia','$aula','$dia','$modulo','$horainicio', '$horafin','$cuatrimestre','$estado')");
 
 if($registros){
     echo 1;

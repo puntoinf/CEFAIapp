@@ -37,18 +37,19 @@ if($registros){
         }
             echo "  <td>".$fila['aula']."</td>
                     <td>".$fila['modulo']."</td>
-                    <td>".$fila['hora']."</td>
+                    <td>".$fila['horainicio']."</td>
+                    <td>".$fila['horafin']."</td>
                     <td>".$fila['cuatrimestre']."</td>
                     <td>".$estadoActual."</td>
                     <td>
-                        <button type=\"button\" class=\"close\" data-toggle=\"modal\" data-target=\"#exampleModal2\" onclick=\"cargarModal('".$fila['idMateria']."', '".$fila['aula']."', '".$fila['dia']."', '".$fila['modulo']."', '".$fila['hora']."', '".$fila['cuatrimestre']."','".$fila['estado']."')\">
+                        <button type=\"button\" class=\"close\" data-toggle=\"modal\" data-target=\"#exampleModal2\" onclick=\"cargarModal('".$fila['idMateria']."', '".$fila['aula']."', '".$fila['dia']."', '".$fila['modulo']."', '".$fila['horainicio']."', '".$fila['horafin']."', '".$fila['cuatrimestre']."','".$fila['estado']."')\">
                             <i class=\"material-icons\">
                                 edit
                             </i>
                         </button>
                     </td>
                     <td>
-                        <button type=\"button\" class=\"close\" aria-label=\"Close\" onclick=\"eliminar('".$fila['idMateria']."', '".$fila['aula']."', '".$fila['dia']."', '".$fila['modulo']."', '".$fila['hora']."', '".$fila['cuatrimestre']."')\">
+                        <button type=\"button\" class=\"close\" aria-label=\"Close\" onclick=\"eliminar('".$fila['idMateria']."', '".$fila['aula']."', '".$fila['dia']."', '".$fila['modulo']."', '".$fila['horainicio']."', '".$fila['horafin']."', '".$fila['cuatrimestre']."')\">
                             <i class=\"material-icons\">
                                  clear
                             </i>

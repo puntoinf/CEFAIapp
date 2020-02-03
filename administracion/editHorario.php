@@ -4,7 +4,8 @@ $materiaOriginal = $_POST['materiaOriginal'];
 $aulaOriginal = $_POST['aulaOriginal'];
 $diaOriginal = $_POST['diaOriginal'];
 $moduloOriginal = $_POST['moduloOriginal'];
-$horaOriginal = $_POST['horaOriginal'];
+$horaInicioOriginal = $_POST['horaInicioOriginal'];
+$horaFinOriginal = $_POST['horaFinOriginal'];
 $cuatrimestreOriginal = $_POST['cuatrimestreOriginal'];
 $estadoOriginal = $_POST['estadoOriginal'];
 // los valores para modificar
@@ -12,7 +13,8 @@ $materia = $_POST['materia'];
 $aula = $_POST['aula'];
 $dia = $_POST['dia'];
 $modulo = $_POST['modulo'];
-$hora = $_POST['hora'];
+$horaInicio = $_POST['horaInicio'];
+$horaFin = $_POST['horaFin'];
 $cuatrimestre = $_POST['cuatrimestre'];
 $estado = $_POST['estado'];
 
@@ -22,7 +24,7 @@ require_once("../consulta.php");
 
 //realizamos las consultas
 $consulta = new CONSULTA();
-$registros = $consulta->getConsulta("UPDATE `dicta` SET `idMateria`= '$materia' ,`aula`= '$aula',`dia`= '$dia' ,`modulo`= '$modulo' ,`hora`= '$hora' ,`cuatrimestre`= '$cuatrimestre' ,`estado`= '$estado' WHERE idMateria = '$materiaOriginal' AND aula = '$aulaOriginal' AND dia = '$diaOriginal' AND modulo = '$moduloOriginal' AND hora = '$horaOriginal' AND cuatrimestre = '$cuatrimestreOriginal' AND estado = '$estadoOriginal' ");
+$registros = $consulta->getConsulta("UPDATE `dicta` SET `idMateria`= '$materia' ,`aula`= '$aula',`dia`= '$dia' ,`modulo`= '$modulo' ,`horainicio`= '$horaInicio' ,`horafin`= '$horaFin', `cuatrimestre`= '$cuatrimestre' ,`estado`= '$estado' WHERE idMateria = '$materiaOriginal' AND aula = '$aulaOriginal' AND dia = '$diaOriginal' AND modulo = '$moduloOriginal' AND horainicio = '$horaInicioOriginal' AND horafin = '$horaFinOriginal' AND cuatrimestre = '$cuatrimestreOriginal' AND estado = '$estadoOriginal' ");
 
 if($registros){
     echo 1;
