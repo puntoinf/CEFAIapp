@@ -50,4 +50,8 @@ table{
     margin-top: 15%;
 }
 
+table{
+    width: 1000px;
+}
+
 .material-icons.md-light { color: rgba(255, 255, 255, 1); }
