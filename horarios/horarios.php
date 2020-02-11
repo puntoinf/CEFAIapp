@@ -3,12 +3,15 @@
     require_once("../consulta.php");
 
     $dia = $_POST['dia'];
+    $hora = $_POST['hora'];
 
     $consulta = new CONSULTA();
 
-    $data = $consulta->getConsulta("SELECT * FROM `dicta` WHERE dia = '$dia' AND cuatrimestre = '1' ORDER BY horainicio ASC");
+    $data = $consulta->getConsulta("SELECT * FROM `dicta` WHERE dia = '$dia' AND cuatrimestre = '1' AND horafin >= '$hora' ORDER BY horainicio ASC");
 
     if($data){
+    
+    $i = 0;
         foreach($data as $fila){
             //sacamos el nombre de la materia
             $id = $fila['idMateria'];
@@ -28,15 +31,18 @@
                         
                     break;
                 }
-
+                
                 echo "
-                <tr>
+                <tr id=\"".$i."\">
                     <td>".$fila['horainicio']."</td>
                     <td>".$fila2['nombre']."</td>
                     <td>".$fila['aula']."</td>
                     <td>".$fila['modulo']."</td>
                     <td>".$estadoActual."</td>
+                    <td class=\"d-none\"> id=\"horafin\"".$fila['horafin']."</td>
                 </tr>";
+
+                $i = $i + 1;
             }
         }   
     }
