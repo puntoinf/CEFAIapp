@@ -30,6 +30,9 @@
 </head>
 <body onload="dia();">
     <div class="container">
+        <div class="alert alert-danger" role="alert">
+            Aplicacion en Desarrollo!!!
+        </div>
         <h3>Horarios</h3>
         <a class="btn btn-primary" href="/" role="button">
             <i class="material-icons">
@@ -104,6 +107,9 @@
                     argDia = $("#dia").val();
                 }
             }
+            
+            document.getElementById('hoy').innerHTML = argDia;
+
             var parametros = {
                 "dia" : argDia,
                 "hora": horaInicio

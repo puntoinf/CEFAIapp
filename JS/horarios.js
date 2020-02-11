@@ -3,7 +3,9 @@ function dia() {
     // Use of function Date.now() 
     var fecha = new Date(); 
     
-    //ponemos el dia en el escribir en el h
+
+    //ponemos el dia en el escribir en el h3
+  
     console.log(dias[fecha.getDay()]);
     //obtenemos la hora
 
@@ -26,6 +28,7 @@ function filtrar() {
     if (dia == '-') {
         dia = "all";
     }
+  
     enviar(dia, hora);
 }
 

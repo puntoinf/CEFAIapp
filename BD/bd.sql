@@ -712,7 +712,7 @@ INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafi
 ('19', '16', 'Martes', 'Práctica ', '11:00:00', '13:00:00', '1', 'normal'),
 ('19', '105', 'Viernes', 'Práctica ', '14:00:00', '16:00:00', '1', 'normal'),
 ('19', '13', 'Viernes', 'Teoría ', '10:00:00', '12:00:00', '1', 'normal'),
----
+--
 ('24', '41', 'Lunes', 'Teoría ', '13:00:00', '16:00:00', '1', 'normal'),
 ('24', '41', 'Miercoles', 'Práctica ', '13:00:00', '16:00:00', '1', 'normal'),
 ('25', 'Laboratorio 1 y 2 ', 'Lunes', 'Práctica ', '17:00:00', '19:00:00', '1', 'normal'),
@@ -724,7 +724,7 @@ INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafi
 ('27', '102', 'Jueves', 'Teoría ', '14:00:00', '16:00:00', '1', 'normal'),
 ('27', '102', 'Jueves', 'Práctica ', '17:00:00', '19:00:00', '1', 'normal'),
 ('28', '45', 'Martes', 'Teoría/Práctica ', '10:00:00', '12:00:00', '1', 'normal'),
----
+--
 ('35', '53', 'Lunes', 'Teoría ', '09:00:00', '12:00:00', '1', 'normal'),
 ('35', '101', 'Jueves', 'Práctica ', '09:00:00', '12:00:00', '1', 'normal'),
 ('36', 'Laboratorio 1', 'Miercoles', 'Práctica - M1', '16:00:00', '18:00:00', '1', 'normal'),
@@ -736,7 +736,7 @@ INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafi
 ('38', '53', 'Miercoles', 'Teoría ', '10:00:00', '12:00:00', '1', 'normal'),
 ('39', '45', 'Jueves', 'Práctica ', '18:00:00', '20:00:00', '1', 'normal'),
 ('39', '102', 'Viernes', 'Teoría ', '10:00:00', '12:00:00', '1', 'normal'),
---- recursados
+-- recursados
 ('21', '41', 'Martes', 'Unico', '09:00:00', '12:00:00', '1', 'normal'),
 ('21', '41', 'Jueves', 'Unico', '09:00:00', '12:00:00', '1', 'normal'),
 ('20', 'Laboratorio 3', 'Miercoles', 'Unico', '08:00:00', '10:00:00', '1', 'normal'),
@@ -798,7 +798,7 @@ INSERT INTO `dicta`(`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafin
 ('107','40','Miercoles','Teórico','14:00:00', '16:00:00', '1', 'normal'),
 ('107',' Aula 8 – subsuelo – Facultad de Ingeniería','Lunes','Prácticas','09:00:00', '12:00:00', '1', 'normal'),
 ('107','Aula 21 – Facultad de Humanidades','Miercoles','Prácticas','16:00:00', '18:00:00', '1', 'normal'),
----
+--
 ('109','53','Lunes','Unico','09:00:00', '12:00:00', '1', 'normal'),
 ('111','Oficina 9','Martes','Unico','18:00:00', '21:00:00', '1', 'normal'),
 ('109','101','Jueves','Unico','09:00:00', '12:00:00', '1', 'normal'),
@@ -817,7 +817,7 @@ INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafi
 ('94', 'Laboratorio III', 'Jueves', 'Unico', '16:00:00', '20:00:00', '1', 'normal'),
 ('93', 'Laboratorio III', 'Viernes', 'Unico', '15:00:00', '17:00:00', '1', 'normal'),
 ('92', 'Laboratorio III', 'Viernes', 'Unico', '17:00:00', '21:00:00', '1', 'normal'),
----
+--
 ('98', 'Aula Informática Biblioteca', 'Lunes', 'Unico', '15:00:00', '21:00:00', '1', 'normal'),
 ('99', 'Laboratorio III', 'Martes', 'Unico', '15:00:00', '18:00:00', '1', 'normal'),
 ('99', 'Aula Informática Biblioteca', 'Jueves', 'Unico', '15:00:00', '18:00:00', '1', 'normal'),
@@ -834,7 +834,7 @@ INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafi
 ('4', 'Aula Informática Biblioteca ', 'Viernes', 'Unico', '16:00:00', '19:00:00', '1', 'normal'),
 ('5', 'Aula Informática Biblioteca ', 'Viernes', 'Unico', '19:00:00', '21:00:00', '1', 'normal'),
 ('4', 'Laboratorio III ', 'Miercoles', 'Unico', '16:00:00', '20:00:00', '1', 'normal'),
----
+--
 ('11', 'CD FaI', 'Lunes', 'Unico', '15:00:00', '18:00:00', '1', 'normal'),
 ('10', 'Laboratorio I', 'Martes', 'Unico', '15:00:00', '18:00:00', '1', 'normal'),
 ('10', 'Aula Informática Biblioteca', 'Miercoles', 'Unico', '15:00:00', '18:00:00', '1', 'normal'),
