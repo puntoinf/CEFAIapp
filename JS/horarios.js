@@ -7,7 +7,7 @@ function dia() {
     document.getElementById('hoy').innerHTML = dias[fecha.getDay()];
     console.log(dias[fecha.getDay()]);
 
-    enviar(dias[fecha.getDay()], "all", "all");
+    enviar(dias[fecha.getDay()]);
 }
 
 function filtrar() {

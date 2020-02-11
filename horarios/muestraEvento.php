@@ -1,7 +1,5 @@
 <?php 
 
-require_once("../session.php");
-
 require_once("../connecion.php");
 require_once("../consulta.php");
 
