@@ -68,7 +68,7 @@
         </div>
         <div>
             <h3 id="hoy"></h3>
-            <table class="table table-responsive">
+            <table class="table table-responsive-xl">
                 <thead>
                     <tr>
                       <th scope="col">Hora</th>
@@ -83,7 +83,7 @@
                 </tbody>
             </table>
             <h3 >Eventos</h3>
-            <table class="table table-responsive">
+            <table class="table table-responsive-xl">
                 <thead>
                     <tr>
                       <th scope="col">Nombre</th>
@@ -106,13 +106,17 @@
                     argDia = $("#dia").val();
                 }
             }
+<<<<<<< HEAD
             
             document.getElementById('hoy').innerHTML = argDia;
 
+=======
+>>>>>>> snapshot
             var parametros = {
                 "dia" : argDia
             };
             $.ajax({
+<<<<<<< HEAD
                     data:  parametros, //datos que se envian a traves de ajax
                     url:   'horarios.php', //archivo que recibe la peticion
                     type:  'post', //método de envio
@@ -133,6 +137,28 @@
                     success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
                             $("#horarioEvento").html(response);
                     }
+=======
+                data:  parametros, //datos que se envian a traves de ajax
+                url:   'horarios.php', //archivo que recibe la peticion
+                type:  'post', //método de envio
+                beforeSend: function () {
+                        $("#horario").html("Procesando, espere por favor...");
+                },
+                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                        $("#horario").html(response);
+                }
+            });
+            $.ajax({
+                data:  parametros, //datos que se envian a traves de ajax
+                url:   'muestraEvento.php', //archivo que recibe la peticion
+                type:  'post', //método de envio
+                beforeSend: function () {
+                        $("#horarioEvento").html("Procesando, espere por favor...");
+                },
+                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                        $("#horarioEvento").html(response);
+                }
+>>>>>>> snapshot
             });
         };
         </script>

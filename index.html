@@ -73,8 +73,14 @@
                     window.location.href = "administracion/home.php";
                     cerrarModal();
                   }else{
-                      $("#load").remove();
-                      $("#login").append(response);
+                      if(response == 2){
+                        $("#load").remove();
+                        window.location.href = "profesor/home.php";
+                        cerrarModal();
+                      }else{
+                        $("#load").remove();
+                        $("#login").append(response);
+                      }
                   }
                 }
         });

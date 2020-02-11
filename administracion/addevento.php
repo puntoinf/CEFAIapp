@@ -8,11 +8,11 @@ require_once("../consulta.php");
 $nombre = $_POST['nombre'];
 $aula = $_POST['aula'];
 $dia = $_POST['dia'];
-$hora = $_POST['hora'].":00";
+$hora = $_POST['hora'];
 
 
 $consulta = new CONSULTA();
-$registros = $consulta->getConsulta("INSERT INTO `evento`(`nombre`, `dia`, `hora`, `aula`, `estado`) VALUES ('$nombre','$dia','$hora','$aula','normal')");
+$registros = $consulta->getConsulta("INSERT INTO `evento`(`nombre`, `dia`, `hora`, `aula`, `estado`)  VALUES ('$nombre','$dia','$hora','$aula','normal')");
 
 if($registros){
     echo 1;
