@@ -47,5 +47,13 @@ function reloj(){
     minuto = fecha.getMinutes();
     segundo = fecha.getSeconds();
 
+    if(minuto < 10){
+        minuto = "0"+minuto;
+    }
+
+    if(segundo < 10){
+        segundo = "0"+segundo;
+    }
+
     $("#reloj").html(hora+":"+minuto+":"+segundo);
 }
