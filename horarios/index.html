@@ -106,31 +106,34 @@
                     argDia = $("#dia").val();
                 }
             }
-                var parametros = {
-                    "dia" : argDia
-                };
-                $.ajax({
-                        data:  parametros, //datos que se envian a traves de ajax
-                        url:   'horarios.php', //archivo que recibe la peticion
-                        type:  'post', //método de envio
-                        beforeSend: function () {
-                                $("#horario").html("Procesando, espere por favor...");
-                        },
-                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                $("#horario").html(response);
-                        }
-                });
-                $.ajax({
-                        data:  parametros, //datos que se envian a traves de ajax
-                        url:   'muestraEvento.php', //archivo que recibe la peticion
-                        type:  'post', //método de envio
-                        beforeSend: function () {
-                                $("#horarioEvento").html("Procesando, espere por favor...");
-                        },
-                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                $("#horarioEvento").html(response);
-                        }
-                });
+            
+            document.getElementById('hoy').innerHTML = argDia;
+
+            var parametros = {
+                "dia" : argDia
+            };
+            $.ajax({
+                    data:  parametros, //datos que se envian a traves de ajax
+                    url:   'horarios.php', //archivo que recibe la peticion
+                    type:  'post', //método de envio
+                    beforeSend: function () {
+                            $("#horario").html("Procesando, espere por favor...");
+                    },
+                    success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                            $("#horario").html(response);
+                    }
+            });
+            $.ajax({
+                    data:  parametros, //datos que se envian a traves de ajax
+                    url:   'muestraEvento.php', //archivo que recibe la peticion
+                    type:  'post', //método de envio
+                    beforeSend: function () {
+                            $("#horarioEvento").html("Procesando, espere por favor...");
+                    },
+                    success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                            $("#horarioEvento").html(response);
+                    }
+            });
         };
         </script>
     </div>

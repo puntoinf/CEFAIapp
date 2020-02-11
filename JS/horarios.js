@@ -4,10 +4,9 @@ function dia() {
     var fecha = new Date(); 
     
     //ponemos el dia en el escribir en el h3
-    document.getElementById('hoy').innerHTML = dias[fecha.getDay()];
     console.log(dias[fecha.getDay()]);
 
-    enviar(dias[fecha.getDay()], "all", "all");
+    enviar(dias[fecha.getDay()]);
 }
 
 function filtrar() {
@@ -18,5 +17,5 @@ function filtrar() {
     if (dia == '-') {
         dia = "all";
     }
-    enviar(dia, carrera, año);
+    enviar(dia);
 }
