@@ -3,8 +3,7 @@ function dia() {
     // Use of function Date.now() 
     var fecha = new Date(); 
     
-    //ponemos el dia en el escribir en el h3
-    document.getElementById('hoy').innerHTML = dias[fecha.getDay()];
+    //ponemos el dia en el escribir en el h
     console.log(dias[fecha.getDay()]);
 
     enviar(dias[fecha.getDay()]);

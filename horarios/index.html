@@ -106,6 +106,7 @@
             var parametros = {
                 "dia" : argDia
             };
+            document.getElementById('hoy').innerHTML = argDia;
             $.ajax({
                 data:  parametros, //datos que se envian a traves de ajax
                 url:   'horarios.php', //archivo que recibe la peticion
