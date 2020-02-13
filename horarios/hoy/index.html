@@ -115,7 +115,7 @@
                 var horaCompararInicio = toDate($( this ).children().first().text());
                 var horaInicioDate = toDate(horaInicio);
 
-                if(horaInicioDate <= horaCompararFin &&  horaInicioDate >= horaCompararInicio){
+                if(horaInicioDate <= horaCompararFin &&  horaInicioDate > horaCompararInicio){
                     $(this).css("background-color", "rgba(40, 167, 69, 0.48)");
                 }else{
 
