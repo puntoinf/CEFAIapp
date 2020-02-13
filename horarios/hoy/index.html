@@ -16,12 +16,12 @@
 
     <link href="https://fonts.googleapis.com/css?family=Space+Mono&display=swap" rel="stylesheet">
 
-    <link href="../CSS/main.css" rel="stylesheet" type="text/css">
-    <script src="../JS/seleccionesHorario.js"></script>
-    <script src="../JS/selecciones.js"></script>
-    <script src="../JS/materiasCarrera.js"></script>
-    <script src="../JS/bd.js"></script>
-    <script src="../JS/horarios.js"></script>
+    <link href="../../CSS/main.css" rel="stylesheet" type="text/css">
+    <script src="../../JS/seleccionesHorario.js"></script>
+    <script src="../../JS/selecciones.js"></script>
+    <script src="../../JS/materiasCarrera.js"></script>
+    <script src="../../JS/bd.js"></script>
+    <script src="../../JS/horarios.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
@@ -31,7 +31,6 @@
 <body onload="dia();">
     <script>
     $(document).ready(function(){
-        setInterval(dia, 900000);
         setInterval(reloj,1000);
     });
     </script>
@@ -94,6 +93,7 @@
                 },
                 success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
                         $("#horario").html(response);
+                        color(horaInicio);
                 }
             });
             $.ajax({
@@ -108,7 +108,36 @@
                 }
             });
         };
-       
+
+        function color(horaInicio) {
+            $('#horario tr').each(function( index ) {
+                var horaCompararFin = toDate($( this ).children().last().text());
+                var horaCompararInicio = toDate($( this ).children().first().text());
+                var horaInicioDate = toDate(horaInicio);
+
+                if(horaInicioDate <= horaCompararFin &&  horaInicioDate >= horaCompararInicio){
+                    $(this).css("background-color", "rgba(40, 167, 69, 0.48)");
+                }else{
+
+                }
+            });
+        }
+
+        function toDate(dStr) {
+            var now = new Date();
+
+            var hora = dStr.substr(0,2);
+            var minuto = dStr.substr(3, 2);
+
+            if(minuto == "00:"){
+                minuto = "00";
+            }
+            now.setHours(hora);
+            now.setMinutes(minuto);
+            now.setSeconds(0);
+
+            return now;
+        }
        </script>
     </div>
 </body>

@@ -13,6 +13,18 @@ function dia() {
     minuto = fecha.getMinutes();
     segundo = fecha.getSeconds();
 
+    if(hora < 10){
+        hora = "0"+hora;
+    }
+
+    if(minuto < 10){
+        minuto = "0"+minuto;
+    }
+
+    if(segundo < 10){
+        segundo = "0"+segundo;
+    }
+
     horaInicio = hora+":"+minuto+":"+segundo;
 
     console.log(horaInicio);
@@ -49,6 +61,24 @@ function reloj(){
     hora = fecha.getHours();
     minuto = fecha.getMinutes();
     segundo = fecha.getSeconds();
+
+    if(hora < 10){
+        hora = "0"+hora;
+    }
+
+    if(minuto < 10){
+        minuto = "0"+minuto;
+    }
+
+    if(segundo < 10){
+        segundo = "0"+segundo;
+    }
+
+    if(minuto % 15 == 0 && segundo == "00"){
+        dia();
+    }
+
+    $horaActual = 
 
     $("#reloj").html(hora+":"+minuto+":"+segundo);
 }

@@ -1,12 +1,13 @@
 <?php
-    require_once("../connecion.php");
-    require_once("../consulta.php");
+    require_once("../../connecion.php");
+    require_once("../../consulta.php");
 
     $dia = $_POST['dia'];
+    $hora = $_POST['hora'];
 
     $consulta = new CONSULTA();
 
-    $data = $consulta->getConsulta("SELECT * FROM `dicta` WHERE dia = '$dia' AND cuatrimestre = '1' ORDER BY horainicio ASC");
+    $data = $consulta->getConsulta("SELECT * FROM `dicta` WHERE dia = '$dia' AND cuatrimestre = '1' AND horafin >= '$hora' ORDER BY horainicio ASC");
 
     if($data){
     
