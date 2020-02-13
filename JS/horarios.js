@@ -78,7 +78,5 @@ function reloj(){
         dia();
     }
 
-    $horaActual = 
-
     $("#reloj").html(hora+":"+minuto+":"+segundo);
 }
