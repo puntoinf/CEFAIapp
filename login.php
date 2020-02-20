@@ -8,17 +8,19 @@ $contraseña = $_POST['contraseña'];
 $consulta = new CONSULTA();
 $registros = $consulta->getConsulta("SELECT * FROM `usuario` WHERE usuario.usuario = '$usuario'");
 
-if($registros[0]['pass'] == $contraseña){
-    if($registros[0]['tipo'] == 'admin'){
-        //creamos la session
-        session_start();
-        $_SESSION['login'] = true;
-        echo 1;
-    }else{
-        //creamos la session
-        session_start();
-        $_SESSION['login'] = true;
-        echo 2;
+if($registros){
+    if($registros[0]['pass'] == $contraseña){
+        if($registros[0]['tipo'] == 'admin'){
+            //creamos la session
+            session_start();
+            $_SESSION['login'] = true;
+            echo 1;
+        }else{
+            //creamos la session
+            session_start();
+            $_SESSION['login'] = true;
+            echo 2;
+        }
     }
 }else{
     $_SESSION['login'] = false;
@@ -26,4 +28,5 @@ if($registros[0]['pass'] == $contraseña){
                 Contraseña Incorrecta!
             </div>";
 }
+
 ?>
