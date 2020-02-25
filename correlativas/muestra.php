@@ -6,13 +6,16 @@ require_once("../consulta.php");
 $carrera = $_POST['carrera'];
 $materia = $_POST['materia'];
 
-//realizamos las consultas
+//realizamos las consultas de las correlativas 
 $consulta = new CONSULTA();
 $materiasNecesarias = $consulta->getConsulta("SELECT correlativa.necesaria FROM `correlativa`, `materia`, `imparte` WHERE materia.idMateria = imparte.idMateria AND imparte.idCarrera = '$carrera' AND correlativa.necesaria = materia.idMateria AND correlativa.disponible = '$materia'");
 $materiasDisponibles = $consulta->getConsulta("SELECT correlativa.disponible FROM `correlativa`, `materia`, `imparte` WHERE materia.idMateria = imparte.idMateria AND imparte.idCarrera = '$carrera' AND correlativa.disponible = materia.idMateria AND correlativa.necesaria = '$materia'");
 
+//relizamos las consultas de los finales
+$finalesNecesarios = $consulta->getConsulta("SELECT final.necesaria FROM `final`, `imparte` WHERE final.disponible = '$materia' AND final.disponible = imparte.idMateria AND imparte.idCarrera = '$carrera'");
+
 //verificamos que allan materias necesarias y materias disponibles para mostrar
-if ($materiasNecesarias || $materiasDisponibles) {
+if ($materiasNecesarias || $materiasDisponibles || $finalesNecesarios) {
     if ($materiasNecesarias) {
         //si hay necesarias
         echo "<p class=\"border-bottom\">necesarias</p>";
@@ -102,4 +105,5 @@ if ($materiasNecesarias || $materiasDisponibles) {
         no hay instancias en la base de datos
     </div>";
 }
+
 ?>

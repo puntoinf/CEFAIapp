@@ -130,7 +130,12 @@
             <div class="form-group" id="send">
                 <button type="button" class="btn btn-light border" onclick="buscar()">consultar</button>
             </div>
+            <h3>Correlativas</h3>
             <div id="respuesta">
+
+            </div>
+            <h3>Finales</h3>
+            <div id="respuestafinal">
 
             </div>
             <p class="pie" style="font-family: 'Space Mono', monospace;">
@@ -144,19 +149,30 @@
                     $("#respuesta").empty();
                     console.log(document.getElementById("carrera").value);
                     var parametros = {
-                            "materia" : $( "#materia" ).val(),
-                            "carrera" : $( "#carrera").val()
+                        "materia" : $( "#materia" ).val(),
+                        "carrera" : $( "#carrera").val()
                     };
                     $.ajax({
-                            data:  parametros, //datos que se envian a traves de ajax
-                            url:   'muestra.php', //archivo que recibe la peticion
-                            type:  'post', //método de envio
-                            beforeSend: function () {
-                                    $("#respuesta").html("Procesando, espere por favor...");
-                            },
-                            success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                    $("#respuesta").html(response);
-                            }
+                        data:  parametros, //datos que se envian a traves de ajax
+                        url:   'muestra.php', //archivo que recibe la peticion
+                        type:  'post', //método de envio
+                        beforeSend: function () {
+                                $("#respuesta").html("Procesando, espere por favor...");
+                        },
+                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                                $("#respuesta").html(response);
+                        }
+                    });
+                    $.ajax({
+                        data:  parametros, //datos que se envian a traves de ajax
+                        url:   'final.php', //archivo que recibe la peticion
+                        type:  'post', //método de envio
+                        beforeSend: function () {
+                                $("#respuestafinal").html("Procesando, espere por favor...");
+                        },
+                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                                $("#respuestafinal").html(response);
+                        }
                     });
                 }
             };
