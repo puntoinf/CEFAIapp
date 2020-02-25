@@ -51,3 +51,15 @@ table{
 }
 
 .material-icons.md-light { color: rgba(255, 255, 255, 1); }
+
+.subir{
+    display:block;
+    background-repeat:no-repeat;
+    font-size:20px;
+    color:rgb(253, 253, 253);
+    cursor:pointer;
+    position:fixed;
+    top:10px;
+    right:10px;
+    z-index:2;
+}

@@ -1,12 +1,12 @@
 <?php
-    require_once("../connecion.php");
-    require_once("../consulta.php");
+    require_once("../../connecion.php");
+    require_once("../../consulta.php");
 
-    $dia = $_POST['dia'];
+    $materia = $_POST['materia'];
 
     $consulta = new CONSULTA();
 
-    $data = $consulta->getConsulta("SELECT * FROM `dicta` WHERE dia = '$dia' AND cuatrimestre = '1' ORDER BY horainicio ASC");
+    $data = $consulta->getConsulta("SELECT * FROM `dicta` WHERE idMateria = '$materia' AND cuatrimestre = '1' ORDER BY horainicio ASC");
 
     if($data){
     
@@ -57,13 +57,12 @@
             }
                 echo "
                 <tr id=\"".$i."\">
+                    <td>".$fila['dia']."</td>
                     <td>".$fila['horainicio']."</td>
                     <td>".$fila['horafin']."</td>
                     <td>".$fila2['nombre']." ".$carreraActual."</td>
                     <td>".$fila['aula']."</td>
                     <td>".$fila['modulo']."</td>
-                    <td>".$estadoActual."</td>
-                    <td class=\"d-none\">".$fila['horafin']."</td>
                 </tr>";
 
                 $i = $i + 1;
