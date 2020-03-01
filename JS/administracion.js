@@ -200,4 +200,73 @@ function cargarEvento() {
     });
 };
 
-$('.timepicker').timepicker({ 'timeFormat': 'H:i:s' });
+function buscarCorrelativas() {
+    console.log("hola mundo");
+    if ($( "#materia" ).val() == 0) {
+        
+    }else{
+        $("#respuesta").empty();
+        console.log(document.getElementById("carrera").value);
+        var parametros = {
+                "materia" : $( "#materia" ).val(),
+                "carrera" : $( "#carrera").val()
+        };
+        $.ajax({
+                data:  parametros, //datos que se envian a traves de ajax
+                url:   'nuestraCorrelativas.php', //archivo que recibe la peticion
+                type:  'post', //método de envio
+                beforeSend: function () {
+                        $("#respuesta").html("Procesando, espere por favor...");
+                },
+                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                        $("#respuesta").html(response);
+                }
+        });
+    }
+};
+
+function eliminarCorrelativa(necesaria, disponible){
+    console.log(necesaria+" "+disponible);
+    var parametros = {
+            "necesaria" : necesaria,
+            "disponible" : disponible
+    };
+    console.log(parametros);
+    $.ajax({
+            data:  parametros, //datos que se envian a traves de ajax
+            url:   'removeCorrelativa.php', //archivo que recibe la peticion
+            type:  'post', //método de envio
+            beforeSend: function () {
+                $("#respuesta").html("Procesando, espere por favor...");
+            },
+            success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                $("#respuesta").html(response);
+                buscar();
+            }
+    });
+}
+
+function buscarFinales(){
+    console.log("hola mundo");
+    if ($( "#materia" ).val() == 0) {
+        
+    }else{
+        $("#respuesta").empty();
+        console.log(document.getElementById("carrera").value);
+        var parametros = {
+                "materia" : $( "#materia" ).val(),
+                "carrera" : $( "#carrera").val()
+        };
+        $.ajax({
+                data:  parametros, //datos que se envian a traves de ajax
+                url:   'muestraFinal.php', //archivo que recibe la peticion
+                type:  'post', //método de envio
+                beforeSend: function () {
+                        $("#respuesta").html("Procesando, espere por favor...");
+                },
+                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                        $("#respuesta").html(response);
+                }
+        });
+    }
+}

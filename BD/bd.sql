@@ -604,6 +604,34 @@ INSERT INTO `correlativa` (`necesaria`, `disponible`) VALUES
 ('78','86'),
 ('80',’75‘);
 
+-- profesorado
+INSERT INTO `correlativa`(`necesaria`, `disponible`) VALUES
+('0', '102'),
+('0', '103'),
+('102', '104'),
+('103', '107'),
+('20', '105'),
+('24', '105'),
+('27', '106'),
+('104', '106'),
+('39', '115'),
+('106', '115'),
+('107', '115'),
+('31', '108'),
+('106', '108'),
+('105', '109'),
+('115', '110'),
+('108', '110'),
+('115', '111'),
+('108', '111'),
+('102', '112'),
+('43', '61'),
+('31', '113'),
+('109', '113'),
+('110', '114'),
+('111', '114'),
+('112', '114');
+
 --Tecnicatura en Desarrollo Web
 INSERT INTO `correlativa` (`necesaria`, `disponible`) VALUES
 ('0','89'),
@@ -688,6 +716,13 @@ INSERT INTO `final` (`necesaria`, `disponible`) VALUES
 ('85','72'),
 ('85','73'),
 ('86','41');
+
+-- finales profesorado
+INSERT INTO `final` (`necesaria`, `disponible`) VALUES
+('16','105'),
+('104','111'),
+('106','111'),
+('39','61');
 
 -- finales TUASySl:
 -- NULL

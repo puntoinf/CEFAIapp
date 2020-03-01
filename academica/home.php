@@ -34,7 +34,7 @@ require_once("../session.php");
 <!--
     el menu de navegacion de las secciones de la administracion
 -->
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
             <img src="../Media/Frame.png" alt="" class="logo" width="60px">
         </a>
@@ -49,7 +49,7 @@ require_once("../session.php");
                     <a href="home.php" class="nav-link">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="administrarHorarios.php">Horarios</a>
+                    <a class="nav-link" href="administrarEventos.php">eventos</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">

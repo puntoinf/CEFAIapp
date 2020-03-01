@@ -63,7 +63,7 @@ require_once("../session.php");
     </nav>
 
     <div class="container">
-    <h3>Correlativas</h3>
+    <h3>Finales</h3>
         <div class="row">
             <div class="col-sm">
                 <form action="">
@@ -94,7 +94,7 @@ require_once("../session.php");
                         </select>
                     </div>
                     <div class="form-group" id="send">
-                        <button type="button" class="btn btn-light border" onclick="buscarCorrelativas()">consultar</button>
+                        <button type="button" class="btn btn-light border" onclick="buscarFinales()">consultar</button>
                     </div>
                 </form>
             </div>
@@ -104,13 +104,7 @@ require_once("../session.php");
                 -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item" aria-current="page">
-                            <a class="btn" data-toggle="collapse" href="#pdfColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-                                <i class="material-icons">
-                                    picture_as_pdf
-                                </i>
-                            </a>
-                        </li>
+
                         <li class="breadcrumb-item">
                             <a class="btn" data-toggle="collapse" href="#addColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
                                 <i class="material-icons">
@@ -120,27 +114,6 @@ require_once("../session.php");
                         </li>
                     </ol>
                 </nav>
-
-                <div class="collapse multi-collapse" id="pdfColapse">
-                    <div class="card card-body">
-                        <form action="pdf.php" method="post">
-                            <div class="form-group">
-                                <label for="carrera">Carrera</label>
-                                <select id="carrerapdf" onchange="mostrarEnviarPdf();" class="form-control" name="carrerapdf">
-                                    <option value="0">-</option>
-                                    <option value="1">Profesorado de Informatica</option>
-                                    <option value="2">Licenciatura en Ciencias de la Computación</option>
-                                    <option value="3">Licenciatura en Sistemas de Información</option>
-                                    <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
-                                    <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
-                                </select>
-                            </div>
-                            <div class="form-group" id="send3" >
-                                <button type="submit" class="btn btn-light border" onclick="buscar()">Generar PDF</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
 
                 <div class="collapse multi-collapse" id="addColapse">
                     <div class="card card-body">

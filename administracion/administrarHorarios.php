@@ -47,8 +47,14 @@ require_once("../session.php");
                 <li class="nav-item active">
                     <a href="home.php" class="nav-link">Inicio</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="administrarCorrelativas.php">Correlativas</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Correlativas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="administrarCorrelativas.php">Cursadas</a>
+                        <a class="dropdown-item" href="administrarFinales.php">Finales</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="administrarHorarios.php">Horarios</a>
@@ -270,7 +276,7 @@ require_once("../session.php");
         <div class="row">
             <div class="col-sm" style="overflow: hidden;">
                 <h3>Materias</h3>
-                <table class="table table-responsive w-auto" id="tabla">
+                <table class="table table-responsive-xl" id="tabla">
                     <thead class="w-100">
                         <tr>
                             <th scope="col">Materia</th>
@@ -289,7 +295,7 @@ require_once("../session.php");
                     </tbody>
                 </table>
                 <h3>Eventos</h3>      
-                <table class="table table-responsive w-auto" id="tabla">
+                <table class="table table-responsive-xl" id="tabla">
                     <thead>
                         <tr>
                             <th scope="col">Nombre</th>

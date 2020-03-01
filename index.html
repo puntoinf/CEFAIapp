@@ -33,16 +33,19 @@
     <div class="card-body">
       <form action="" id="login">
         <div class="form-group">
-          <label for="User">Usuaurio</label>
+          <label for="User">Usuario</label>
           <input type="email" class="form-control" id="User" placeholder="name@fi.uncoma.edu.ar">
         </div>
         <div class="form-grup">
             <label for="pass">Contraseña</label>
-            <input type="password" class="form-control" id="pass" placeholder="Password">
+            <input type="password" class="form-control" id="pass" placeholder="Contraseña">
         </div>
         <br>
         <div class="form-grup">
           <button type="button" class="btn btn-primary" onclick="enviar()">Login</button>
+        </div>
+        <div id="mensaje">
+
         </div>
       </form>
     </div>
@@ -54,7 +57,9 @@
       }
 
     function enviar(){
-      console.log($.md5($("#pass").val()));
+        $("#mensaje").empty();
+
+        console.log($.md5($("#pass").val()));
 
         var parametros = {
                 "usuario" : $("#User").val() ,
@@ -65,7 +70,7 @@
                 url:   'login.php', //archivo que recibe la peticion
                 type:  'post', //método de envio
                 beforeSend: function (){
-                  $("#login").append("<div class=\"spinner-border text-primary\" role=\"status\" id=\"load\"><span class=\"sr-only\">Loading...</span></div>");
+                  $("#mensaje").append("<div class=\"spinner-border text-primary\" role=\"status\" id=\"load\"><span class=\"sr-only\">Loading...</span></div>");
                 },
                 success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
                   if(response == 1){
@@ -75,11 +80,11 @@
                   }else{
                       if(response == 2){
                         $("#load").remove();
-                        window.location.href = "profesor/home.php";
+                        window.location.href = "academica/home.php";
                         cerrarModal();
                       }else{
                         $("#load").remove();
-                        $("#login").append(response);
+                        $("#mensaje").append(response);
                       }
                   }
                 }
