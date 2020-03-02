@@ -134,10 +134,6 @@
             <div id="respuesta">
 
             </div>
-            <h3>Finales</h3>
-            <div id="respuestafinal">
-
-            </div>
             <p class="pie" style="font-family: 'Space Mono', monospace;">
                 version: beta
             </p>
@@ -161,17 +157,6 @@
                         },
                         success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
                                 $("#respuesta").html(response);
-                        }
-                    });
-                    $.ajax({
-                        data:  parametros, //datos que se envian a traves de ajax
-                        url:   'final.php', //archivo que recibe la peticion
-                        type:  'post', //método de envio
-                        beforeSend: function () {
-                                $("#respuestafinal").html("Procesando, espere por favor...");
-                        },
-                        success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                                $("#respuestafinal").html(response);
                         }
                     });
                 }
