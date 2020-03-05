@@ -131,6 +131,13 @@ require_once("../session.php");
                                 </i>
                             </a>
                         </li>
+                        <li class="breadcrumb-item" aria-current="page">
+                            <a class="btn" data-toggle="collapse" href="#asuetoColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" title="generar PDF">
+                                <i class="material-icons" id="iconPdf">
+                                    warning
+                                </i>
+                            </a>
+                        </li>
                     </ol>
                 </nav>
 
@@ -266,6 +273,36 @@ require_once("../session.php");
                             </div>
                             <div class="form-group">
                                 <button type="button" class="btn btn-light border" onclick="cargarEvento();">Cargar</button>
+                            </div>
+                        </form>
+                        <script src="../JS/cargarModal.js"></script>            
+                    </div>
+                </div>
+
+                <div class="collapse multi-collapse" id="asuetoColapse">
+                    <div class="card card-body">
+                        <h6>Programar asueto</h6>
+                        <div id="respuestaAsueto">
+                        
+                        </div>
+                        <h6>Para Hoy!!</h6>
+                        <form action="" class="form">
+                            <div class="form-group">
+                                <label for="fecha"></label>
+                                <input type="date" name="" id="">
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-light border" onclick="cargarAsuetoHoy();">Cargar</button>
+                            </div>
+                        </form>
+                        <h6>Programar</h6>
+                        <form action="" class="form">
+                            <div class="form-group">
+                                <label for="fecha"></label>
+                                <input type="date" name="" id="">
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-light border" onclick="cargarAsuetoHoy();">Cargar</button>
                             </div>
                         </form>
                         <script src="../JS/cargarModal.js"></script>            

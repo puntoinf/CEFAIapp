@@ -10,7 +10,7 @@ $cuatrimestre = $_POST['cuatrimestre'];
 
 //realizamos las consultas
 $consulta = new CONSULTA();
-$sql = "SELECT * FROM `dicta` WHERE dia = '$dia' AND cuatrimestre = '$cuatrimestre'";
+$sql = "SELECT * FROM `dicta` WHERE dia = '$dia' AND cuatrimestre = '$cuatrimestre' ORDER BY horainicio ASC";
 $registros = $consulta->getConsulta($sql);
 
 if($registros){
@@ -30,6 +30,9 @@ if($registros){
             break;
             case 'parcial':
                 $estadoActual = "<span class=\"badge badge-warning\">Parcial</span>";
+            break;
+            case 'asueto':
+                $estadoActual = "<span class=\"badge badge-warning\">Asueto</span>";
             break;
             default:
                 

@@ -28,6 +28,9 @@
                     case 'parcial':
                         $estadoActual = "<span class=\"badge badge-warning\">Parcial</span>";
                     break;
+                    case 'asueto':
+                        $estadoActual = "<span class=\"badge badge-warning\">Asueto</span>";
+                    break;
                     default:
                         
                     break;

@@ -87,9 +87,13 @@ if($finalesNecesarios || $finalesDisponibles){
             </div>";
     }
 }else{
-    echo "<div class=\"alert alert-danger\" role=\"alert\">
-        no hay instancias en la base de datos
-    </div>";
+    echo "
+        <div class=\"alert alert-info\" role=\"alert\">
+            Esta materia no requiere finales aprobados.
+        </div>
+        <div class=\"alert alert-info\" role=\"alert\">
+            Esta materia no se requiere para cursar otra.
+        </div>";
 }
 
 ?>

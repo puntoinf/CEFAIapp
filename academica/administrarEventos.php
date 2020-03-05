@@ -62,7 +62,7 @@ require_once("../session.php");
         </div>
     </nav>
     <div class="container" id="contenedor">
-        <h3>Horarios</h3>
+        <h3>Eventos</h3>
         <div class="row">
             <div class="col-sm">
             <form action="">

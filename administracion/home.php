@@ -60,6 +60,9 @@ require_once("../session.php");
                 <li class="nav-item">
                     <a class="nav-link" href="administrarHorarios.php">Horarios</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="administrarAsueto.php">Asuetos</a>
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
                 <a class="btn" href="salir.php">salir</a>
