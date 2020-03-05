@@ -24,11 +24,15 @@ require_once("../session.php");
     <script src="../JS/selecciones.js"></script>
     <script src="../JS/materiasCarrera.js"></script>
     <script src="../JS/bd.js"></script>
-    <script src="../js/bootstrap-datetimepicker.min.js"></script>
-    <script src="../css/bootstrap-datetimepicker.min.css"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/timepicker@1.13.0/jquery.timepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/timepicker@1.13.0/jquery.timepicker.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
 </head>
-<body>
+<body onload="cargarAsuetos()">
     <nav class="navbar navbar-expand-lg bg-light">
         <a class="navbar-brand" href="#">
             <img src="../Media/Frame.png" alt="" class="logo" width="60px">
@@ -66,41 +70,8 @@ require_once("../session.php");
     </nav>
 
     <div class="container">
-    <h3>Correlativas</h3>
+    <h3>Asuetos</h3>
         <div class="row">
-            <div class="col-sm">
-                <form action="">
-                    <!--
-                        formulario de eleccion de carrera en las opciones de correlativas
-                    -->
-                    <div class="form-group">
-                        <label for="carrera">Carrera</label>
-                        <select id="carrera" onchange="seleccionAño();" class="form-control" >
-                            <option value="-">-</option>
-                            <option value="1">Profesorado de Informatica</option>
-                            <option value="2">Licenciatura en Ciencias de la Computación</option>
-                            <option value="3">Licenciatura en Sistemas de Información</option>
-                            <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
-                            <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
-                        </select>
-                    </div>
-                    <div class="form-group" id="AñoBloque">
-                        <label for="carrera">Año</label>
-                        <select id="año"  onchange="seleccionmateria();" class="form-control">
-                            <option value="">-</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="carrera">materia</label>
-                        <select id="materia" class="form-control" onchange="mostrarEnviar()">
-                            <option value="">-</option>
-                        </select>
-                    </div>
-                    <div class="form-group" id="send">
-                        <button type="button" class="btn btn-light border" onclick="buscarCorrelativas()">consultar</button>
-                    </div>
-                </form>
-            </div>
             <div class="col-sm">
                 <!--
                     opciones de las correlativas como la generacion de un pdf o agregar una correlativa
@@ -108,7 +79,14 @@ require_once("../session.php");
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item" aria-current="page">
-                            <a class="btn" data-toggle="collapse" href="#pdfColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                            <a class="btn" data-toggle="collapse" href="#asuetoColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                                <i class="material-icons">
+                                    add
+                                </i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item" aria-current="page">
+                            <a class="btn" data-toggle="collapse" href="#asuetoHoyColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
                                 <i class="material-icons">
                                     warning
                                 </i>
@@ -117,60 +95,161 @@ require_once("../session.php");
                     </ol>
                 </nav>
 
-                <div class="collapse multi-collapse" id="pdfColapse">
+                <div class="collapse multi-collapse" id="asuetoColapse">
                     <div class="card card-body">
-                        
+                        <form action="">
+                            <div class="form-group">
+                                <label for="">Fecha</label>
+                                <div class="input-group date" data-provide="datepicker">
+                                    <input type="text" class="form-control"  value="02-16-2012">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-th"></span>
+                                    </div>
+                                </div>
+                                <script >
+                                $('.datepicker').datepicker({
+                                    format: 'yyyy/mm/dd',
+                                    startDate: '0'
+                                });
+                                </script>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Hora Inicio</label>
+                                <div class="md-form">
+                                    <input placeholder="Selected time" type="text" id="horainicio" class="form-control timepicker">
+                                    <label for="horainicio">Twelve hour clock</label>
+                                </div>
+                                <script type="text/javascript">
+                                $('.timepicker').timepicker({ 'timeFormat': 'H:i:s' });
+                                // Time Picker Initialization
+                                </script>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Hora Fin</label>
+                                <div class="md-form">
+                                    <input placeholder="Selected time" type="text" id="horafin" class="form-control timepicker">
+                                    <label for="horafin">Twelve hour clock</label>
+                                </div>
+                                <script type="text/javascript">
+                                $('.timepicker').timepicker({ 'timeFormat': 'H:i:s' });
+                                // Time Picker Initialization
+                                </script>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
-                <div class="collapse multi-collapse" id="addColapse">
+                <div class="collapse multi-collapse" id="asuetoHoyColapse">
                     <div class="card card-body">
-                        <form action="" class="">
-                        <div class="form-group">
-                            <label for="carrera">Carrera</label>
-                            <select id="carrera" onchange="seleccionAño();" class="form-control" >
-                                <option value="-">-</option>
-                                <option value="1">Profesorado de Informática</option>
-                                <option value="2">Licenciatura en Ciencias de la Computación</option>
-                                <option value="3">Licenciatura en Sistemas de Información</option>
-                                <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
-                                <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
-                            </select>
-                        </div>
-                        <p class="border-bottom">Materia</p>
-                        <div class="form-group">
-                            <label for="carrera">Año</label>
-                            <select id="año"  onchange="seleccionMateria();" class="form-control">
-                                <option value="">-</option>
-                            </select>
-                            <label for="carrera">Materia</label>
-                            <select id="materia" class="form-control" onchange="mostrarEnviar()">
-                                <option value="">-</option>
-                            </select>
-                        </div>
-                        <p class="border-bottom">Correlativas</p>
-                        <div class="form-group">
-                            <label for="carrera">Año</label>
-                            <select id="año2"  onchange="seleccionMateria2();" class="form-control">
-                                <option value="">-</option>
-                            </select>
-                            <label for="carrera">Materia</label>
-                            <select id="materia2" class="form-control" onchange="mostrarEnviar()">
-                                <option value="">-</option>
-                            </select>
-                        </div>
-                        <div class="form-group" id="send">
-                            <button type="button" class="btn btn-light border" onclick="armar()">Cargar</button>
-                        </div>
-                    </form>             
+                        <form action="">
+                            <div class="form-group">
+                                <label for="">Hora Inicio</label>
+                                <div class="md-form">
+                                    <input placeholder="Selected time" type="text" id="horainicio" class="form-control timepicker">
+                                    <label for="horainicio">Twelve hour clock</label>
+                                </div>
+                                <script type="text/javascript">
+                                $('.timepicker').timepicker({ 'timeFormat': 'H:i:s' });
+                                // Time Picker Initialization
+                                </script>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Hora Fin</label>
+                                <div class="md-form">
+                                    <input placeholder="Selected time" type="text" id="horafin" class="form-control timepicker">
+                                    <label for="horafin">Twelve hour clock</label>
+                                </div>
+                                <script type="text/javascript">
+                                $('.timepicker').timepicker({ 'timeFormat': 'H:i:s' });
+                                // Time Picker Initialization
+                                </script>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row container">
-             <div class="col-sm" id="respuesta">
-             
-             </div>   
+            <table class="table table-responsive-xl" id="tabla">
+                <thead>
+                    <tr>
+                        <th scope="col">fecha</th>
+                        <th scope="col">hora inicio</th>
+                        <th scope="col">hora fin</th>
+                        <th scope="col">editar</th>
+                    </tr>
+                </thead>
+                <tbody id="respuesta">
+
+                </tbody>
+            </table>  
+        </div>
+
+        <!-- 
+           modal se modificacion
+        -->
+        <div class="modal fade" id="asuetoEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Editar Modal</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    <div id="respuestaModificarAsueto">
+                    </div>
+                    <form action="">
+                        <div class="form-group">
+                            <!-- valores originales -->
+                            <input class="form-control" type="hidden" id="idAuseto" name="idAuseto" />
+                        </div>
+                        <div class="form-group">
+                            <label for="">Fecha</label>
+                            <div class="input-group date" data-provide="datepicker">
+                                <input type="text" class="form-control" id="fecheModificar">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-th"></span>
+                                </div>
+                            </div>
+                            <script >
+                            $('.datepicker').datepicker({
+                                format: 'mm/dd/yyyy',
+                                startDate: '-3d'
+                            });
+                            </script>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Hora Inicio</label>
+                            <div class="md-form">
+                                <input placeholder="Selected time" type="text" id="horainicioModificar" class="form-control timepicker">
+                                <label for="horainicio">Twelve hour clock</label>
+                            </div>
+                            <script type="text/javascript">
+                            $('.timepicker').timepicker({ 'timeFormat': 'H:i:s' });
+                            // Time Picker Initialization
+                            </script>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Hora Fin</label>
+                            <div class="md-form">
+                                <input placeholder="Selected time" type="text" id="horafinModificar" class="form-control timepicker">
+                                <label for="horafin">Twelve hour clock</label>
+                            </div>
+                            <script type="text/javascript">
+                            $('.timepicker').timepicker({ 'timeFormat': 'H:i:s' });
+                            // Time Picker Initialization
+                            </script>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="modificarAsueto()">Guardar Cambios</button>
+                </div>
+                </div>
+            </div>
         </div>
         <!--
             mostramos las correlativas de una materia con el correspondiente

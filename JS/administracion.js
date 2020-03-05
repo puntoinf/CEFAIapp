@@ -270,3 +270,70 @@ function buscarFinales(){
         });
     }
 }
+
+function cargarAsuetos(){
+        $.ajax({
+                url:   'mostrarAsueto.php', //archivo que recibe la peticion
+                type:  'post', //método de envio
+                beforeSend: function () {
+                        $("#respuesta").html("Procesando, espere por favor...");
+                },
+                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                        $("#respuesta").html(response);
+                }
+        });
+}
+
+function cargarModalAsueto(idAuseto, fecha, horainicio, horafin){
+        $("#respuestaModificarAsueto").empty();
+        //valores originales
+        $("#idAuseto").val(idAuseto);
+
+
+        //valores para modificar
+        $("#fecheModificar").val(fecha);
+        $("#horainicioModificar").val(horainicio);
+        $("#horafinModificar").val(horafin);
+}
+
+function modificarAsueto(){
+        //parametros de la modificacio
+        var parametros = {
+                "idAuseto" : $("#idAuseto").val(),
+                "fecheModificar": $("#fecheModificar").val(),
+                "horainicioModificar": $("#horainicioModificar").val(),
+                "horafinModificar": $("#horafinModificar").val()
+
+        };
+        $.ajax({
+                data:  parametros, //datos que se envian a traves de ajax
+                url:   'editAsueto.php', //archivo que recibe la peticion
+                type:  'post', //método de envio
+                beforeSend: function () {
+                        $("#respuestaModificarAsueto").html("Procesando, espere por favor...");
+                },
+                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                        $("#respuestaModificarAsueto").html(response);
+                        cargarAsuetos();
+                }
+        });
+}
+
+function eliminarAsueto(idAuseto){
+        //parametros de la modificacion
+        var parametros = {
+                "idAuseto" : idAuseto
+
+        };
+        $.ajax({
+                data:  parametros, //datos que se envian a traves de ajax
+                url:   'muestraFinal.php', //archivo que recibe la peticion
+                type:  'post', //método de envio
+                beforeSend: function () {
+                        $("#respuesta").html("Procesando, espere por favor...");
+                },
+                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                        $("#respuesta").html(response);
+                }
+        });
+}
