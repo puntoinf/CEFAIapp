@@ -75,12 +75,12 @@
                 success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
                   if(response == 1){
                     $("#load").remove();
-                    window.location.href = "administracion/home.php";
+                    window.location.href = "administracion";
                     cerrarModal();
                   }else{
                       if(response == 2){
                         $("#load").remove();
-                        window.location.href = "academica/home.php";
+                        window.location.href = "academica";
                         cerrarModal();
                       }else{
                         $("#load").remove();

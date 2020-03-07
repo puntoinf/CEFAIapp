@@ -57,8 +57,8 @@
             }
                 echo "
                 <tr id=\"".$i."\">
-                    <td>".$fila['horainicio']."</td>
-                    <td>".$fila['horafin']."</td>
+                    <td>".substr($fila['horainicio'],0 ,-3)."</td>
+                    <td>".substr($fila['horafin'],0 ,-3)."</td>
                     <td>".$fila2['nombre']." ".$carreraActual."</td>
                     <td>".$fila['aula']."</td>
                     <td>".$fila['modulo']."</td>

@@ -225,6 +225,13 @@ function buscarCorrelativas() {
     }
 };
 
+function eliminarCorrelativaConfirmacion(necesaria, disponible){
+        var confirmacion = confirm("Desea eliminar esta correlativa!!");
+        if(confirmacion){
+                eliminarCorrelativa(necesaria, disponible);
+        }
+}
+
 function eliminarCorrelativa(necesaria, disponible){
     console.log(necesaria+" "+disponible);
     var parametros = {
@@ -291,7 +298,7 @@ function cargarModalAsueto(idAuseto, fecha, horainicio, horafin){
 
 
         //valores para modificar
-        $("#fecheModificar").val(fecha);
+        $("#fechaModificar").val(fecha);
         $("#horainicioModificar").val(horainicio);
         $("#horafinModificar").val(horafin);
 }
@@ -300,7 +307,7 @@ function modificarAsueto(){
         //parametros de la modificacio
         var parametros = {
                 "idAuseto" : $("#idAuseto").val(),
-                "fecheModificar": $("#fecheModificar").val(),
+                "fechaModificar": $("#fechaModificar").val(),
                 "horainicioModificar": $("#horainicioModificar").val(),
                 "horafinModificar": $("#horafinModificar").val()
 
@@ -319,21 +326,87 @@ function modificarAsueto(){
         });
 }
 
+function agregarAsueto(){
+        //parametros de la modificacio
+        var parametros = {
+                "fecha": $("#fechaAgregar").val(),
+                "horainicio": $("#horaInicioAgregar").val()+":00",
+                "horafin": $("#horaFinAgregar").val()+":00"
+
+        };
+
+        console.log(parametros);
+
+        $.ajax({
+                data:  parametros, //datos que se envian a traves de ajax
+                url:   'addAsueto.php', //archivo que recibe la peticion
+                type:  'post', //método de envio
+                beforeSend: function () {
+                        $("#respuestaAgregarAsueto").html("Procesando, espere por favor...");
+                },
+                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                        $("#respuestaAgregarAsueto").html(response);
+                        cargarAsuetos();
+                }
+        });
+}
+
+function agregarAsuetoHoy(){
+        var hoy = new Date();
+        var dd = hoy.getDate();
+        var mm = hoy.getMonth()+1;
+        var yyyy = hoy.getFullYear();
+
+        var fecha = yyyy+"-"+mm+"-"+dd;
+
+        console.log(fecha);
+
+        //parametros de la modificacio
+        var parametros = {
+                "fecha": fecha,
+                "horainicio": $("#horaInicioHoyAgregar").val()+":00",
+                "horafin": $("#horaFinHoyAgregar").val()+":00"
+
+        };
+
+        console.log(parametros);
+
+        $.ajax({
+                data:  parametros, //datos que se envian a traves de ajax
+                url:   'addAsueto.php', //archivo que recibe la peticion
+                type:  'post', //método de envio
+                beforeSend: function () {
+                        $("#respuestaAgregarAsueto").html("Procesando, espere por favor...");
+                },
+                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                        $("#respuestaAgregarAsueto").html(response);
+                        cargarAsuetos();
+                }
+        });
+}
+
+function confirmarEliminacion(idAuseto) {
+        var confirmacion = confirm("desea eliminar este asueto?");
+        if(confirmacion){
+                eliminarAsueto(idAuseto);  
+        }
+}
+
 function eliminarAsueto(idAuseto){
         //parametros de la modificacion
         var parametros = {
-                "idAuseto" : idAuseto
-
+                "idAsueto" : idAuseto
         };
         $.ajax({
                 data:  parametros, //datos que se envian a traves de ajax
-                url:   'muestraFinal.php', //archivo que recibe la peticion
+                url:   'removeAsueto.php', //archivo que recibe la peticion
                 type:  'post', //método de envio
                 beforeSend: function () {
-                        $("#respuesta").html("Procesando, espere por favor...");
+                        $("#acciones").html("Procesando, espere por favor...");
                 },
                 success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                        $("#respuesta").html(response);
+                        $("#acciones").html(response);
+                        cargarAsuetos();
                 }
         });
 }
