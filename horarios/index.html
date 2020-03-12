@@ -29,47 +29,26 @@
       rel="stylesheet">
 </head>
 <body onload="dia();">
+    <script>
+        $(document).ready(function(){
+            setInterval(reloj,1000);
+        });
+    </script>
     <div class="container">
-        <h3>Horarios</h3>
-        <a class="btn btn-primary" href="/" role="button">
+        <a class="btn btn-primary" href="../" role="button">
             <i class="material-icons">
                 keyboard_backspace
             </i>
         </a></br>
-        <button class="btn btn-ligth" type="button" data-toggle="collapse" data-target="#formu" aria-expanded="false" aria-controls="formu">
-            Filtrar
-            <i class="material-icons">
-                filter_list
-            </i>
-        </button>
-        <div class="collapse" id="formu">
-            <form action="" class="">
-                <div class="form-group">
-                    <label for="dia">Dia</label>
-                    <select id="dia" onchange="mostrarEnviar()" class="form-control" >
-                        <option value="">-</option>
-                        <option value="Lunes">Lunes</option>
-                        <option value="Martes">Martes</option>
-                        <option value="Miercoles">Miércoles</option>
-                        <option value="Jueves">Jueves</option>
-                        <option value="Viernes">Viernes</option>
-                        <option value="Sabado">Sabado</option>
-                    </select>
-                </div>
-            </form>
-            <div class="form-group" id="send">
-                <button class="btn btn-ligth" onclick="enviar('-', '00:00:00');">
-                    Enviar
-                </button>
-            </div>
-        </div>
-        <div>
+        <div class="text-center">
+            <h1 id="reloj"></h2>
             <h3 id="hoy"></h3>
-            <table class="table table-responsive-xl">
+            <div id="asueto"></div>
+            <div id="feriado"></div>
+            <table class="text-left table table-responsive-xl">
                 <thead>
                     <tr>
                       <th scope="col">Hora</th>
-                      <th scope="col">Hora fin</th>
                       <th scope="col">Materia</th>
                       <th scope="col">Aula</th>
                       <th scope="col">Modulo</th>
@@ -95,53 +74,8 @@
                 </tbody>
             </table>
         </div>
-        <script>
-        function enviar(argDia, horaInicio){
-            if (argDia == "") {
-                argDia = "Lunes";
-                horaInicio = "00:00:00";
-            }else{
-                if(argDia == "-"){
-                    argDia = $("#dia").val();
-                }
-            }
-            var parametros = {
-                "dia" : argDia,
-                "hora": horaInicio
-            };
-            
-            document.getElementById('hoy').innerHTML = argDia;
-            $.ajax({
-                data:  parametros, //datos que se envian a traves de ajax
-                url:   'horarios.php', //archivo que recibe la peticion
-                type:  'post', //método de envio
-                beforeSend: function () {
-                        $("#horario").html("Procesando, espere por favor...");
-                },
-                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                        $("#horario").html(response);
-                }
-            });
-            $.ajax({
-                data:  parametros, //datos que se envian a traves de ajax
-                url:   'muestraEvento.php', //archivo que recibe la peticion
-                type:  'post', //método de envio
-                beforeSend: function () {
-                        $("#horarioEvento").html("Procesando, espere por favor...");
-                },
-                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                        $("#horarioEvento").html(response);
-                }
-            });
-        };
-        </script>
     </div>
     <div class="subir rounded d-flex flex-column">
-        <a href="hoy/" title="Horarios Actuales" class="btn btn-primary rounded" role="button" style="margin-bottom: 5px;">
-            <i class="material-icons white">
-                alarm
-            </i>
-        </a>
         <a href="mi-semana/" title="Armar semana" class="btn btn-primary rounded" role="button">
             <i class="material-icons white">
                 list_alt

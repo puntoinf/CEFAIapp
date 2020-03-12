@@ -5,12 +5,12 @@ require_once("../../connecion.php");
 require_once("../../consulta.php");
 
 //gurdamos la materia y la carrera
-$dia = $_POST['dia'];
-$cuatrimestre = $_POST['cuatrimestre'];
+$carrera = $_POST['carrera'];
+$año = $_POST['año'];
 
 //realizamos las consultas
 $consulta = new CONSULTA();
-$sql = "SELECT * FROM `dicta` WHERE dia = '$dia' AND cuatrimestre = '$cuatrimestre' ORDER BY horainicio ASC";
+$sql = "SELECT * FROM `dicta`, `imparte`, `materia` WHERE dicta.idMateria = materia.idMateria AND imparte.idCarrera = '$carrera' AND materia.idMateria = imparte.idMateria AND materia.ano = '$año' ORDER BY horainicio ASC";
 $registros = $consulta->getConsulta($sql);
 
 if($registros){

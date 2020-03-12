@@ -27,7 +27,7 @@ if($registros){
                     </button>
                 </td>
                 <td>
-                    <button type=\"button\" class=\"close\" aria-label=\"Close\" onclick=\"eliminarEvento('".$fila['nombre']."', '".$fila['dia']."', '".$fila['hora']."', '".$fila['aula']."', '".$fila['estado']."')\">
+                    <button type=\"button\" class=\"close\" aria-label=\"Close\" onclick=\"confirmarEliminacionEvento('".$fila['nombre']."', '".$fila['dia']."', '".$fila['hora']."', '".$fila['aula']."', '".$fila['estado']."')\">
                         <i class=\"material-icons\">
                              clear
                         </i>

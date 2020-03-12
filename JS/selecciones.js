@@ -34,6 +34,37 @@ function seleccionAño(){
     document.getElementById("AñoBloque").setAttribute("style","visibility: visible;");
 }
 
+function cargarAños(){
+    var carrera = document.getElementById("carrera").value;
+    switch (carrera) {
+        //en caso de ser un profesorado
+        case "1":
+            cargaAños(añoProfesorado, 'año');
+        break;
+        //en caso de ser lic. Cien
+        case "2":
+            cargaAños(añoLicenciatura, 'año');
+        break;
+        //en caso de ser Lic. Sis
+        case "3":
+            cargaAños(añoLicenciatura, 'año');
+        break;
+        //en caso de ser TUDW
+        case "4":
+            cargaAños(añoTecnicatura, 'año');
+        break;
+        //en caso de ser TUASySL
+        case "5":
+            cargaAños(añoTecnicatura, 'año');
+        break;
+        //en caso de ser cualquier otra cosa
+        default:
+            borrar("año");
+    break;
+    }
+    document.getElementById("AñoBloque").setAttribute("style","visibility: visible;");
+}
+
 /**
  * seleccion de años segun carrera en la seccion de horarios
  */

@@ -77,7 +77,7 @@ require_once("../../session.php");
         <h3>Horarios</h3>
         <div class="row">
             <div class="col-sm">
-            <form action="">
+                <form action="">
                     <!--
                         formulario de eleccion de carrera en las opciones de correlativas
                     -->
@@ -102,10 +102,31 @@ require_once("../../session.php");
                         </select>
                     </div>
                     <div class="form-group" id="send">
-                        <button type="button" class="btn btn-light border" onclick="buscar()">consultar</button>
+                        <button type="button" class="btn btn-light border" onclick="buscarHorariosEvento()">consultar</button>
                     </div>
                 </form>
-
+                <form action="">
+                    <div class="form-group">
+                        <label for="carrera">Carrera</label>
+                        <select id="carrera" onchange="cargarAños();" class="form-control" >
+                            <option value="-">-</option>
+                            <option value="1">Profesorado de Informatica</option>
+                            <option value="2">Licenciatura en Ciencias de la Computación</option>
+                            <option value="3">Licenciatura en Sistemas de Información</option>
+                            <option value="4">Tecnicatura Universitaria en Desarrollo Web</option>
+                            <option value="5">Tecnicatura Universitaria en Administración de Sistemas y Software Libre</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="AñoBloque">
+                        <label for="carrera">Año</label>
+                        <select id="año"  onchange="mostrarEnviar2();" class="form-control">
+                            <option value="">-</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="send2">
+                        <button type="button" class="btn btn-light border" onclick="buscarHorarioAño()">consultar</button>
+                    </div>
+                </form>
             </div>
             <div class="col-sm">
             <!--
@@ -131,13 +152,6 @@ require_once("../../session.php");
                             <a class="btn" data-toggle="collapse" href="#addHorarioEventoColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" title="Agregar el Horario de un Evento">
                                 <i class="material-icons">
                                     post_add
-                                </i>
-                            </a>
-                        </li>
-                        <li class="breadcrumb-item" aria-current="page">
-                            <a class="btn" data-toggle="collapse" href="#asuetoColapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" title="generar PDF">
-                                <i class="material-icons" id="iconPdf">
-                                    warning
                                 </i>
                             </a>
                         </li>
@@ -232,11 +246,11 @@ require_once("../../session.php");
                                 </script>
                                 <br>
                                 <div class="form-group">
-                                    <button type="button" class="btn btn-light border" onclick="cargar();">Cargar</button>
+                                    <button type="button" class="btn btn-light border" onclick="agregarHorario();">Cargar</button>
                                 </div>
                             </div>
                         </form>
-                        <script src="../JS/cargarModal.js"></script>          
+                        <script src="../../JS/cargarModal.js"></script>          
                     </div>
                 </div>
 
@@ -275,37 +289,7 @@ require_once("../../session.php");
                                 <br>
                             </div>
                             <div class="form-group">
-                                <button type="button" class="btn btn-light border" onclick="cargarEvento();">Cargar</button>
-                            </div>
-                        </form>
-                        <script src="../JS/cargarModal.js"></script>            
-                    </div>
-                </div>
-
-                <div class="collapse multi-collapse" id="asuetoColapse">
-                    <div class="card card-body">
-                        <h6>Programar asueto</h6>
-                        <div id="respuestaAsueto">
-                        
-                        </div>
-                        <h6>Para Hoy!!</h6>
-                        <form action="" class="form">
-                            <div class="form-group">
-                                <label for="fecha"></label>
-                                <input type="date" name="" id="">
-                            </div>
-                            <div class="form-group">
-                                <button type="button" class="btn btn-light border" onclick="cargarAsuetoHoy();">Cargar</button>
-                            </div>
-                        </form>
-                        <h6>Programar</h6>
-                        <form action="" class="form">
-                            <div class="form-group">
-                                <label for="fecha"></label>
-                                <input type="date" name="" id="">
-                            </div>
-                            <div class="form-group">
-                                <button type="button" class="btn btn-light border" onclick="cargarAsuetoHoy();">Cargar</button>
+                                <button type="button" class="btn btn-light border" onclick="agregarEvento();">Cargar</button>
                             </div>
                         </form>
                         <script src="../../JS/cargarModal.js"></script>            
@@ -320,6 +304,7 @@ require_once("../../session.php");
                     <thead class="w-100">
                         <tr>
                             <th scope="col">Materia</th>
+                            <th scope="col">Dia</th>
                             <th scope="col">Aula</th>
                             <th scope="col">Modulo</th>
                             <th scope="col">Hora Inicio</th>
@@ -403,7 +388,7 @@ require_once("../../session.php");
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" onclick="editar()">Guardar Cambios</button>
+                <button type="button" class="btn btn-primary" onclick="editarHorario()">Guardar Cambios</button>
             </div>
             </div>
         </div>
