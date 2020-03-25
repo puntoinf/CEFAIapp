@@ -32,6 +32,7 @@ function mostrarDatosFeriado(){
     var mm = parseInt(hoy.getMonth()+1, 10);
 
     var retorno = false;
+    
     while(i < arreglo.length && !retorno) {
         console.log(arreglo[i]['mes']+" "+arreglo[i]['dia']);
         if(arreglo[i]['mes'] == mm && arreglo[i]['dia'] == dd){

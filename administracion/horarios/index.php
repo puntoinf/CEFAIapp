@@ -29,8 +29,18 @@ require_once("../../session.php");
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="../../JS/darktheme.js"></script>
 
+    <!-- timepiker -->
     <script src="https://cdn.jsdelivr.net/npm/timepicker@1.13.0/jquery.timepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/timepicker@1.13.0/jquery.timepicker.css">
+
+    <!-- datapiker -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet"/>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
@@ -228,22 +238,32 @@ require_once("../../session.php");
                                     <label for="carrera">Módulo</label>
                                     <input type="" class="form-control" id="modulo" placeholder="Modulo">
                                 <br>
-                                <label for="carrera">Aula</label>
-                                <input type="" class="form-control" id="aula" placeholder="Aula">
-                                <label for="horainicio">Hora Inicio</label>
-                                <div class="md-form">
-                                    <input placeholder="Selected time" type="text" id="horainicio" class="form-control timepicker">
-                                    <label for="horainicio">Twelve hour clock</label>
-                                </div>
-                                <label for="">Hora Fin</label>
-                                <div class="md-form">
-                                    <input placeholder="Selected time" type="text" id="horafin" class="form-control timepicker">
-                                    <label for="horafin">Twelve hour clock</label>
+                                <label for="">Hora Inicio</label>
+                                <div class='input-group date' id='horainiciopiker'>
+                                    <input type='text' class="form-control" id="horainicio"/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </span>
                                 </div>
                                 <script type="text/javascript">
-                                $('.timepicker').timepicker({ 'timeFormat': 'H:i:s' });
-                                // Time Picker Initialization
+                                $('#horainicio').datetimepicker({
+                                    format: 'HH:mm'
+                                });
                                 </script>
+                                
+                                <label for="">Hora Fin</label>
+                                <div class='input-group date' id='horafinpiker'>
+                                    <input type='text' class="form-control" id="horafin"/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </span>
+                                </div>
+                                <script type="text/javascript">
+                                $('#horafin').datetimepicker({
+                                    format: 'HH:mm'
+                                });
+                                </script>
+
                                 <br>
                                 <div class="form-group">
                                     <button type="button" class="btn btn-light border" onclick="agregarHorario();">Cargar</button>
@@ -275,17 +295,23 @@ require_once("../../session.php");
                                     <option value="Sabado">Sabado</option>
                                 </select>
                                 </br>
+
                                 <label for="aulaEvento">Aula</label>
                                 <input type="text" class="form-control" id="aulaEvento" placeholder="Aula">
-                                <label for="horaEvento">Hora</label>
-                                <div class="md-form">
-                                    <input placeholder="Selected time" type="text" id="horaEvento" class="form-control timepicker">
-                                    <label for="horaEvento">Twelve hour clock</label>
+                                
+                                <label for="">Hora</label>
+                                <div class='input-group date' id='horafinpiker'>
+                                    <input type='text' class="form-control" id="horaEvento"/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </span>
                                 </div>
                                 <script type="text/javascript">
-                                $('#horaEvento').timepicker({ 'timeFormat': 'H:i:s' });
-                                // Time Picker Initialization
+                                $('#horaEvento').datetimepicker({
+                                    format: 'HH:mm'
+                                });
                                 </script>
+
                                 <br>
                             </div>
                             <div class="form-group">
