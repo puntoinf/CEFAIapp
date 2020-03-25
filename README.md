@@ -116,5 +116,5 @@ INSERT INTO 'materia'('idMateria', 'nombre', 'ano', 'cuatrimestre') VALUES
 
 tenemos que NULL permite que la variable se auto incremente, los siguientes datos son para el nombre, el año, y el cuatrimestre.
 
-
+en el siguiente link podran encontrar una pagina cuyo objetivo es el de automatizar esta garga, usted podra  usar el formualario para armar las materias y carreras. para poder cargar horarios, asociar correlativas, finales y materia con carrera tendra que ralizar algunas modificaciones.
 
