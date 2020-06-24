@@ -34,7 +34,7 @@ CREATE TABLE `carrera` (
   `plan` varchar(250) NOT NULL,
   `duracion` int(10) NOT NULL,  
   constraint idCarrera_pk primary key (idCarrera)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -45,7 +45,7 @@ CREATE TABLE `carrera` (
 CREATE TABLE `correlativa` (
   `necesaria` int(250) NOT NULL,
   `disponible` int(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -62,7 +62,7 @@ CREATE TABLE `dicta` (
   `horafin` time NOT NULL,
   `cuatrimestre` int(250) NOT NULL,
   `estado` varchar(250) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -84,7 +84,7 @@ CREATE TABLE `final` (
 CREATE TABLE `imparte` (
   `idCarrera` int(250) NOT NULL,
   `idMateria` int(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -98,8 +98,7 @@ CREATE TABLE `materia` (
   `ano` int(250) NOT NULL,
   `cuatrimestre` int(2) NOT NULL,
   constraint idMateria_pk primary key (idMateria)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- carga de datos
 
