@@ -29,10 +29,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `carrera` (
-  `idCarrera` int(250) NOT NULL,
+  `idCarrera` int(250) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(250) NOT NULL,
   `plan` varchar(250) NOT NULL,
-  `duracion` int(10) NOT NULL
+  `duracion` int(10) NOT NULL,  
+  constraint idCarrera_pk primary key (idCarrera)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -57,7 +58,8 @@ CREATE TABLE `dicta` (
   `aula` varchar(250) COLLATE utf8_spanish_ci NOT NULL,
   `dia` varchar(250) COLLATE utf8_spanish_ci NOT NULL,
   `modulo` varchar(250) COLLATE utf8_spanish_ci NOT NULL,
-  `hora` time NOT NULL,
+  `horainicio` time NOT NULL,
+  `horafin` time NOT NULL,
   `cuatrimestre` int(250) NOT NULL,
   `estado` varchar(250) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -91,10 +93,11 @@ CREATE TABLE `imparte` (
 --
 
 CREATE TABLE `materia` (
-  `idMateria` int(250) NOT NULL,
+  `idMateria` int(250) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(250) NOT NULL,
   `ano` int(250) NOT NULL,
-  `cuatrimestre` int(2) NOT NULL
+  `cuatrimestre` int(2) NOT NULL,
+  constraint idMateria_pk primary key (idMateria)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -102,7 +105,7 @@ CREATE TABLE `materia` (
 
 -- carreras
 
-INSERT INTO 'carrera' ('idCarrera', 'nombre', 'plan', 'duracion') VALUES
+INSERT INTO carrera (idCarrera, nombre, plan, duracion) VALUES
 (1, 'Profesorado en Informática', '1185/13','4'),
 (2, 'Licenciatura en Ciencias de la Computación', '1112/13', 5),
 (3, 'Licenciatura en Sistemas de Información', '1420/2013', 5),
@@ -112,157 +115,156 @@ INSERT INTO 'carrera' ('idCarrera', 'nombre', 'plan', 'duracion') VALUES
 -- materias 
 
 -- materias TUASySL
-INSERT INTO 'materia'('idMateria', 'nombre', 'ano', 'cuatrimestre') VALUES
-(NULL, 'Introduccion a la Computacion','1','1'),
-(NULL, 'Matematica General','1','1'),
-(NULL, 'Ingles Tecnico','1','1'),
-(NULL, 'Introduccion a la Programacion','1','2'),
-(NULL, 'Introduccion a la Administracion de Sistemas','1','2'),
-(NULL, 'Redes de Datos','1','2'),
-(NULL, 'Software Libre','2','1'),
-(NULL, 'Taller de Hardware y Software','2','1'),
-(NULL, 'Administracion de Sistemas','2','1'),
-(NULL, 'Administracion de Servicios','2','2'),
-(NULL, 'Sistemas de Informacion','2','2'),
-(NULL, 'Automatizacion y Scrpting','2','2'),
-(NULL, 'Administracion de Sistemas Avanzada', 3,'1'),
-(NULL, 'Aplicaciones Libres', 3,'1'),
-(NULL, 'Electiva', 3,'1')
+INSERT INTO materia (nombre, ano, cuatrimestre) VALUES
+('Introduccion a la Computacion','1','1'),
+('Matematica General','1','1'),
+('Ingles Tecnico','1','1'),
+('Introduccion a la Programacion','1','2'),
+('Introduccion a la Administracion de Sistemas','1','2'),
+('Redes de Datos','1','2'),
+('Software Libre','2','1'),
+('Taller de Hardware y Software','2','1'),
+('Administracion de Sistemas','2','1'),
+('Administracion de Servicios','2','2'),
+('Sistemas de Informacion','2','2'),
+('Automatizacion y Scrpting','2','2'),
+('Administracion de Sistemas Avanzada', 3,'1'),
+('Aplicaciones Libres', 3,'1'),
+('Electiva', 3,'1')
 ;
 
 -- materias del titulo intermedio
-INSERT INTO 'materia'  ('idMateria', 'nombre', 'ano', 'cuatrimestre') VALUES
-(NULL,'Elementos de Algebra','1','1'),
-(NULL,'Resolucion de Problemas y Algoritmos','1','1'),
-(NULL,'Modelos y Sistemas de Informacion','1','1'),
-(NULL,'Introduccion a la Computacion','1','1'),
-(NULL,'Desarrollo de Algoritmos','1','2'),
-(NULL,'Elementos de Algebra Lineal','1','2'),
-(NULL,'Elementos de Teoria de la Computacion','1','2'),
-(NULL,'Modelado de Datos','1','2'),
-(NULL,'Cálculo Diferencial e Integral' ,'2','1'),
-(NULL,'Programacion Orientada a Objetos','2','1'),
-(NULL,'Estructuras de Datos','2','1'),
-(NULL,'Teoria de la Computacion I','2','1'),
-(NULL,'Inglés Técnico I','2','1'),
-(NULL,'Métodos Computacionales para el Cálculo','2','2'),
-(NULL,'Programacion Concurrente','2','2'),
-(NULL,'Teoria de la Computacion II','2','2'),
-(NULL,'Arquitecturas y Organizacion de Computadoras I','2','2'),
-(NULL,'Ingenieria de Requerimientos','2','2'),
-(NULL,'Inglés Técnico II','2','2'),
-(NULL,'Probabilidad y Estadistica', 3,'1'),
-(NULL,'Principios de Lenguajes de Programacion', 3,'1'),
-(NULL,'Sistemas Operativos I',3,'1'),
-(NULL,'Diseño de Bases de Datos',3,'1'),
-(NULL,'Arquitecturas de Software',3,'1'),
-(NULL,'Análisis de Algoritmos',3,'2'),
-(NULL,'Laboratorio de Programacion',3,'2'),
-(NULL,'Lógica para Ciencias de la Computacion',3,'2'),
-(NULL,'Redes de Computadoras I',3,'2'),
-(NULL,'Gestion de Proyectos de Desarrollo Software',3,'2'),
-(NULL,'Gestion de Bases de Datos',3,'2'),
-(NULL,'Gestion de Bases de Datos',3,'2')
+INSERT INTO materia (nombre, ano, cuatrimestre) VALUES
+('Elementos de Algebra','1','1'),
+('Resolucion de Problemas y Algoritmos','1','1'),
+('Modelos y Sistemas de Informacion','1','1'),
+('Introduccion a la Computacion','1','1'),
+('Desarrollo de Algoritmos','1','2'),
+('Elementos de Algebra Lineal','1','2'),
+('Elementos de Teoria de la Computacion','1','2'),
+('Modelado de Datos','1','2'),
+('Cálculo Diferencial e Integral' ,'2','1'),
+('Programacion Orientada a Objetos','2','1'),
+('Estructuras de Datos','2','1'),
+('Teoria de la Computacion I','2','1'),
+('Inglés Técnico I','2','1'),
+('Métodos Computacionales para el Cálculo','2','2'),
+('Programacion Concurrente','2','2'),
+('Teoria de la Computacion II','2','2'),
+('Arquitecturas y Organizacion de Computadoras I','2','2'),
+('Ingenieria de Requerimientos','2','2'),
+('Inglés Técnico II','2','2'),
+('Probabilidad y Estadistica', 3,'1'),
+('Principios de Lenguajes de Programacion', 3,'1'),
+('Sistemas Operativos I',3,'1'),
+('Diseño de Bases de Datos',3,'1'),
+('Arquitecturas de Software',3,'1'),
+('Análisis de Algoritmos',3,'2'),
+('Laboratorio de Programacion',3,'2'),
+('Lógica para Ciencias de la Computacion',3,'2'),
+('Redes de Computadoras I',3,'2'),
+('Gestion de Proyectos de Desarrollo Software',3,'2'),
+('Gestion de Bases de Datos',3,'2'),
+('Gestion de Bases de Datos',3,'2')
 ;
 
--- materias en comun 4 y 5 año
-INSERT INTO 'materia'('idMateria', 'nombre', 'ano', 'cuatrimestre') VALUES
-(NULL,'Sistemas Paralelos','4','1'),
-(NULL,'Inteligencia Artificial LicCien ','4','2'),
-(NULL,'Sistemas Inteligentes',5,'1'),
-(NULL,'Laboratorio de Programacion Distribuida',5,'1');
+-- materias en comun 4 y 5 ano
+INSERT INTO materia (nombre, ano, cuatrimestre) VALUES
+('Sistemas Paralelos','4','1'),
+('Inteligencia Artificial LicCien ','4','2'),
+('Sistemas Inteligentes',5,'1'),
+('Laboratorio de Programacion Distribuida',5,'1');
 
 -- materias de carrera licenciatura en ciencias de la computacion
-INSERT INTO 'materia'('idMateria', 'nombre', 'ano', 'cuatrimestre') VALUES
-(NULL,'Lenguajes Declarativos','4','1'),
-(NULL,'Complejidad Computacional','4','1'),
-(NULL,'Especificacion de Software','4','1'),
-(NULL,'Diseño de Algoritmos','4','2'),
-(NULL,'Conceptos Avanzados de Lenguajes de Programacion','4','2'),
-(NULL,'Especificación con Métodos Formales','4','2'),
-(NULL,'Aspectos Profesionales y Sociales','4','2'),
-(NULL,'Agentes Inteligentes para la Web',5,'1'),
-(NULL,'Diseño de Compiladores e Interpretes',5,'1'),
-(NULL,'Electiva I',5,'1'),
-(NULL,'Trabajo de Tesis',5,'1'),
-(NULL,'Laboratorio de Compiladores e Intérpretes',5,'2'),
-(NULL,'Laboratorio de Inteligencia Artificial',5,'2'), 
-(NULL,'Tecnicas para Minería de Datos',5,'2'),
-(NULL,'Electiva II Según Electiva',5,'2'),
-(NULL,'Trabajo de Tesis',5,'2'); 
+INSERT INTO materia (nombre, ano, cuatrimestre) VALUES
+('Lenguajes Declarativos','4','1'),
+('Complejidad Computacional','4','1'),
+('Especificacion de Software','4','1'),
+('Diseño de Algoritmos','4','2'),
+('Conceptos Avanzados de Lenguajes de Programacion','4','2'),
+('Especificación con Métodos Formales','4','2'),
+('Aspectos Profesionales y Sociales','4','2'),
+('Agentes Inteligentes para la Web',5,'1'),
+('Diseño de Compiladores e Interpretes',5,'1'),
+('Electiva I',5,'1'),
+('Trabajo de Tesis',5,'1'),
+('Laboratorio de Compiladores e Intérpretes',5,'2'),
+('Laboratorio de Inteligencia Artificial',5,'2'), 
+('Tecnicas para Minería de Datos',5,'2'),
+('Electiva II Según Electiva',5,'2'),
+('Trabajo de Tesis',5,'2'); 
 
 -- materias de carrera licenciatura en sistemas
-INSERT INTO 'materia'('idMateria', 'nombre', 'ano', 'cuatrimestre') VALUES
-(NULL, 'Matematica General','1','1'),
-(NULL, 'Introduccion a la Programacion','1','1'),
-(NULL, 'Ingles Tecnico','1','1'),
-(NULL, 'Programacion Estatica y Laboratorio Web','1','2'),
-(NULL, 'Introduccion a la Programacion Orientada a Objetos','1','2'),
-(NULL, 'Conceptos de Bases de Datos','1','2'),
-(NULL, 'Programacion Web Dinamica','2','1'),
-(NULL, 'Arquitectura y Seguridad de Computadoras','2','1'),
-(NULL, 'Diseno Grafico','2','1'),
-(NULL, 'Programacion Web Avanzada','2','2'),
-(NULL, 'Analisis, Diseño y Documentacion de Sistemas','2','2'),
-(NULL, 'Framework e Interoperabilidad', 3,'1'),
-(NULL, 'Trabajo Final Tecnicatura en Desarrollo Web', 3,'1'),
-(NULL, 'Planificacion y Control de Proyectos','4','2'),
-(NULL, 'Sistemas de Informacion I','4','2'),
-(NULL, 'Modelado de Procesos de Negocios','4','2'),
-(NULL, 'Especificacion de Requerimientos','4','2'),
-(NULL, 'Especificacion de Diseño de Software','4','2'),
-(NULL, 'Deposito y Mineria de Datos','4','2'),
-(NULL, 'Sistema de Informacion II','4','2'),
-(NULL, 'Laboratorio de Bases de Datos','4','2'),
-(NULL, 'Auditoria de Sistemas de Informacion', 5,'2'),
-(NULL, 'Verificacion y Validacion de Software', 5,'2'),
-(NULL, 'Electiva I', 5,'2'),
-(NULL, 'Trabajo Tesis I LicSis', 5,'2'),
-(NULL, 'Sistemas de Informacion para la Web', 5,'2'),
-(NULL, 'Aspectos Profecionales y Sociales', 5,'2'),
-(NULL, 'Reingenieria de Software y Procesos', 5,'2'),
-(NULL, 'Construccion y Validacion de Software', 5,'2'),
-(NULL, 'Electiva II', 5,'2'),
-(NULL, 'Trabajo Tesis II LicSis', 5,'2');
+INSERT INTO materia (nombre, ano, cuatrimestre) VALUES
+('Matematica General','1','1'),
+('Introduccion a la Programacion','1','1'),
+('Ingles Tecnico','1','1'),
+('Programacion Estatica y Laboratorio Web','1','2'),
+('Introduccion a la Programacion Orientada a Objetos','1','2'),
+('Conceptos de Bases de Datos','1','2'),
+('Programacion Web Dinamica','2','1'),
+('Arquitectura y Seguridad de Computadoras','2','1'),
+('Diseno Grafico','2','1'),
+('Programacion Web Avanzada','2','2'),
+('Analisis, Diseño y Documentacion de Sistemas','2','2'),
+('Framework e Interoperabilidad', 3,'1'),
+('Trabajo Final Tecnicatura en Desarrollo Web', 3,'1'),
+('Planificacion y Control de Proyectos','4','2'),
+('Sistemas de Informacion I','4','2'),
+('Modelado de Procesos de Negocios','4','2'),
+('Especificacion de Requerimientos','4','2'),
+('Especificacion de Diseño de Software','4','2'),
+('Deposito y Mineria de Datos','4','2'),
+('Sistema de Informacion II','4','2'),
+('Laboratorio de Bases de Datos','4','2'),
+('Auditoria de Sistemas de Informacion', 5,'2'),
+('Verificacion y Validacion de Software', 5,'2'),
+('Electiva I', 5,'2'),
+('Trabajo Tesis I LicSis', 5,'2'),
+('Sistemas de Informacion para la Web', 5,'2'),
+('Aspectos Profecionales y Sociales', 5,'2'),
+('Reingenieria de Software y Procesos', 5,'2'),
+('Construccion y Validacion de Software', 5,'2'),
+('Electiva II', 5,'2'),
+('Trabajo Tesis II LicSis', 5,'2');
 
 -- materias TUDW
-INSERT INTO 'materia'('idMateria', 'nombre', 'ano', 'cuatrimestre') VALUES
-(NULL, 'Matematica General','1','1'),
-(NULL, 'Introduccion a la Programacion','1','1'),
-(NULL, 'Ingles Tecnico','1','1'),
-(NULL, 'Programacion Estatica y Laboratorio Web','1','2'),
-(NULL, 'Introduccion a la Programacion Orientada a Objetos','1','2'),
-(NULL, 'Conceptos de Bases de Datos','1','2'),
-(NULL, 'Programacion Web Dinamica','2','1'),
-(NULL, 'Arquitectura y Seguridad de Computadoras','2','1'),
-(NULL, 'Diseno Grafico','2','1'),
-(NULL, 'Programacion Web Avanzada','2','2'),
-(NULL, 'Analisis, Diseño y Documentacion de Sistemas','2','2'),
-(NULL, 'Framework e Interoperabilidad', 3,'1'),
-(NULL, 'Trabajo Final Tecnicatura en Desarrollo Web', 3,'1');
+INSERT INTO materia (nombre, ano, cuatrimestre) VALUES
+('Matematica General','1','1'),
+('Introduccion a la Programacion','1','1'),
+('Ingles Tecnico','1','1'),
+('Programacion Estatica y Laboratorio Web','1','2'),
+('Introduccion a la Programacion Orientada a Objetos','1','2'),
+('Conceptos de Bases de Datos','1','2'),
+('Programacion Web Dinamica','2','1'),
+('Arquitectura y Seguridad de Computadoras','2','1'),
+('Diseno Grafico','2','1'),
+('Programacion Web Avanzada','2','2'),
+('Analisis, Diseño y Documentacion de Sistemas','2','2'),
+('Framework e Interoperabilidad', 3,'1'),
+('Trabajo Final Tecnicatura en Desarrollo Web', 3,'1');
 
 
 -- profesorado en ciencias
-INSERT INTO 'materia'('idMateria', 'nombre', 'ano', 'cuatrimestre') VALUES
-(NULL, 'Pedagogía','1','1'),
-(NULL, 'Psicología I','1','2'),
-(NULL, 'Didáctica General','2','2'),
-(NULL, 'Métodos Computacionales para el Cálculo',3,'1'),
-(NULL, 'Tecnologías de la Información y Comunicación en la Educación', 3,'1'),
-(NULL, 'Psicología II', 3,'1'), 
-(NULL, 'Laboratorio de Tecnologías de la Información y Comunicación en la Educación', 3,'2'),
-(NULL, 'Probabilidad y Estadística','4','1'), 
-(NULL, 'Laboratorio de Sistemas Informáticos para Educación','4','1'),
-(NULL, 'Didáctica Específica','4','1'), 
-(NULL, 'Política Educacional Argentina','4','1'),
-(NULL, 'Tópicos Avanzados en Ciencias de la Computación','4','2'), 
-(NULL, 'Residencia','4','2');
+INSERT INTO materia (nombre, ano, cuatrimestre) VALUES
+('Pedagogía','1','1'),
+('Psicología I','1','2'),
+('Didáctica General','2','2'),
+('Métodos Computacionales para el Cálculo',3,'1'),
+('Tecnologías de la Información y Comunicación en la Educación', 3,'1'),
+('Psicología II', 3,'1'), 
+('Laboratorio de Tecnologías de la Información y Comunicación en la Educación', 3,'2'),
+('Probabilidad y Estadística','4','1'), 
+('Laboratorio de Sistemas Informáticos para Educación','4','1'),
+('Didáctica Específica','4','1'), 
+('Política Educacional Argentina','4','1'),
+('Tópicos Avanzados en Ciencias de la Computación','4','2'), 
+('Residencia','4','2');
 
 -- carrera asociadas a materias
 
 -- carrera TUASySL
 INSERT INTO `imparte` (`idCarrera`, `idMateria`) VALUES
-VALUES
 ('5','1'),
 ('5','2'),
 ('5','3'),
@@ -279,9 +281,8 @@ VALUES
 ('5','14'),
 ('5','15');
 
---materias en comun 4, 5 año
+--materias en comun 4, 5 ano
 INSERT INTO `imparte` (`idCarrera`, `idMateria`) VALUES
-VALUES
 ('2', '51'),
 ('2', '52'),
 ('2', '53'),
@@ -293,7 +294,6 @@ VALUES
 
 --materias de título intermedio con las licenciaturas
 INSERT INTO `imparte` (`idCarrera`, `idMateria`) VALUES
-VALUES 
 ('2', '16'),
 ('2', '17'),
 ('2', '18'),
@@ -358,7 +358,6 @@ VALUES
 
 --materias licenciatura en ciencias de computacion
 INSERT INTO `imparte` (`idCarrera`, `idMateria`) VALUES
-VALUES 
 ('2','55'),
 ('2','56'),
 ('2','57'),
@@ -378,7 +377,6 @@ VALUES
 
 --materias sistemas de informacion
 INSERT INTO `imparte` (`idCarrera`, `idMateria`) VALUES
-VALUES
 ('3','71'),
 ('3','72'),
 ('3','73'),
@@ -400,7 +398,6 @@ VALUES
 
 --materias TUDW
 INSERT INTO `imparte` (`idCarrera`, `idMateria`) VALUES
-VALUES
 ('4','89'),
 ('4','90'),
 ('4','91'),
@@ -417,7 +414,6 @@ VALUES
 
 --profesorado
 INSERT INTO `imparte` (`idCarrera`, `idMateria`) VALUES
-VALUES
 ('1','102'),
 ('1','103'),
 ('1','104'),
@@ -486,7 +482,7 @@ INSERT INTO `correlativa` (`necesaria`, `disponible`) VALUES
 ('0', '4');
 
 --titulo intermedio
---Primer año
+--Primer ano
 
 INSERT INTO `correlativa` (`necesaria`, `disponible`) VALUES
 ('0','16'),
@@ -499,9 +495,7 @@ INSERT INTO `correlativa` (`necesaria`, `disponible`) VALUES
 ('17','20'),
 ('17','23'),
 ('18','23'),
---
---segundo
---
+
 ('16','24'),
 ('19','28'),
 ('19','30'),
@@ -520,7 +514,7 @@ INSERT INTO `correlativa` (`necesaria`, `disponible`) VALUES
 ('27','32'),
 ('27','36'),
 ('28','34'),
---tercer año
+
 ('29','35'),
 ('26','37'),
 ('26','38'),
@@ -548,7 +542,7 @@ INSERT INTO `correlativa` (`necesaria`, `disponible`) VALUES
 ('42','55'),
 ('40','56'),
 ('42','56'),
-('37''51'),
+('37','51'),
 ('44','57'),
 ('40','58'),
 ('36','52'),
@@ -559,7 +553,7 @@ INSERT INTO `correlativa` (`necesaria`, `disponible`) VALUES
 ('41','61'),
 ('43','61'),
 ('52','53'),
-('52''62'),
+('52','62'),
 ('59','63'),
 ('51','54'),
 ('58','65'),
@@ -576,7 +570,7 @@ INSERT INTO `correlativa` (`necesaria`, `disponible`) VALUES
 --licenciatura en sistemas
 INSERT INTO `correlativa` (`necesaria`, `disponible`) VALUES
 ('35','71'),
- ('44','71'),
+('44','71'),
 ('44','72'),
 ('44','73'),
 ('39','74'),
@@ -602,10 +596,10 @@ INSERT INTO `correlativa` (`necesaria`, `disponible`) VALUES
 ('43','84'),
 ('77','85'),
 ('78','86'),
-('80',’75‘);
+('80','75');
 
 -- profesorado
-INSERT INTO `correlativa`(`necesaria`, `disponible`) VALUES
+INSERT INTO `correlativa` (`necesaria`, `disponible`) VALUES
 ('0', '102'),
 ('0', '103'),
 ('102', '104'),
@@ -657,8 +651,6 @@ INSERT INTO `correlativa` (`necesaria`, `disponible`) VALUES
 ('99','101');
 
 -- dicta
-
-
 
 -- finales
 
@@ -747,7 +739,7 @@ INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafi
 ('19', '16', 'Martes', 'Práctica ', '11:00:00', '13:00:00', '1', 'normal'),
 ('19', '105', 'Viernes', 'Práctica ', '14:00:00', '16:00:00', '1', 'normal'),
 ('19', '13', 'Viernes', 'Teoría ', '10:00:00', '12:00:00', '1', 'normal'),
----
+
 ('24', '41', 'Lunes', 'Teoría ', '13:00:00', '16:00:00', '1', 'normal'),
 ('24', '41', 'Miercoles', 'Práctica ', '13:00:00', '16:00:00', '1', 'normal'),
 ('25', 'Laboratorio 1 y 2 ', 'Lunes', 'Práctica ', '17:00:00', '19:00:00', '1', 'normal'),
@@ -759,7 +751,7 @@ INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafi
 ('27', '102', 'Jueves', 'Teoría ', '14:00:00', '16:00:00', '1', 'normal'),
 ('27', '102', 'Jueves', 'Práctica ', '17:00:00', '19:00:00', '1', 'normal'),
 ('28', '45', 'Martes', 'Teoría/Práctica ', '10:00:00', '12:00:00', '1', 'normal'),
----
+
 ('35', '53', 'Lunes', 'Teoría ', '09:00:00', '12:00:00', '1', 'normal'),
 ('35', '101', 'Jueves', 'Práctica ', '09:00:00', '12:00:00', '1', 'normal'),
 ('36', 'Laboratorio 1', 'Miercoles', 'Práctica - M1', '16:00:00', '18:00:00', '1', 'normal'),
@@ -771,7 +763,7 @@ INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafi
 ('38', '53', 'Miercoles', 'Teoría ', '10:00:00', '12:00:00', '1', 'normal'),
 ('39', '45', 'Jueves', 'Práctica ', '18:00:00', '20:00:00', '1', 'normal'),
 ('39', '102', 'Viernes', 'Teoría ', '10:00:00', '12:00:00', '1', 'normal'),
---- recursados
+
 ('21', '41', 'Martes', 'Unico', '09:00:00', '12:00:00', '1', 'normal'),
 ('21', '41', 'Jueves', 'Unico', '09:00:00', '12:00:00', '1', 'normal'),
 ('20', 'Laboratorio 3', 'Miercoles', 'Unico', '08:00:00', '10:00:00', '1', 'normal'),
@@ -793,7 +785,7 @@ INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafi
 ('55', 'Laboratorio 3', 'Jueves', 'Unico', '14:00:00', '16:00:00', '1', 'normal'),
 ('55', 'Laboratorio 1', 'Viernes', 'Unico', '16:00:00', '18:00:00', '1', 'normal'),
 ('57', 'Consejo Directivo FAI', 'Viernes', 'Practica ', '18:00:00', '21:00:00', '1', 'normal'),
----
+
 ('53', 'Laboratorio 3', 'Lunes', 'Practica', '16:00:00', '18:00:00', '1', 'normal'),
 ('63', 'Laboratorio 1', 'Martes', 'Unico', '13:00:00', '15:00:00', '1', 'normal'),
 ('63', 'Laboratorio Biblioteca', 'Martes', 'Unico', '15:00:00', '17:00:00', '1', 'normal'),
@@ -814,7 +806,7 @@ INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafi
 ('73', 'Consejo Directivo FaI', 'Jueves', 'Teoría', '10:00:00', '13:00:00', '1', 'normal'),
 ('72', 'Consejo Directivo FaI', 'Jueves', 'Teoría', '14:00:00', '16:00:00', '1', 'normal'),
 ('73', 'Consejo Directivo FaI', 'Jueves', 'Practica ', '18:00:00', '21:00:00', '1', 'normal'),
----
+
 ('80', 'Aula 101', 'Martes', 'Practica ', '14:00:00', '16:00:00', '1', 'normal'),
 ('80', 'Consejo Directivo FaEA', 'Martes', 'Teoría ', '16:00:00', '18:00:00', '1', 'normal'),
 ('79', 'Consejo Directivo FaI', 'Viernes', 'Unico', '14:00:00', '18:00:00', '1', 'normal'),
@@ -824,23 +816,23 @@ INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafi
 
 -- Prof
 -- 1°
-INSERT INTO `dicta`(`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafin`, `cuatrimestre`, `estado`) VALUES 
+INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafin`, `cuatrimestre`, `estado`) VALUES 
 ('102','40','Jueves','Teórico','18:00:00', '21:00:00', '1', 'normal'),
 ('102','44','Miercoles','Prácticas','17:00:00', '20:00:00', '1', 'normal'),
 ('102','40','Martes','Prácticas','19:00:00', '22:00:00', '1', 'normal'),
 ('102','40','Martes','Prácticas','08:00:00', '11:00:00', '1', 'normal'),
---
+
 ('107','40','Miercoles','Teórico','14:00:00', '16:00:00', '1', 'normal'),
 ('107',' Aula 8 – subsuelo – Facultad de Ingeniería','Lunes','Prácticas','09:00:00', '12:00:00', '1', 'normal'),
 ('107','Aula 21 – Facultad de Humanidades','Miercoles','Prácticas','16:00:00', '18:00:00', '1', 'normal'),
----
+
 ('109','53','Lunes','Unico','09:00:00', '12:00:00', '1', 'normal'),
 ('111','Oficina 9','Martes','Unico','18:00:00', '21:00:00', '1', 'normal'),
 ('109','101','Jueves','Unico','09:00:00', '12:00:00', '1', 'normal'),
 ('111','Oficina 9','Jueves','Unico','18:00:00', '21:00:00', '1', 'normal'),
 ('112','Aula 6 – Facultad de Economía y Administración','Lunes','Teórico','17:30:00', '20:30:00', '1', 'normal'),
 ('112','Aula 21 – Facultad de Humanidades','Miercoles','Prácticas','18:00:00', '21:00:00', '1', 'normal'),
-('112','Aula 2 – Planta Alta – Facultad de Ingeniería','Miercoles','Prácticas','16:00:00', '19:00:00', '1', 'normal'),
+('112','Aula 2 – Planta Alta – Facultad de Ingeniería','Miercoles','Prácticas','16:00:00', '19:00:00', '1', 'normal');
 
 -- 2°
 
@@ -852,7 +844,7 @@ INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafi
 ('94', 'Laboratorio III', 'Jueves', 'Unico', '16:00:00', '20:00:00', '1', 'normal'),
 ('93', 'Laboratorio III', 'Viernes', 'Unico', '15:00:00', '17:00:00', '1', 'normal'),
 ('92', 'Laboratorio III', 'Viernes', 'Unico', '17:00:00', '21:00:00', '1', 'normal'),
----
+
 ('98', 'Aula Informática Biblioteca', 'Lunes', 'Unico', '15:00:00', '21:00:00', '1', 'normal'),
 ('99', 'Laboratorio III', 'Martes', 'Unico', '15:00:00', '18:00:00', '1', 'normal'),
 ('99', 'Aula Informática Biblioteca', 'Jueves', 'Unico', '15:00:00', '18:00:00', '1', 'normal'),
@@ -869,7 +861,7 @@ INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafi
 ('4', 'Aula Informática Biblioteca ', 'Viernes', 'Unico', '16:00:00', '19:00:00', '1', 'normal'),
 ('5', 'Aula Informática Biblioteca ', 'Viernes', 'Unico', '19:00:00', '21:00:00', '1', 'normal'),
 ('4', 'Laboratorio III ', 'Miercoles', 'Unico', '16:00:00', '20:00:00', '1', 'normal'),
----
+
 ('11', 'CD FaI', 'Lunes', 'Unico', '15:00:00', '18:00:00', '1', 'normal'),
 ('10', 'Laboratorio I', 'Martes', 'Unico', '15:00:00', '18:00:00', '1', 'normal'),
 ('10', 'Aula Informática Biblioteca', 'Miercoles', 'Unico', '15:00:00', '18:00:00', '1', 'normal'),
@@ -887,39 +879,31 @@ INSERT INTO `dicta` (`idMateria`, `aula`, `dia`, `modulo`, `horainicio`, `horafi
 --
 -- Indexes for table 'carrera'
 --
-ALTER TABLE 'carrera'
-  ADD PRIMARY KEY ('idCarrera'),
-  ADD KEY 'idCarrera' ('idCarrera');
 
---
 -- Indexes for table 'dicta'
 --
-ALTER TABLE 'dicta'
-  ADD KEY 'idMateria' ('idMateria');
+ALTER TABLE dicta
+  ADD KEY idMateria (idMateria);
 
 --
 -- Indexes for table 'imparte'
 --
-ALTER TABLE 'imparte'
-  ADD KEY 'idCarrera' ('idCarrera'),
-  ADD KEY 'idMateria' ('idMateria');
+ALTER TABLE imparte
+  ADD KEY idCarrera (idCarrera),
+  ADD KEY idMateria (idMateria);
 
 --
 -- Indexes for table 'materia'
 --
-ALTER TABLE 'materia'
-  ADD PRIMARY KEY ('idMateria');
 
-
---
 -- indexes for table ‘final’
 --
 
-ALTER TABLE 'final' 
-ADD INDEX('necesaria');
+ALTER TABLE final 
+ADD INDEX(necesaria);
 
-ALTER TABLE 'final' 
-ADD INDEX('disponible');
+ALTER TABLE final 
+ADD INDEX(disponible);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -928,14 +912,14 @@ ADD INDEX('disponible');
 --
 -- AUTO_INCREMENT for table 'carrera'
 --
-ALTER TABLE 'carrera'
-  MODIFY 'idCarrera' int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE carrera
+  MODIFY idCarrera int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table 'materia'
 --
-ALTER TABLE 'materia'
-  MODIFY 'idMateria' int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+ALTER TABLE materia
+  MODIFY idMateria int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- Constraints for dumped tables
@@ -944,16 +928,17 @@ ALTER TABLE 'materia'
 --
 -- Constraints for table 'dicta'
 --
-ALTER TABLE 'dicta'
-  ADD CONSTRAINT 'dictaMateria' FOREIGN KEY ('idMateria') REFERENCES 'materia' ('idMateria') ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE dicta
+  ADD CONSTRAINT dictaMateria FOREIGN KEY (idMateria) REFERENCES materia (idMateria) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table 'imparte'
 --
-ALTER TABLE 'imparte'
-  ADD CONSTRAINT 'imparteCarrera' FOREIGN KEY ('idCarrera') REFERENCES 'carrera' ('idCarrera') ON DELETE CASCADE ON UPDATE CASCADE,
+ALTER TABLE imparte
+  ADD CONSTRAINT imparteCarrera FOREIGN KEY (idCarrera) REFERENCES carrera (idCarrera) ON DELETE CASCADE ON UPDATE CASCADE,
 
-  ADD CONSTRAINT 'imparteMateria' FOREIGN KEY ('idMateria') REFERENCES 'materia' ('idMateria');
+  ADD CONSTRAINT imparteMateria FOREIGN KEY (idMateria) REFERENCES materia (idMateria);
 COMMIT;
 
-ALTER TABLE 'dicta' ADD CONSTRAINT 'dicta' FOREIGN KEY ('idMateria') REFERENCES 'materia'('idMateria') ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE dicta ADD CONSTRAINT dicta FOREIGN KEY (idMateria) REFERENCES materia (idMateria) ON DELETE CASCADE ON UPDATE CASCADE;
+
