@@ -3,12 +3,6 @@ body{
     background-size: 100%;
     background-attachment: fixed;
 }
-#AñoBloque{
-    visibility: hidden;
-}
-#materiasBloque{
-    visibility: hidden;
-}
 
 .control{
     width: 50%;
@@ -29,7 +23,7 @@ body{
 .pie{
     font-family: 'Space Mono', monospace;
 }
-#send, #send2, #send3{
+#send2, #send3{
     visibility: hidden;
 }
 h3{
