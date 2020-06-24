@@ -94,12 +94,14 @@
             </p>
             <script>
             function buscar() {
-                if ($( "#materia" ).val() == "0") {
-                } else {
-                    $("#respuesta").empty();
+                var materia = $("#materia");
+                if (materia.val() != "0") {
+                    var respuesta = $("#respuesta");
+                    var carrera = $("#carrera");
+                    respuesta.empty();
                     var parametros = {
-                        "materia" : $("#materia").val(),
-                        "carrera" : $("#carrera").val()
+                        "materia": materia.val(),
+                        "carrera": carrera.val()
                     };
                     $.ajax({
                         // datos que se envian a traves de ajax
@@ -109,11 +111,11 @@
                         // método de envio
                         type: "post",
                         beforeSend: function () {
-                            $("#respuesta").html("Procesando, espere por favor...");
+                            respuesta.html("Procesando, espere por favor...");
                         },
                         // una vez que el archivo recibe el request lo procesa y lo devuelve
                         success: function (response) {
-                            $("#respuesta").html(response);
+                            respuesta.html(response);
                         }
                     });
                 }
