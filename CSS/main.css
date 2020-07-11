@@ -1,14 +1,14 @@
-body{
-    background-image: url("../Media/Desktop.png");
+body {
+    background-image: url('../Media/Desktop.png');
     background-size: 100%;
     background-attachment: fixed;
 }
 
-.control{
+.control {
     width: 50%;
 }
 
-.container{
+.container {
     width: 90%;
     margin-top: 10%;
     padding-top: 5%;
@@ -20,40 +20,47 @@ body{
     -webkit-border-radius: 10px 10px 10px 10px;
     border: 0px solid #000000;
 }
-.pie{
+
+.pie {
     font-family: 'Space Mono', monospace;
 }
-#send2, #send3{
+
+#send2, #send3 {
     visibility: hidden;
 }
-h3{
+
+h3 {
     width: 100%;
     text-align: center;
 }
-label{
+
+label {
     font-size: 10pt;
 }
 
-table{
-    overflow:scroll;
+table {
+    overflow: scroll;
 }
 
-.login{
+.login {
     width: 350px;
     margin: 0 auto;
     margin-top: 15%;
 }
 
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
-
-.subir{
-    display:block;
-    background-repeat:no-repeat;
-    font-size:20px;
-    color:rgb(253, 253, 253);
-    cursor:pointer;
-    position:fixed;
-    top:10px;
-    right:10px;
-    z-index:2;
+.material-icons.md-light {
+    color: rgba(255, 255, 255, 1);
 }
+
+.subir {
+    display: block;
+    background-repeat: no-repeat;
+    font-size: 20px;
+    color: rgb(253, 253, 253);
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+}
+
