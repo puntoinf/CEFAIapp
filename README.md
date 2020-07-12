@@ -1,30 +1,29 @@
-# Cefai app
-Desde el Centro de Estudiantes creemos que es necesario que existan algunas aplicaciones para la habituación de los ingresantes a la carrera, además de facilitarle el acceso a información que en un primer momento complicada de encontrar. esta demo echa en su parte con php, y librerías de css y js , permite consultar por las correlativas de una materia y por los horarios del dia.
+# CEFAI App
 
-## Gestion de horarios
+Desde el Centro de Estudiantes creemos que es necesario que existan algunas aplicaciones para la habituación de los ingresantes a la carrera, además de facilitarle el acceso a información que en un primer momento complicada de encontrar. Esta demo hecha en su parte con PHP, y librerías de CSS y JS, permite consultar por las correlativas de una materia y por los horarios del día.
 
-una de las aplicaciones del sistema es la de gestionar horarios. Hay dos secciones:
+## Gestión de horarios
 
-- [Lista de horarios](http://cefai.fi.uncoma.edu.ar/correlativa/horarios/) : listando los horarios del dia actual, y permite consultar por dia.
-- [consulta de horarios por materia:](http://cefai.fi.uncoma.edu.ar/correlativa/horarios/mi-semana/) : el cual permite ver los horarios de cada materia seleccionada armando un listado semanal.
+Una de las aplicaciones del sistema es la de gestionar horarios. Hay dos secciones:
 
-## consulta de regimen de correlatividades
+- [Lista de horarios](http://cefai.fi.uncoma.edu.ar/correlativa/horarios/): listando los horarios del día actual, y permite consultar por día.
+- [Consulta de horarios por materia](http://cefai.fi.uncoma.edu.ar/correlativa/horarios/mi-semana/): el cual permite ver los horarios de cada materia seleccionada armando un listado semanal.
 
-otra de las aplicaciones son la de los finales para cursar. esto es algunas materias requieren de finales previos aprobados para ser cursadas.
+## Consulta de régimen de correlatividades
 
-- lista de cursadas para cursadas: donde le usuario consulta por materia cuales son las materias necesarias para cursarla, y si se cursa esa cuales avilita para cursar.
-- lista de finales para cursadas: donde el usuario puede consultar la finales necesarios para cursar esa materia, y si se aprueba es el final de dicha materia si se 
+Otra de las aplicaciones son la de los finales para cursar. Esto es algunas materias requieren de finales previos aprobados para ser cursadas.
 
-# Configuracion generica del sistema:
+- Lista de cursadas para cursadas: donde le usuario consulta por materia cuales son las materias necesarias para cursarla, y si se cursa esa cuales habilita para cursar.
+- Lista de finales para cursadas: donde el usuario puede consultar la finales necesarios para cursar esa materia, y si se aprueba es el final de dicha materia si se.
 
+# Configuración genérica del sistema:
 
+Tendremos que configurar varias cosas.
 
-tendremos que configurar varias cosas.
-
-- la coneccion a la base de datos
-- insertado de carreras, materias, horarios, etc'
-- configuracion del frodtend 
-- ultimos retoques:
+- La conexión a la base de datos.
+- Insertado de carreras, materias, horarios, etc.
+- Configuración del frodtend.
+- Últimos retoques:
 
 ## La Base de Datos
 
@@ -32,7 +31,7 @@ La base de datos tiene una pinta como la siguiente:
 
 ![](Media/MERbd.jpg) link: [MERbd.jpg](Media/MERbd.jpg)
 
-donde el derivo a tablas queda de la siguiente manera:
+Donde el derivo a tablas queda de la siguiente manera:
 
 ---
 
@@ -52,49 +51,45 @@ usuario(**usuario**, pass, tipo)
 
 ---
 
-donde tendremos las siguientes consideraciones:
+Donde tendremos las siguientes consideraciones:
 
-1. la relacion *se* se economiza. usaurio, auseto, evento, no se relacionan entre si para poder evitar sobrecargar el sistema, si se quiera llevar un control de quien crea cosas en el sistema se lo prodria relacionar sencillamente.
-2.  dicta tiene un clave compuesta, en la practica yo solo uso la clave compuesta para no agregar duplicados. para eliminar comparo todos los atributos de la tabla.
-3. el pass el usuario se le aplica un hash desde el frodtend *md5*.  la contraseña se guarda con
-4. hay que tener en cuenta los detalles del frondtend donde tendremos que armar algunas funciones extrar para la carga de algunas materias:
-
-
+1. La relación *se* economiza. usuario, auseto, evento, no se relacionan entre si para poder evitar sobrecargar el sistema, si se quiera llevar un control de quien crea cosas en el sistema se lo prodría relacionar sencillamente.
+2. Dicta tiene un clave compuesta, en la practica yo solo uso la clave compuesta para no agregar duplicados. para eliminar comparo todos los atributos de la tabla.
+3. El pass el usuario se le aplica un hash desde el frodtend *md5*. La contraseña se guarda con
+4. Hay que tener en cuenta los detalles del frondtend donde tendremos que armar algunas funciones extrar para la carga de algunas materias:
 
 ## Conectar a la base de datos:
 
-en la raiz de nuestro sistema tenemos la siguiente archivo: connecion.php
+En la raiz de nuestro sistema tenemos la siguiente archivo: connecion.php
 
 ```php
 <?php
-class coneccion{
-    //la clase de PDO conecciona  la BD
-    
-    public function getConneccion(){
-      $usuario = "root";//el usurio
-      $contraseña = "";//la contraseña
-      $hostName = "localhost";//el nombre del host
-      $baseDeDatos = "correlativas";//la base de getDatos
-      $coneccion = new PDO("mysql:host=$hostName;dbname=$baseDeDatos;", $usuario, $contraseña);
-      return $coneccion;
+class Connection {
+
+    public function getConneccion() {
+        $username = 'root';
+        $password = '';
+        $hostname = 'localhost';
+        $database = 'correlativas';
+        return new PDO("mysql:host=$hostname;dbname=$database;", $username, $password);
     }
-  }
-?>
+
+}
 ```
 
-tenemos que modificar la variable `$usaurio` por el usaurio de la base de datos proporcionada, y `$contraseña` por la contraseña de la misma, `$hostname` por el nombre del host que nos proporcionan y `baseDeDatos` que es el nombre de la base de datos que tendremos que crear para poner en funcionamiento al sistema. 
+Tenemos que modificar la variable `$username` por el usuario de la base de datos proporcionada, y `$password` por la contraseña de la misma, `$hostname` por el nombre del host que nos proporcionan y `database` que es el nombre de la base de datos que tendremos que crear para poner en funcionamiento al sistema.
 
 ## Cargando la estructura de la base de datos al servidor
 
-Ei contamos con el gesor de bases de datos phpMyAdmin esta tarea sera mas sencilla. solo tendramos que crear la base de datos (la misma que configuarmos anteriormente) para crear la estructura anterior. 
+Ei contamos con el gesor de bases de datos phpMyAdmin esta tarea sera mas sencilla. solo tendramos que crear la base de datos (la misma que configuramos anteriormente) para crear la estructura anterior.
 
-seleccionamos importar y cargamos el sql que se encuentra en /BD/bdGenerica.sql luego de esto tendremos todo el esquema de la base de datos armada.
+Seleccionamos importar y cargamos el SQL que se encuentra en /BD/bdGenerica.sql luego de esto tendremos todo el esquema de la base de datos armada.
 
-## Cargando los datos de Carreras, Materias , etc'
+## Cargando los datos de Carreras, Materias, etc
 
-Esta es la parte mas dificil explicare dos cosas como insertar datos (el formato sql), y como recrear el generador de sql que diseñe para esta tarea
+Esta es la parte mas dificil explicare dos cosas como insertar datos (el formato SQL), y como recrear el generador de SQL que diseñe para esta tarea.
 
-formato sql Carreras:
+Formato SQL Carreras:
 
 ```sql
 INSERT INTO 'carrera' ('idCarrera', 'nombre', 'plan', 'duracion') VALUES
@@ -103,9 +98,9 @@ INSERT INTO 'carrera' ('idCarrera', 'nombre', 'plan', 'duracion') VALUES
 (NULL,'nombre carrera', 'plan-nn', 'duracion');
 ```
 
-tenemos que `NULL` permite que ese numero se auto incremente, el el resto de los valores son para el nombre, plan, y la duracion de la carrera.
+Tenemos que `NULL` permite que ese numero se auto incremente, el el resto de los valores son para el nombre, plan, y la duracion de la carrera.
 
-este mismo formato se realiza para la materias:
+Este mismo formato se realiza para la materias:
 
 ```sql
 INSERT INTO 'materia'('idMateria', 'nombre', 'ano', 'cuatrimestre') VALUES
@@ -114,9 +109,9 @@ INSERT INTO 'materia'('idMateria', 'nombre', 'ano', 'cuatrimestre') VALUES
 (NULL, 'nombre materia', 'año', '1/2');
 ```
 
-tenemos que NULL permite que la variable se auto incremente, los siguientes datos son para el nombre, el año, y el cuatrimestre.
+Tenemos que NULL permite que la variable se auto incremente, los siguientes datos son para el nombre, el año, y el cuatrimestre.
 
-en el siguiente link podran encontrar una pagina cuyo objetivo es el de automatizar esta garga, usted podra  usar el formualario para armar las materias y carreras. para poder cargar horarios, asociar correlativas, finales y materia con carrera tendra que ralizar algunas modificaciones.
+En el siguiente link podran encontrar una pagina cuyo objetivo es el de automatizar esta carga, usted podrá usar el formualario para armar las materias y carreras. Para poder cargar horarios, asociar correlativas, finales y materia con carrera tendrá que realizar algunas modificaciones.
 
-[formularios](https://francozuniga32.github.io/sqlcefai.github.io/) 
+[formularios](https://francozuniga32.github.io/sqlcefai.github.io/)
 
